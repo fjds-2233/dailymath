@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每日一题 · 2026-10-08</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;background:#0f172a;color:#e8eefc;
+display:flex;flex-direction:column;padding:1.2vh 1.4vw;gap:1vh}
+header{display:flex;align-items:baseline;gap:1.6vw;border-bottom:.35vh solid #22335c;padding-bottom:1vh}
+h1{font-size:clamp(28px,3.4vw,64px);color:#ffd54a;letter-spacing:.06em}
+.meta{font-size:clamp(14px,1.15vw,24px);color:#9fb3d9}
+.topic{font-size:clamp(15px,1.25vw,26px);color:#5fd0c0;border:1px solid #2c4a44;background:#12241f;
+border-radius:6px;padding:.5vh .9vw;align-self:center;margin-left:auto}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2vh;min-height:0}
+.stem{font-size:clamp(26px,2.7vw,56px);line-height:1.5}
+table{border-collapse:collapse;font-size:clamp(20px,2vw,42px);margin:1vh auto}
+td{border:1px solid #3b5480;padding:.6vh 1.4vw;text-align:center;color:#e8eefc}
+tr:first-child td{background:#16233f;font-weight:700}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:1.6vh 2vw;font-size:clamp(22px,2.35vw,48px)}
+.opt{background:#141f38;border:1px solid #26375c;border-radius:8px;padding:1.1vh 1.2vw}
+.opt b{color:#7fc4ff;margin-right:.6vw}
+footer{border-top:.35vh solid #22335c;padding-top:1vh}
+#btn{font-size:clamp(15px,1.25vw,26px);background:#1d4ed8;color:#fff;border:0;border-radius:8px;
+padding:1vh 1.6vw;cursor:pointer}
+.ans{display:none;margin-top:1vh;font-size:clamp(17px,1.5vw,30px);line-height:1.6}
+.ans.on{display:block}
+.akey{color:#ffd54a;font-weight:700}
+.ans ol{margin-left:1.6em}
+</style>
+</head>
+<body>
+<header>
+  <h1>每日一题</h1>
+  <div class="meta">2026-10-08　|　微信公众号：锤子数学</div>
+  <div class="topic">经验回归方程 · 样本中心点 · 残差</div>
+</header>
+<main>
+  <div class="stem">下表提供了某厂进行技术改造后生产产品过程中记录的产量 x（单位：t）与相应的生产能耗 y（单位：t 标准煤）的几组数据：</div>
+  <table><tr><td>x / t</td><td>3</td><td>4</td><td>5</td><td>6</td></tr><tr><td>y / t 标准煤</td><td>2.5</td><td>3</td><td>m</td><td>4.5</td></tr></table>
+  <div class="stem">根据散点图分析知 x 与 y 线性相关，且求得经验回归方程为 ŷ = 0.7x + 0.35，则（　　）</div>
+  <div class="opts"><div class="opt"><b>A.</b>x 与 y 负相关</div><div class="opt"><b>B.</b>m = 3.85</div><div class="opt"><b>C.</b>回归直线过点 (4.5, 3.5)</div><div class="opt"><b>D.</b>x = 6 时的残差为 0.05</div></div>
+</main>
+<footer>
+  <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
+  <div class="ans" id="ans"><div class="akey">答案：C</div><ol><li>斜率 0.7 > 0，x 与 y 正相关，A 错；</li><li>回归直线必过样本中心点 (x̄, ȳ)：x̄ = (3+4+5+6)/4 = 4.5，ȳ = (2.5+3+m+4.5)/4 = (10+m)/4，代入 ŷ = 0.7x + 0.35 得 (10+m)/4 = 3.5，解得 m = 4，B 错；</li><li>m = 4 时 ȳ = 3.5，直线过 (4.5, 3.5)，C 对；</li><li>x = 6 时 ŷ = 4.55，残差 = 4.5 − 4.55 = −0.05，D 错。</li></ol></div>
+</footer>
+<script>document.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();document.getElementById('btn').click();}});</script>
+</body>
+</html>
