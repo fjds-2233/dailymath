@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-09</title>
+<title>每日一题 · 2026-10-10</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -39,17 +39,17 @@ padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 <body>
 <header>
   <h1>每日一题</h1>
-  <div class="meta">2026-10-09　|　微信公众号：锤子数学</div>
-  <div class="topic">椭圆综合 · 面积最值 · 定点问题</div>
+  <div class="meta">2026-10-10　|　微信公众号：锤子数学</div>
+  <div class="topic">椭圆综合 · 数量积 · 角平分线证明</div>
 </header>
 <main>
-  <div class="stem">在平面直角坐标系 xOy 中，已知椭圆 C: x²/a² + y²/b² = 1（a > b > 0）的右焦点为 F(2, 0)，离心率为 1/2。</div>
+  <div class="stem">已知椭圆 C: x²/a² + y²/b² = 1（a > b > 0）的右焦点为 F(1, 0)，长轴长为 4，左、右顶点分别为 A、B。过焦点 F 的直线与椭圆 C 相交于 P、Q 两点，且点 P 位于第一象限。直线 AP 和 AQ 分别与直线 x = 2 相交于 M、N 两点。</div>
   
-  <div class="subs"><div class="sub">（1）求椭圆 C 的标准方程；</div><div class="sub">（2）设直线 l: y = kx + 2 与 C 交于 A、B 两点。(i) 求 △ABO 面积的最大值；(ii) 在 y 轴上是否存在一定点 P，使得直线 PA、PB 的斜率之和恒为 0？若存在，求出 P 的坐标；若不存在，请说明理由。</div></div>
+  <div class="subs"><div class="sub">（1）求椭圆 C 的标准方程；</div><div class="sub">（2）求 FM·FN 的值（FM、FN 为向量）；</div><div class="sub">（3）若线段 BM 的中点为 T，证明：FT 是 ∠BFP 的角平分线。</div></div>
 </main>
 <footer>
   <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-  <div class="ans" id="ans"><div class="akey">答案：（1）x²/16 + y²/12 = 1；（2）(i) 最大值为 8√6/3；(ii) 存在，P(0, 6)</div></div>
+  <div class="ans" id="ans"><div class="akey">答案：（1）x²/4 + y²/3 = 1；（2）FM·FN = −3；（3）证明：见教师版（FT 平分 ∠BFP）</div></div>
 </footer>
 <script>document.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();document.getElementById('btn').click();}});</script>
 </body>
