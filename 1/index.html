@@ -45,7 +45,7 @@ padding:1vh 1.6vw;cursor:pointer}
 </main>
 <footer>
   <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-  <div class="ans" id="ans"><div class="akey">答案：C</div><ol><li>斜率 0.7 > 0，x 与 y 正相关，A 错；</li><li>回归直线必过样本中心点 (x̄, ȳ)：x̄ = (3+4+5+6)/4 = 4.5，ȳ = (2.5+3+m+4.5)/4 = (10+m)/4，代入 ŷ = 0.7x + 0.35 得 (10+m)/4 = 3.5，解得 m = 4，B 错；</li><li>m = 4 时 ȳ = 3.5，直线过 (4.5, 3.5)，C 对；</li><li>x = 6 时 ŷ = 4.55，残差 = 4.5 − 4.55 = −0.05，D 错。</li></ol></div>
+  <div class="ans" id="ans"><div class="akey">答案：C</div></div>
 </footer>
 <script>document.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();document.getElementById('btn').click();}});</script>
 </body>
