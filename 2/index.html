@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-11</title>
+<title>每日一题 · 2026-10-12</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -39,17 +39,17 @@ padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 <body>
 <header>
   <h1>每日一题</h1>
-  <div class="meta">2026-10-11　|　微信公众号：锤子数学</div>
-  <div class="topic">函数恒成立 · 共零点 · 最值</div>
+  <div class="meta">2026-10-12　|　微信公众号：锤子数学</div>
+  <div class="topic">集合的划分 · 等和 · 构造与证明</div>
 </header>
 <main>
-  <div class="stem">已知函数 f(x) = (x⁵ − a)(eˣ − b)，a ∈ R，b > 0，若 f(x) ≥ 0，则 ⁵√a − b 的最大值为（　　）</div>
+  <div class="stem">设集合 M = {2026, 2026+1, ⋯, 2026+n}，n ∈ N*。若存在非空集合 A、B，满足 A∪B = M，A∩B = ∅，则称 A、B 是集合 M 的一个划分。记 φ(P) 为任意非空集合 P 的所有元素之和。</div>
   
-  <div class="opts"><div class="opt"><b>A.</b>1</div><div class="opt"><b>B.</b>0</div><div class="opt"><b>C.</b>−1</div><div class="opt"><b>D.</b>1/e</div></div>
+  <div class="subs"><div class="sub">（1）当 n = 3 时，求集合 M 的一个划分 A、B，使得 φ(A) = φ(B)；</div><div class="sub">（2）当 n = 2026 时，是否存在集合 M 的一个划分 A、B，使得 φ(A) = φ(B)？若存在，求出；若不存在，说明理由；</div><div class="sub">（3）若集合 M 存在一个划分 A、B，使得 φ(A) = φ(B)，求满足条件的所有正整数 n。</div></div>
 </main>
 <footer>
   <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-  <div class="ans" id="ans"><div class="akey">答案：C</div></div>
+  <div class="ans" id="ans"><div class="akey">答案：（1）如 A={2026,2029}、B={2027,2028}，φ(A)=φ(B)=4055；（2）不存在（全部元素之和 = 2027×3039 为奇数，而 2φ(A) 为偶数，矛盾）；（3）n = 4k−1（k ∈ N*）或 n = 4k（k ∈ N*，k ≥ 23）</div></div>
 </footer>
 <script>document.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();document.getElementById('btn').click();}});</script>
 </body>
