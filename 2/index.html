@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-08</title>
+<title>每日一题 · 2026-10-09</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -14,7 +14,7 @@ h1{font-size:clamp(28px,3.4vw,64px);color:#0891b2;letter-spacing:.06em}
 .meta{font-size:clamp(14px,1.15vw,24px);color:#64748b}
 .topic{font-size:clamp(15px,1.25vw,26px);color:#047857;border:1px solid #a7f3d0;background:#ecfdf5;
 border-radius:999px;padding:.55vh 1.2vw;align-self:center;margin-left:auto}
-main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2.2vh;min-height:0}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2vh;min-height:0}
 .stem{font-size:clamp(26px,2.7vw,56px);line-height:1.5;color:#1e293b}
 table{border-collapse:collapse;font-size:clamp(20px,2vw,42px);margin:1.2vh auto;background:#ffffff;
 box-shadow:0 1px 3px rgba(15,23,42,.06);border-radius:6px;overflow:hidden}
@@ -24,11 +24,14 @@ tr:first-child td{background:#f0f9ff;font-weight:700;color:#0369a1}
 .opt{background:#ffffff;border:2px solid #e2e8f0;border-radius:12px;padding:1.15vh 1.3vw;color:#1e293b;
 box-shadow:0 1px 3px rgba(15,23,42,.06)}
 .opt b{color:#2563eb;margin-right:.6vw}
+.subs{display:flex;flex-direction:column;gap:1.4vh;font-size:clamp(20px,1.95vw,42px)}
+.sub{background:#f8fcff;border-left:7px solid #0891b2;border-radius:8px;padding:1.1vh 1.5vw;
+line-height:1.5;color:#1e293b;box-shadow:0 1px 3px rgba(15,23,42,.06)}
 footer{border-top:3px solid #e0f2fe;padding-top:1.2vh}
 #btn{font-size:clamp(15px,1.25vw,26px);background:#0891b2;color:#ffffff;border:0;border-radius:10px;
 padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 #btn:hover{background:#0e7490}
-.ans{display:none;margin-top:1.2vh;font-size:clamp(22px,2.1vw,44px);line-height:1.5}
+.ans{display:none;margin-top:1.2vh;font-size:clamp(22px,2.1vw,44px);line-height:1.55}
 .ans.on{display:block}
 .akey{color:#dc2626;font-weight:700}
 </style>
@@ -36,18 +39,17 @@ padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 <body>
 <header>
   <h1>每日一题</h1>
-  <div class="meta">2026-10-08　|　微信公众号：锤子数学</div>
-  <div class="topic">概率 · 随机游走 · 分类讨论</div>
+  <div class="meta">2026-10-09　|　微信公众号：锤子数学</div>
+  <div class="topic">椭圆综合 · 面积最值 · 定点问题</div>
 </header>
 <main>
-  <div class="stem">一个质点在随机外力的作用下从原点 O 出发，每次等可能地向左或向右移动一个单位，共移动 8 次，则下列说法正确的是（　　）</div>
+  <div class="stem">在平面直角坐标系 xOy 中，已知椭圆 C: x²/a² + y²/b² = 1（a > b > 0）的右焦点为 F(2, 0)，离心率为 1/2。</div>
   
-  <div class="stem"></div>
-  <div class="opts"><div class="opt"><b>A.</b>质点回到原点的概率为 1/2</div><div class="opt"><b>B.</b>质点回到原点的概率为 1/512</div><div class="opt"><b>C.</b>质点位于 6 的位置的概率为 1/16</div><div class="opt"><b>D.</b>质点位于 6 的位置的概率为 1/32</div></div>
+  <div class="subs"><div class="sub">（1）求椭圆 C 的标准方程；</div><div class="sub">（2）设直线 l: y = kx + 2 与 C 交于 A、B 两点。(i) 求 △ABO 面积的最大值；(ii) 在 y 轴上是否存在一定点 P，使得直线 PA、PB 的斜率之和恒为 0？若存在，求出 P 的坐标；若不存在，请说明理由。</div></div>
 </main>
 <footer>
   <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-  <div class="ans" id="ans"><div class="akey">答案：D</div></div>
+  <div class="ans" id="ans"><div class="akey">答案：（1）x²/16 + y²/12 = 1；（2）(i) 最大值为 8√6/3；(ii) 存在，P(0, 6)</div></div>
 </footer>
 <script>document.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();document.getElementById('btn').click();}});</script>
 </body>

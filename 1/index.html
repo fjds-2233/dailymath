@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-08</title>
+<title>每日一题 · 2026-10-09</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -14,7 +14,7 @@ h1{font-size:clamp(28px,3.4vw,64px);color:#0891b2;letter-spacing:.06em}
 .meta{font-size:clamp(14px,1.15vw,24px);color:#64748b}
 .topic{font-size:clamp(15px,1.25vw,26px);color:#047857;border:1px solid #a7f3d0;background:#ecfdf5;
 border-radius:999px;padding:.55vh 1.2vw;align-self:center;margin-left:auto}
-main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2.2vh;min-height:0}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2vh;min-height:0}
 .stem{font-size:clamp(26px,2.7vw,56px);line-height:1.5;color:#1e293b}
 table{border-collapse:collapse;font-size:clamp(20px,2vw,42px);margin:1.2vh auto;background:#ffffff;
 box-shadow:0 1px 3px rgba(15,23,42,.06);border-radius:6px;overflow:hidden}
@@ -24,11 +24,14 @@ tr:first-child td{background:#f0f9ff;font-weight:700;color:#0369a1}
 .opt{background:#ffffff;border:2px solid #e2e8f0;border-radius:12px;padding:1.15vh 1.3vw;color:#1e293b;
 box-shadow:0 1px 3px rgba(15,23,42,.06)}
 .opt b{color:#2563eb;margin-right:.6vw}
+.subs{display:flex;flex-direction:column;gap:1.4vh;font-size:clamp(20px,1.95vw,42px)}
+.sub{background:#f8fcff;border-left:7px solid #0891b2;border-radius:8px;padding:1.1vh 1.5vw;
+line-height:1.5;color:#1e293b;box-shadow:0 1px 3px rgba(15,23,42,.06)}
 footer{border-top:3px solid #e0f2fe;padding-top:1.2vh}
 #btn{font-size:clamp(15px,1.25vw,26px);background:#0891b2;color:#ffffff;border:0;border-radius:10px;
 padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 #btn:hover{background:#0e7490}
-.ans{display:none;margin-top:1.2vh;font-size:clamp(22px,2.1vw,44px);line-height:1.5}
+.ans{display:none;margin-top:1.2vh;font-size:clamp(22px,2.1vw,44px);line-height:1.55}
 .ans.on{display:block}
 .akey{color:#dc2626;font-weight:700}
 </style>
@@ -36,18 +39,17 @@ padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 <body>
 <header>
   <h1>每日一题</h1>
-  <div class="meta">2026-10-08　|　微信公众号：锤子数学</div>
-  <div class="topic">经验回归方程 · 样本中心点 · 残差</div>
+  <div class="meta">2026-10-09　|　微信公众号：锤子数学</div>
+  <div class="topic">三角函数图象与性质 · 周期与参数</div>
 </header>
 <main>
-  <div class="stem">下表提供了某厂进行技术改造后生产产品过程中记录的产量 x（单位：t）与相应的生产能耗 y（单位：t 标准煤）的几组数据：</div>
-  <table><tr><td>x / t</td><td>3</td><td>4</td><td>5</td><td>6</td></tr><tr><td>y / t 标准煤</td><td>2.5</td><td>3</td><td>m</td><td>4.5</td></tr></table>
-  <div class="stem">根据散点图分析知 x 与 y 线性相关，且求得经验回归方程为 ŷ = 0.7x + 0.35，则（　　）</div>
-  <div class="opts"><div class="opt"><b>A.</b>x 与 y 负相关</div><div class="opt"><b>B.</b>m = 3.85</div><div class="opt"><b>C.</b>回归直线过点 (4.5, 3.5)</div><div class="opt"><b>D.</b>x = 6 时的残差为 0.05</div></div>
+  <div class="stem">已知函数 f(x) = 2sin(ωx + φ)（ω > 0，|φ| < π/2），其图象过点 A(−2π/3, 0)、B(7π/3, 2)，且 f′(−2π/3) < 0，则正数 ω 的最小值是（　　）</div>
+  
+  <div class="opts"><div class="opt"><b>A.</b>1/2</div><div class="opt"><b>B.</b>7/6</div><div class="opt"><b>C.</b>11/6</div><div class="opt"><b>D.</b>2</div></div>
 </main>
 <footer>
   <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-  <div class="ans" id="ans"><div class="akey">答案：C</div></div>
+  <div class="ans" id="ans"><div class="akey">答案：B</div></div>
 </footer>
 <script>document.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();document.getElementById('btn').click();}});</script>
 </body>
