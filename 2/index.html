@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-09</title>
+<title>每日一题 · 2026-10-10</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -54,27 +54,27 @@ border-top:1px dashed #5eead4;padding-top:.6vh;white-space:nowrap;overflow:hidde
 <div class="screen">
   <header>
     <h1>每日一题</h1>
-    <div class="meta">2026-10-09　|　微信公众号：锤子数学</div>
-    <div class="topic">椭圆综合 · 面积最值 · 定点问题</div>
+    <div class="meta">2026-10-10　|　微信公众号：锤子数学</div>
+    <div class="topic">椭圆综合 · 数量积 · 角平分线证明</div>
   </header>
   <main>
-    <div class="stem">在平面直角坐标系 xOy 中，已知椭圆 C: x²/a² + y²/b² = 1（a > b > 0）的右焦点为 F(2, 0)，离心率为 1/2。</div>
+    <div class="stem">已知椭圆 C: x²/a² + y²/b² = 1（a > b > 0）的右焦点为 F(1, 0)，长轴长为 4，左、右顶点分别为 A、B。过焦点 F 的直线与椭圆 C 相交于 P、Q 两点，且点 P 位于第一象限。直线 AP 和 AQ 分别与直线 x = 2 相交于 M、N 两点。</div>
     
-    <div class="subs"><div class="sub">（1）求椭圆 C 的标准方程；</div><div class="sub">（2）设直线 l: y = kx + 2 与 C 交于 A、B 两点。(i) 求 △ABO 面积的最大值；(ii) 在 y 轴上是否存在一定点 P，使得直线 PA、PB 的斜率之和恒为 0？若存在，求出 P 的坐标；若不存在，请说明理由。</div></div>
+    <div class="subs"><div class="sub">（1）求椭圆 C 的标准方程；</div><div class="sub">（2）求 FM·FN 的值（FM、FN 为向量）；</div><div class="sub">（3）若线段 BM 的中点为 T，证明：FT 是 ∠BFP 的角平分线。</div></div>
   </main>
   <footer>
     <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-    <div class="ans" id="ans"><div class="akey">答案：（1）x²/16 + y²/12 = 1；（2）(i) 最大值为 8√6/3；(ii) 存在，P(0, 6)</div></div>
+    <div class="ans" id="ans"><div class="akey">答案：（1）x²/4 + y²/3 = 1；（2）FM·FN = −3；（3）证明：见教师版（FT 平分 ∠BFP）</div></div>
   </footer>
   <div class="hint">↓ 向下滑动：进入「今日背诵 · 知识点」</div>
 </div>
 <div class="screen">
   <header>
     <h1>今日背诵</h1>
-    <div class="meta">2026-10-09　|　微信公众号：锤子数学</div>
+    <div class="meta">2026-10-10　|　微信公众号：锤子数学</div>
     <div class="topic">知识点 · 易错点</div>
   </header>
-  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【解析几何·椭圆】</span><span class="rtext">椭圆 c² = a² − b²，e = c/a；由焦点与 a 定出 a、b。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·选必一 第3章《圆锥曲线与方程》3.1 椭圆 · 考向：联立韦达、面积最值、定点</div></div><div class="rcard"><div class="rrow"><span class="rtag">【解析几何·弦】</span><span class="rtext">联立直线与椭圆 → 韦达定理，把 x₁+x₂、x₁x₂ 整体代入。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·选必一 第3章《圆锥曲线与方程》3.1 椭圆 · 考向：联立韦达、面积最值、定点</div></div><div class="rcard"><div class="rrow"><span class="rtag">【面积】</span><span class="rtext">△ABO 面积 = ½|x₁y₂ − x₂y₁|；过定点常可用 k=0 取最值。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·选必一 第3章《圆锥曲线与方程》3.1 椭圆 · 考向：联立韦达、面积最值、定点</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：设斜率时漏掉竖直（斜率不存在）情形；定点问题漏证充分性。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·选必一 第3章《圆锥曲线与方程》3.1 椭圆 · 考向：联立韦达、面积最值、定点</div></div></div>
+  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【解析几何·椭圆】</span><span class="rtext">长轴 2a、焦距 2c，b² = a² − c²；先写标准方程再联立。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·选必一 第3章《圆锥曲线与方程》3.1 椭圆 · 考向：向量数量积、角平分线证明</div></div><div class="rcard"><div class="rrow"><span class="rtag">【向量】</span><span class="rtext">数量积 FM·FN 用坐标展开，配合韦达定理化简到常数。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·选必一 第3章《圆锥曲线与方程》3.1 椭圆 · 考向：向量数量积、角平分线证明</div></div><div class="rcard"><div class="rrow"><span class="rtag">【角平分线】</span><span class="rtext">角平分线 ⇔ tan2α = tanβ（注意 2α、β 的取值范围）。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·选必一 第3章《圆锥曲线与方程》3.1 椭圆 · 考向：向量数量积、角平分线证明</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：忽略 PQ 竖直（斜率不存在）的情形；忽略角范围导致 2α 与 β 不等价。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·选必一 第3章《圆锥曲线与方程》3.1 椭圆 · 考向：向量数量积、角平分线证明</div></div></div>
   <div class="hint">↑ 向上滑动：返回「每日一题」</div>
 </div>
 <script>
