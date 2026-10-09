@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>双曲线三局闯关 · 定义归纳 / 方程推导 / 习题闯关</title>
+<style>
+/* ===================== 视觉：深蓝 + 白底 + 青蓝点缀（合并自两个原文件） ===================== */
+:root{
+  --navy:#1e3a8a;      /* 主色 深蓝 */
+  --navy-2:#172a63;    /* 深蓝暗部 */
+  --navy-3:#1d4ed8;    /* 亮蓝 */
+  --navy-d:#0e2f5b;    /* 题干深蓝 */
+  --cyan:#06b6d4;      /* 青蓝点缀 */
+  --cyan-2:#0891b2;
+  --cyan-soft:#ecfeff;
+  --cyan-l:#e3f6fb;
+  --ink:#12203f;
+  --line:#c7d2fe;
+  --line-2:#d9e3ee;
+  --grey:#6b7c90;
+  --ok:#16a34a;
+  --green:#12996b;
+  --bad:#dc2626;
+  --red:#e0453c;
+  --warn:#d97706;
+  --gold:#d99a12;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+  background:#f4f7fc;color:var(--ink);line-height:1.6;overflow-x:hidden;
+  -webkit-text-size-adjust:100%;
+}
+/* 背景装饰：轻量双曲线线条（克制、不抢眼） */
+.deco{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.55}
+.deco svg{width:100%;height:100%;display:block}
+.deco .c{fill:none;stroke:#1e3a8a;stroke-width:2;opacity:.16}
+.deco .a{fill:none;stroke:#0891b2;stroke-width:1.4;opacity:.13;stroke-dasharray:6 7}
+.deco .x{stroke:#1e3a8a;stroke-width:1;opacity:.10}
+
+.wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 12px 46px}
+
+/* ---------- 顶部常驻条：局数 / 计时 / 姓名 ---------- */
+.top{
+  position:sticky;top:0;z-index:20;
+  background:linear-gradient(90deg,var(--navy-2),var(--navy) 45%,var(--navy-3));
+  color:#fff;box-shadow:0 2px 10px rgba(30,58,138,.25);
+}
+.top-in{max-width:1080px;margin:0 auto;padding:8px 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.top .brand{font-weight:700;font-size:clamp(14px,2.2vw,18px);letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.top .brand b{color:#a5f3fc}
+.top .spacer{flex:1}
+.chip{
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);
+  border-radius:999px;padding:4px 12px;font-size:clamp(12px,2vw,16px);font-weight:700;white-space:nowrap
+}
+.chip.cy{background:rgba(6,182,212,.22);border-color:rgba(165,243,252,.5)}
+#timer{font-variant-numeric:tabular-nums}
+
+/* ---------- 卡片 ---------- */
+.card{background:#fff;border:1px solid var(--line-2);border-radius:16px;padding:18px 20px;margin:14px 0;box-shadow:0 6px 20px rgba(30,58,138,.07)}
+h1.title{font-size:clamp(22px,3.8vw,34px);margin:6px 0 4px;color:var(--navy);letter-spacing:1px}
+.sub{color:var(--grey);font-size:clamp(12px,2vw,16px)}
+.qtext{font-size:clamp(19px,3.2vw,30px);font-weight:700;color:var(--navy-2);margin:10px 0 6px;line-height:1.45}
+.qhint{font-size:clamp(13px,2.1vw,17px);color:var(--grey);margin-bottom:10px}
+.note{color:var(--grey);font-size:clamp(12px,1.9vw,15px)}
+.badge{display:inline-block;background:var(--cyan-soft);color:var(--cyan-2);border:1px solid #a5f3fc;
+  border-radius:8px;padding:2px 10px;font-size:clamp(12px,1.9vw,15px);font-weight:700;margin-right:8px}
+.hide{display:none!important}
+.center{text-align:center}
+.foot{color:#94a3b8;font-size:12px;text-align:center;margin-top:18px}
+
+/* ---------- 步骤指示 ---------- */
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 12px}
+.steps .st{
+  border-radius:8px;padding:4px 12px;font-size:clamp(12px,2vw,16px);font-weight:700;
+  background:#eef2ff;color:var(--navy);border:1.5px solid var(--line)
+}
+.steps .st.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.steps .st.done{background:#dcfce7;color:#15803d;border-color:#86efac}
+
+/* ---------- 按钮 ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  border:none;border-radius:12px;padding:12px 20px;cursor:pointer;
+  font-size:clamp(14px,2.2vw,18px);font-weight:700;font-family:inherit;
+  background:var(--navy);color:#fff;box-shadow:0 3px 0 var(--navy-2);transition:transform .12s,box-shadow .18s,opacity .18s;
+}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--navy-2)}
+.btn:hover{box-shadow:0 6px 16px rgba(14,47,91,.18)}
+.btn.cy{background:var(--cyan);box-shadow:0 3px 0 var(--cyan-2)}
+.btn.ghost{background:#fff;color:var(--navy);border:2px solid var(--line);box-shadow:0 3px 0 #e0e7ff}
+.btn.big{padding:15px 26px;font-size:clamp(16px,2.6vw,22px);width:100%}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.row>*{flex:1;min-width:140px}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;justify-content:center}
+
+/* ---------- 输入 ---------- */
+input.nameinput{
+  width:100%;max-width:420px;border:2px solid var(--line);border-radius:12px;padding:12px 14px;
+  font-size:clamp(15px,2.4vw,20px);font-family:inherit;color:var(--ink)
+}
+input.nameinput:focus{outline:none;border-color:var(--cyan)}
+
+/* ---------- 两栏：待选 / 已选 ---------- */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.panel{border:2px dashed var(--line);border-radius:12px;padding:10px;background:#fbfcff;min-height:120px}
+.panel h3{margin:2px 0 8px;font-size:clamp(14px,2.2vw,18px);color:var(--navy);display:flex;align-items:center;gap:8px}
+.panel h3 span.n{background:var(--navy);color:#fff;border-radius:6px;padding:0 8px;font-size:.85em}
+.panel.picked{border-color:var(--cyan);background:#fcfffe}
+.pool{display:flex;flex-wrap:wrap;gap:8px}
+.blk{
+  border:2px solid var(--line);background:#fff;border-radius:10px;padding:9px 13px;
+  font-size:clamp(15px,2.4vw,21px);font-weight:600;color:var(--navy-2);
+  cursor:pointer;user-select:none;touch-action:manipulation;
+}
+.blk:hover{border-color:var(--navy-3)}
+.blk.sel{border-color:var(--cyan);background:var(--cyan-soft);outline:3px solid #a5f3fc}
+.blk.dragging{opacity:.4}
+.slots{display:flex;flex-direction:column;gap:7px}
+.slot{
+  display:flex;align-items:center;gap:8px;border:2px dashed #cbd5e1;border-radius:10px;
+  padding:7px 9px;background:#fff;min-height:44px;cursor:pointer
+}
+.slot .idx{
+  flex:0 0 30px;height:30px;border-radius:8px;background:#eef2ff;color:var(--navy);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px
+}
+.slot .ph{color:#94a3b8;font-size:clamp(13px,2vw,16px)}
+.slot .txt{flex:1;font-size:clamp(15px,2.4vw,21px);font-weight:600;color:var(--navy-2);line-height:1.35}
+.slot.ok{border-style:solid;border-color:var(--ok);background:#f0fdf4}
+.slot.ok .idx{background:#dcfce7;color:#15803d}
+.slot.bad{border-style:solid;border-color:var(--bad);background:#fef2f2}
+.slot.bad .idx{background:#fee2e2;color:#b91c1c}
+.mini{
+  flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--navy);
+  border-radius:7px;width:30px;height:30px;font-size:14px;line-height:1;cursor:pointer;font-weight:800
+}
+.mini:active{background:#eef2ff}
+.slot.drop-on{outline:3px solid var(--cyan)}
+
+/* ---------- 反馈 / 报告 ---------- */
+.report{margin-top:12px;border-left:5px solid var(--cyan);background:#f8fdff;border-radius:10px;padding:12px 14px}
+.report h4{margin:0 0 8px;font-size:clamp(15px,2.3vw,20px);color:var(--navy)}
+.score-big{font-size:clamp(22px,4vw,34px);font-weight:800;color:var(--navy)}
+.diag{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.diag .d{border-radius:8px;padding:5px 11px;font-size:clamp(12px,2vw,16px);font-weight:700;border:1.5px solid}
+.d.ok{background:#f0fdf4;border-color:#86efac;color:#15803d}
+.d.bad{background:#fef2f2;border-color:#fca5a5;color:#b91c1c}
+ul.checks{list-style:none;padding:0;margin:8px 0}
+ul.checks li{padding:7px 10px;border-radius:8px;margin-bottom:6px;font-size:clamp(13px,2.1vw,17px);background:#fff;border:1px solid var(--line-2)}
+ul.checks li.pass{border-color:#86efac;background:#f0fdf4}
+ul.checks li.fail{border-color:#fca5a5;background:#fef2f2}
+ul.checks li .k{font-weight:800;margin-right:6px}
+.ask{display:block;margin-top:4px;color:#9a3412;font-size:clamp(12px,2vw,16px)}
+textarea.ans{
+  width:100%;min-height:150px;border:2px solid var(--line);border-radius:12px;padding:12px 14px;
+  font-size:clamp(15px,2.4vw,20px);font-family:inherit;color:var(--ink);line-height:1.7;resize:vertical
+}
+textarea.ans:focus{outline:none;border-color:var(--cyan);background:#fcfffe}
+table.tb{width:100%;border-collapse:collapse;font-size:clamp(13px,2.1vw,17px)}
+table.tb th,table.tb td{border:1px solid var(--line-2);padding:8px 10px;text-align:left;vertical-align:top}
+table.tb th{background:#eef2ff;color:var(--navy)}
+.err{background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:10px 14px}
+.err li{margin:3px 0;font-size:clamp(13px,2.1vw,16px)}
+/* ---------- 第三局：HUD 血条 / 选项（沿用原闯关文件） ---------- */
+.hud{
+  position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);
+  border:1px solid var(--line-2);border-radius:14px;padding:10px 14px;margin-top:14px;
+  box-shadow:0 6px 18px rgba(30,58,138,.06);
+}
+.hud-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{font-weight:700;color:var(--navy);font-size:clamp(15px,1.5vw,19px);letter-spacing:.5px;white-space:nowrap}
+.brand small{display:block;font-weight:400;color:var(--grey);font-size:11px;letter-spacing:0}
+.hp-box{flex:1;min-width:180px}
+.hp-top{display:flex;justify-content:space-between;font-size:12px;color:var(--grey);margin-bottom:4px}
+.hp-top b{color:var(--navy);font-size:14px}
+.hp-bar{height:16px;border-radius:10px;background:#e7edf4;overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,0,0,.08)}
+.hp-fill{height:100%;width:100%;border-radius:10px;background:linear-gradient(90deg,#0aa8c9,#1d4ed8);transition:width .55s cubic-bezier(.22,1,.36,1),background .3s}
+.hp-fill.hurt{background:linear-gradient(90deg,#ff7a6e,#e0453c)}
+.hp-fill.pulse{filter:brightness(1.4)}
+.hud-chip{background:var(--navy);color:#fff;border-radius:20px;padding:5px 14px;font-size:clamp(13px,1.4vw,16px);font-weight:700;white-space:nowrap}
+.hud-chip.c2{background:var(--cyan)}
+.lv-tag{
+  display:inline-block;background:var(--cyan-l);color:var(--navy);
+  border-left:4px solid var(--cyan);border-radius:4px;
+  padding:4px 12px;font-size:clamp(13px,1.4vw,16px);font-weight:700;margin-bottom:14px;
+}
+.stem{font-size:clamp(20px,2.4vw,32px);line-height:1.7;font-weight:700;color:var(--navy-d);margin:0 0 8px;letter-spacing:.3px}
+.stem-note{font-size:clamp(12px,1.2vw,15px);color:var(--grey);margin-bottom:20px}
+.frac{display:inline-flex;flex-direction:column;vertical-align:-0.62em;text-align:center;margin:0 .12em;font-size:.86em;line-height:1.05}
+.frac .num{padding:0 .22em;border-bottom:1.4px solid currentColor}
+.frac .den{padding:0 .22em}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.opt{
+  display:flex;align-items:center;gap:14px;text-align:left;cursor:pointer;
+  background:#fff;border:2px solid var(--line-2);border-radius:14px;
+  padding:16px 18px;font-size:clamp(17px,1.9vw,25px);color:var(--ink);
+  font-family:inherit;min-height:74px;transition:border-color .18s,box-shadow .18s,background .18s;
+}
+.opt:hover:not(:disabled){border-color:var(--navy-3);box-shadow:0 6px 16px rgba(14,47,91,.12)}
+.opt:disabled{cursor:default}
+.opt .key{flex:0 0 38px;height:38px;border-radius:50%;background:var(--cyan-l);color:var(--navy);font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center}
+.opt.right{border-color:var(--green);background:#eafaf3}
+.opt.right .key{background:var(--green);color:#fff}
+.opt.wrong{border-color:var(--red);background:#fdecea}
+.opt.wrong .key{background:var(--red);color:#fff}
+.opt.dim{opacity:.45}
+.shake{animation:shake .42s cubic-bezier(.36,.07,.19,.97)}
+@keyframes shake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
+.tip{margin-top:18px;border-radius:12px;padding:14px 18px;font-size:clamp(14px,1.5vw,18px);line-height:1.7;
+  border-left:5px solid var(--cyan);background:var(--cyan-l);color:var(--navy-d);display:none}
+.tip.on{display:block}
+.tip.bad{border-left-color:var(--red);background:#fdecea;color:#7d211b}
+.tip b{display:block;margin-bottom:2px;font-size:clamp(13px,1.3vw,16px)}
+
+/* ---------- 结算页 ---------- */
+.hero-badge{text-align:center;padding:26px 20px}
+.hero-badge .medal{font-size:clamp(44px,6vw,76px);line-height:1}
+.hero-badge h2{margin:10px 0 4px;font-size:clamp(24px,3.4vw,40px);color:var(--navy)}
+.hero-badge .sub{color:var(--grey);font-size:clamp(13px,1.4vw,17px)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+.stat{background:#fff;border:1px solid var(--line-2);border-radius:12px;padding:14px;text-align:center}
+.stat b{display:block;font-size:clamp(20px,2.4vw,30px);color:var(--navy)}
+.stat span{font-size:12px;color:var(--grey)}
+.wrong-list{margin-top:8px}
+.wrong-item{background:#fff;border:1px solid var(--line-2);border-left:4px solid var(--red);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.wrong-item h4{margin:0 0 6px;font-size:clamp(14px,1.5vw,17px);color:var(--navy-d)}
+.wrong-item p{margin:3px 0;font-size:clamp(12px,1.3vw,15px);color:#41505f;line-height:1.6}
+.wrong-item .ok{color:var(--green);font-weight:700}
+.wrong-item .no{color:var(--red);font-weight:700}
+.ok-all{background:#eafaf3;border:1px solid var(--green);border-radius:12px;padding:16px;text-align:center;color:#0d6b4c;font-weight:700}
+.sec-title{font-size:clamp(15px,1.6vw,19px);color:var(--navy);font-weight:800;margin:22px 0 10px;border-left:4px solid var(--cyan);padding-left:10px}
+.keywords{background:#fff;border:1px dashed var(--line-2);border-radius:12px;padding:14px 18px;font-size:clamp(13px,1.4vw,16px);color:#41505f;line-height:1.9;margin-top:14px}
+
+/* toast */
+#toast{
+  position:fixed;left:50%;bottom:36px;transform:translateX(-50%) translateY(20px);
+  background:var(--navy);color:#fff;padding:11px 22px;border-radius:24px;font-size:14px;
+  opacity:0;pointer-events:none;transition:all .28s;z-index:99;box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ---------- 手机竖屏适配 ---------- */
+@media (max-width:780px){
+  .cols{grid-template-columns:1fr}
+  .cols .pick{order:-1}          /* 手机竖屏：已选在上，待选在下 */
+  .top-in{gap:6px;padding:7px 10px}
+  .wrap{padding:0 12px 28px}
+  .opts{grid-template-columns:1fr;gap:11px}
+  .opt{min-height:62px;padding:13px 14px}
+  .opt .key{flex:0 0 32px;height:32px;font-size:16px}
+  .card{padding:16px 15px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .hud-row{gap:8px}
+  .brand small{display:none}
+  .hp-box{min-width:120px}
+}
+@media (max-width:420px){
+  .chip{padding:4px 10px;font-size:12px}
+}
+@media (prefers-reduced-motion: reduce){
+  .shake{animation:none}
+}
+</style>
+</head>
+<body>
+
+<svg class="deco" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <path d="M400 300 L800 120 M400 300 L800 480 M400 300 L0 120 M400 300 L0 480" fill="none" stroke="#0891b2" stroke-width="1.4" opacity=".12" stroke-dasharray="6 7"/>
+  <path d="M400 300 C 470 232, 560 160, 800 40 M400 300 C 330 232, 240 160, 0 40" fill="none" stroke="#1e3a8a" stroke-width="2" opacity=".15"/>
+  <path d="M400 300 C 470 368, 560 440, 800 560 M400 300 C 330 368, 240 440, 0 560" fill="none" stroke="#1e3a8a" stroke-width="2" opacity=".15"/>
+</svg>
+
+<!-- ===================== 顶部常驻条 ===================== -->
+<header class="top hide" id="topbar">
+  <div class="top-in">
+    <div class="brand">双曲线三局闯关 · <b id="topRound">—</b></div>
+    <div class="spacer"></div>
+    <div class="chip" id="topName">学生 —</div>
+    <div class="chip" id="topStep">—</div>
+    <div class="chip cy" id="timer">00:00</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ===================== 首页 ===================== -->
+<section id="scrHome">
+  <div class="card">
+    <div class="badge">苏教版选择性必修第一册 ·《双曲线的标准方程》· 高一新授课</div>
+    <h1 class="title">双曲线<span style="color:var(--cyan)">三局</span>闯关</h1>
+    <p class="sub">第一局 定义归纳（拼定义 + 自己写定义）→ 第二局 方程推导（7 步排序）→ 第三局 习题闯关（5 关 · 100 血）。<br>
+      三局统一核算：分项给分 + 一个综合评级 + 一句诊断，一份 JSON / CSV 打包导出。纯本地运行，不联网、不上传。</p>
+    <div style="margin-top:14px">
+      <label class="qhint" for="inpHomeName" style="font-weight:700;color:var(--navy)">学生姓名（三局共用，输一次即记住，可随时改）</label>
+      <input class="nameinput" id="inpHomeName" placeholder="请输入姓名" maxlength="20" autocomplete="off">
+    </div>
+    <div class="row">
+      <button class="btn big" id="btnAll">三局连做（推荐 · 依次进入 1→2→3）</button>
+    </div>
+    <p class="qhint" style="margin-top:14px">也可以单局练习（成绩会与本次会话中已完成的其他局一起结算）：</p>
+    <div class="row">
+      <button class="btn ghost" data-go="1">第一局 · 定义归纳</button>
+      <button class="btn ghost" data-go="2">第二局 · 方程推导</button>
+      <button class="btn ghost" data-go="3">第三局 · 习题闯关</button>
+    </div>
+    <div class="row">
+      <button class="btn ghost" id="btnToResult">查看总结算</button>
+      <button class="btn ghost" id="btnClearSession">清除本次三局成绩</button>
+    </div>
+    <div id="homeProgress" class="note" style="margin-top:12px"></div>
+    <div id="homeLast" class="note"></div>
+  </div>
+  <p class="foot">数据仅保存在本机浏览器（localStorage）与你导出的文件中。</p>
+</section>
+<!-- ===================== 第一局 · 定义归纳 ===================== -->
+<section id="scrR1" class="hide">
+  <div class="card">
+    <div class="badge">第一局 · 定义归纳</div>
+    <div class="steps">
+      <span class="st on" id="stR1a">① 词块拼定义（9 块）</span>
+      <span class="st" id="stR1b">② 自己写定义（五要素）</span>
+    </div>
+
+    <!-- ① 词块拼装 -->
+    <div id="pR1a">
+      <div class="qtext">把下面的词块拼成双曲线的完整定义</div>
+      <div class="qhint">点「待选」里的词块选中，再点右边「已选」中的空位放入；点已放入的词块可取回。也可拖拽，或用 ↑↓ 微调。共 9 块。</div>
+      <div class="cols">
+        <div class="panel pool-panel">
+          <h3><span class="n">待选</span> 点一下选中</h3>
+          <div class="pool" id="r1pool"></div>
+        </div>
+        <div class="panel picked pick">
+          <h3><span class="n">已选</span> <span id="r1pickTip">按定义顺序排列（共 9 块）</span></h3>
+          <div class="slots" id="r1slots"></div>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn cy" id="r1aCheck">提交①</button>
+        <button class="btn ghost" id="r1aReset">重排</button>
+      </div>
+      <div class="report hide" id="r1aReport"></div>
+      <div class="row hide" id="r1aNextRow">
+        <button class="btn" id="r1aNext">下一步：② 自己写定义</button>
+      </div>
+    </div>
+
+    <!-- ② 自己写定义 -->
+    <div id="pR1b" class="hide">
+      <div class="qtext">用自己的话，写出双曲线的定义</div>
+      <div class="qhint">系统会逐要素检测你写到了什么、还缺什么。<b>只追问，绝不输出标准定义原文</b>——可以反复修改再检测。</div>
+      <textarea class="ans" id="r1ans" placeholder="请用你自己的话写出双曲线的定义（不必照抄课本，写出你认为关键的条件即可）。"></textarea>
+      <div class="note" id="r1count">已输入 0 字</div>
+      <div class="row">
+        <button class="btn cy" id="r1bDetect">提交检测</button>
+        <button class="btn ghost" id="r1bClear">清空</button>
+        <button class="btn ghost" id="r1bBack">回头改①</button>
+      </div>
+      <div class="report hide" id="r1bReport"></div>
+      <div class="row hide" id="r1bNextRow">
+        <button class="btn" id="r1bNext">完成第一局</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 第二局 · 方程推导 ===================== -->
+<section id="scrR2" class="hide">
+  <div class="card">
+    <div class="badge">第二局 · 方程推导</div>
+    <div class="qtext">把双曲线标准方程的推导步骤排成正确顺序</div>
+    <div class="qhint">由定义出发化到 x²/a² − y²/b² = 1，一共 7 步。点选 + 点位放入，可拖拽或用 ↑↓ 微调。</div>
+    <div class="cols">
+      <div class="panel pool-panel">
+        <h3><span class="n">待选</span> 点一下选中</h3>
+        <div class="pool" id="r2pool"></div>
+      </div>
+      <div class="panel picked pick">
+        <h3><span class="n">已选</span> <span id="r2pickTip">按推导顺序排列（共 7 步）</span></h3>
+        <div class="slots" id="r2slots"></div>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn cy" id="r2Check">提交本局</button>
+      <button class="btn ghost" id="r2Reset">重排</button>
+    </div>
+    <div class="report hide" id="r2Report"></div>
+    <div class="row hide" id="r2NextRow">
+      <button class="btn" id="r2Next">下一处 →</button>
+    </div>
+  </div>
+</section>
+<!-- ===================== 第三局 · 习题闯关 ===================== -->
+<section id="scrR3" class="hide">
+  <div class="hud">
+    <div class="hud-row">
+      <div class="brand">第三局 · 习题闯关<small>Hyperbola Standard Equation</small></div>
+      <div class="hp-box">
+        <div class="hp-top"><span>血量</span><span><b id="r3hpNum">100</b> / 100</span></div>
+        <div class="hp-bar"><div class="hp-fill" id="r3hpFill"></div></div>
+      </div>
+      <div class="hud-chip" id="r3lvChip">第 1 / 5 关</div>
+      <div class="hud-chip c2">答错扣 20 血</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="lv-tag" id="r3lvTag">第 1 关 · 直接套用</div>
+    <div class="stem" id="r3stem"></div>
+    <div class="stem-note">单选题，请选择唯一正确答案</div>
+    <div class="opts" id="r3opts"></div>
+    <div class="tip" id="r3tip"></div>
+    <div class="btn-row" id="r3nextRow" style="display:none">
+      <button class="btn" id="r3nextBtn">继续挑战 →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 统一结算页 ===================== -->
+<section id="scrResult" class="hide">
+  <div class="card hero-badge">
+    <div class="medal" id="rsMedal">🏆</div>
+    <h2 id="rsTitle">综合评级</h2>
+    <div class="sub" id="rsSub"></div>
+    <div class="stats">
+      <div class="stat"><b id="rsAvg">—</b><span>综合得分率</span></div>
+      <div class="stat"><b id="rsK1">—</b><span>第一局 定义归纳</span></div>
+      <div class="stat"><b id="rsK2">—</b><span>第二局 方程推导</span></div>
+      <div class="stat"><b id="rsK3">—</b><span>第三局 习题闯关</span></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div id="rsBody"></div>
+    <div class="sec-title">统一导出</div>
+    <div class="row">
+      <button class="btn cy" id="btnExpJson">导出统一数据（JSON）</button>
+      <button class="btn cy" id="btnExpCsv">导出统一数据（CSV）</button>
+    </div>
+    <div class="row">
+      <button class="btn" id="btnExpTxt">错因回执（TXT）</button>
+      <button class="btn ghost" id="btnCopyAll">复制错因回执</button>
+      <button class="btn ghost" id="btnQuizTxt">第三局错题本（TXT）</button>
+      <button class="btn ghost" id="btnQuizCsv">第三局错题本（CSV）</button>
+    </div>
+    <div class="row">
+      <button class="btn" id="btnBackHome">返回首页</button>
+      <button class="btn ghost" id="btnAgainAll">三局重做</button>
+    </div>
+    <div class="foot" id="rsFoot"></div>
+  </div>
+</section>
+
+
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* =========================================================================
+   《双曲线三局闯关》 单文件 / 零依赖 / 离线可用 / 数据只存 localStorage + 本地导出
+   第一局 定义归纳 = 词块拼装(9) + 自己写定义(五要素)
+   第二局 方程推导 = 化简 7 步排序
+   第三局 习题闯关 = 5 关单选 + 100 血扣血 + 称号
+   命名空间：数据 R1_ / R2_ / Q3_ ，状态 G / RES / S1 / S2 / S3，互不覆盖。
+   ========================================================================= */
+
+/* ---------- 第一局① · 定义拼装：9 个词块与正确顺序 ----------
+   正确顺序：平面内 → 与两个定点F₁、F₂ → 的距离 → 之差的 → 绝对值 → 等于 → 常数
+            → （小于两定点间的距离）→ 的点的轨迹
+   key 用于「三要素诊断」：plane=平面内 / abs=绝对值 / bound=常数上限
+------------------------------------------------------------------------- */
+var R1_BLOCKS = [
+  { id:'a1', pos:1, key:'plane', text:'平面内' },
+  { id:'a2', pos:2, key:'',      text:'与两个定点F₁、F₂' },
+  { id:'a3', pos:3, key:'',      text:'的距离' },
+  { id:'a4', pos:4, key:'',      text:'之差的' },
+  { id:'a5', pos:5, key:'abs',   text:'绝对值' },
+  { id:'a6', pos:6, key:'',      text:'等于' },
+  { id:'a7', pos:7, key:'',      text:'常数' },
+  { id:'a8', pos:8, key:'bound', text:'（小于两定点间的距离）' },
+  { id:'a9', pos:9, key:'',      text:'的点的轨迹' }
+];
+
+/* 拼装关「三要素诊断」文案 */
+var R1_DIAG = {
+  abs:   { name:'绝对值',                     short:'漏了绝对值',       msg:'漏了它，轨迹只剩一支。' },
+  bound: { name:'常数上限（小于两定点间的距离）', short:'常数没有写上限',   msg:'常数没有上限，轨迹可能不存在：等于 2c 是两条射线，大于 2c 无轨迹。' },
+  plane: { name:'平面内',                     short:'少了「平面内」',    msg:'定义的前提是「平面内」。' }
+};
+
+/* ---------- 第一局② · 自己写定义：五要素 + 识别词（同义词表，可自行增删） ----------
+   纯前端字符串匹配；命中要素数 / 5 计分。
+   ask = 未命中时的一句话追问（只追问，绝不给标准定义原文）。
+------------------------------------------------------------------------- */
+var R1_RULES = [
+  { no:1, name:'两个定点',
+    syn:['两个定点','两定点','定点F','F₁、F₂','F₁F₂','F₁和F₂','F1、F2','两个固定点','两固定点','固定点','焦点','两个已知点','两点F'],
+    ask:'你这个「距离」，是到什么的距离？先说清参照对象——它有几个？是固定的吗？' },
+  { no:2, name:'距离之差的绝对值',
+    syn:['绝对值','差的绝对值','距离之差的绝对值','|','｜'],
+    soft:[['之差','你写的是「距离之差」，没有「绝对值」。想一想：不加绝对值，差为负的那些点去哪了？']],
+    askPlain:'这里的「差」要不要加限制，才能保证两支都在？想想差的正负。' },
+  { no:3, name:'常数有上限',
+    syn:['小于','不超过','大于0且小于','小于两定点间的距离','小于两定点间距离','小于两定点距离','小于两定点','小于焦距','小于F₁F₂','2a<2c','2a＜2c'],
+    ask:'你提到了常数，但它有没有上限？如果这个常数等于两定点间的距离、或者比它还大，轨迹分别会变成什么？',
+    askPlain:'常数可以随便取吗？取到很大时会发生什么？' },
+  { no:4, name:'平面内',
+    syn:['平面内','同一平面','一平面','平面上','在该平面','在平面'],
+    ask:'这个结论成立的范围是什么？在空间中，还是限定在一个什么里面？' },
+  { no:5, name:'是点的轨迹',
+    syn:['轨迹','集合','点集','所有点','点的全体'],
+    ask:'满足条件的那些点，最后构成的是什么？是一条线、一块区域，还是别的什么？' }
+];
+
+/* ---------- 第二局 · 化简步骤排序：7 步与正确顺序（第 4、6 步是卡点） ---------- */
+var R2_STEPS = [
+  { id:'s1', pos:1, text:'建系：以 F₁F₂ 所在直线为 x 轴，线段 F₁F₂ 的中点为原点',
+    hint:'先建立直角坐标系，让焦点落在坐标轴上，坐标才写得出来。' },
+  { id:'s2', pos:2, text:'设点：设 M(x, y)，F₁(−c, 0)、F₂(c, 0)',
+    hint:'把动点和两个焦点都用坐标表示（c > 0）。' },
+  { id:'s3', pos:3, text:'列式：| |MF₁| − |MF₂| | = 2a',
+    hint:'把定义翻译成等式：距离之差的绝对值等于常数 2a（0 < 2a < 2c）。' },
+  { id:'s4', pos:4, text:'移项：把一根根式单独留在一边',
+    hint:'不先移项就平方，根式去不掉。' },
+  { id:'s5', pos:5, text:'两边平方',
+    hint:'第一次平方，消掉被孤立的那根根式。' },
+  { id:'s6', pos:6, text:'再移项、再平方',
+    hint:'第一次平方后还剩一个根式，必须再来一轮。' },
+  { id:'s7', pos:7, text:'整理得 c² = a² + b²，方程化为 x²/a² − y²/b² = 1',
+    hint:'令 b² = c² − a²（b > 0），化到最简即为标准方程。' }
+];
+
+/* ---------- 第三局 · 5 关单选题 ----------
+   {分子|分母} 渲染为竖排分数；hint 只点考点不给完整解析；reason 写进错题本。
+------------------------------------------------------------------------- */
+var Q3_BANK = [
+  {
+    id:1, level:'第 1 关 · 直接套用（焦点在 x 轴）',
+    stem:'已知双曲线的焦点为 F₁(−5, 0)、F₂(5, 0)，实半轴长 a = 3。该双曲线的标准方程为',
+    options:[
+      {key:'A', text:'{y²|9} − {x²|16} = 1'},
+      {key:'B', text:'{x²|9} − {y²|25} = 1'},
+      {key:'C', text:'{x²|9} − {y²|16} = 1'},
+      {key:'D', text:'{x²|25} − {y²|16} = 1'}
+    ],
+    answer:'C',
+    hint:'考点：双曲线中 c² = a² + b²，所以 b² = c² − a² = 25 − 9 = 16。焦点在 x 轴，x² 项为正。',
+    reason:'把 c² 当成 b²，或误用椭圆关系 b² = a² − c²；双曲线应为 b² = c² − a² = 16。'
+  },
+  {
+    id:2, level:'第 2 关 · 先求 a（已知 b 与 c）',
+    stem:'已知双曲线的焦点在 x 轴上，虚半轴长 b = 4，半焦距 c = 5。该双曲线的标准方程为',
+    options:[
+      {key:'A', text:'{y²|16} − {x²|9} = 1'},
+      {key:'B', text:'{x²|25} − {y²|16} = 1'},
+      {key:'C', text:'{x²|41} − {y²|16} = 1'},
+      {key:'D', text:'{x²|9} − {y²|16} = 1'}
+    ],
+    answer:'D',
+    hint:'考点：已知 b、c 要先求 a —— a² = c² − b² = 25 − 16 = 9，x² 下方的永远是 a²，不是 c²。',
+    reason:'忘记先由 a² = c² − b² 求 a²（写成 c² = 25 或 b² + c² = 41），或把正项写成了 y² 项。'
+  },
+  {
+    id:3, level:'第 3 关 · 焦点在 y 轴的辨析',
+    stem:'已知双曲线的焦点为 F₁(0, −13)、F₂(0, 13)，实半轴长 a = 5。该双曲线的标准方程为',
+    options:[
+      {key:'A', text:'{x²|25} − {y²|144} = 1'},
+      {key:'B', text:'{y²|25} − {x²|144} = 1'},
+      {key:'C', text:'{y²|25} − {x²|169} = 1'},
+      {key:'D', text:'{y²|169} − {x²|25} = 1'}
+    ],
+    answer:'B',
+    hint:'考点：焦点在 y 轴上时，正项是 y² 项；b² = c² − a² = 169 − 25 = 144，不是 169。',
+    reason:'焦点在 y 轴仍写成 x² 项为正，或把 c² 当成 b²、把 a 与 c 的位置颠倒。'
+  },
+  {
+    id:4, level:'第 4 关 · 过两点求方程',
+    stem:'已知双曲线的焦点在 x 轴上，且经过点 P(3√2, 4) 与 Q(3√5, 8)。该双曲线的标准方程为',
+    options:[
+      {key:'A', text:'{x²|9} − {y²|16} = 1'},
+      {key:'B', text:'{x²|16} − {y²|9} = 1'},
+      {key:'C', text:'{y²|9} − {x²|16} = 1'},
+      {key:'D', text:'{x²|25} − {y²|7} = 1'}
+    ],
+    answer:'A',
+    hint:'考点：设 x²/m − y²/n = 1，把两点代入得到关于 1/m、1/n 的二元一次方程组，解出 m = 9、n = 16。',
+    reason:'待定系数解方程组时把 m、n 对调（写反 a² 与 b²），或误用 c² = a² + b² 反推。'
+  },
+  {
+    id:5, level:'第 5 关 · 与椭圆对比的辨析',
+    stem:'已知两定点 F₁(−5, 0)、F₂(5, 0)，动点 P 满足 | |PF₁| − |PF₂| | = 6。下列说法正确的是',
+    options:[
+      {key:'A', text:'轨迹是双曲线：a² = 16、b² = 9，方程为 {x²|16} − {y²|9} = 1'},
+      {key:'B', text:'轨迹是椭圆：b² = a² − c²，方程为 {x²|9} + {y²|16} = 1'},
+      {key:'C', text:'轨迹是双曲线：a = 3、c = 5，b² = c² − a² = 16，方程为 {x²|9} − {y²|16} = 1'},
+      {key:'D', text:'去掉绝对值写成 |PF₁| − |PF₂| = 6，表示的是同一条完整双曲线'}
+    ],
+    answer:'C',
+    hint:'考点：差的绝对值为常数 → 双曲线（和为常数才是椭圆）；2a = 6 ⇒ a = 3；绝对值去掉只剩一支。',
+    reason:'混淆双曲线与椭圆的定义（椭圆是 |PF₁| + |PF₂| = 2a），或漏掉绝对值只取一支，或把 a²、b² 写反。'
+  }
+];
+
+/* ======================= 通用工具 ======================= */
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t; } return a; }
+function pad2(n){ n = Number(n)||0; return (n<10?'0':'')+n; }
+function fmtTime(ms){ var s=Math.max(0,Math.round((Number(ms)||0)/1000)); return pad2(Math.floor(s/60))+':'+pad2(s%60); }
+function stamp(){
+  var d=new Date();
+  return ''+d.getFullYear()+pad2(d.getMonth()+1)+pad2(d.getDate())+'-'+pad2(d.getHours())+pad2(d.getMinutes());
+}
+function nowText(){ return new Date().toLocaleString('zh-CN'); }
+/* 文本归一化：全角数字、下标、空白、标点统一，便于同义匹配 */
+function norm(s){
+  return String(s||'')
+    .replace(/[０-９Ａ-Ｚａ-ｚ]/g, function(c){ return String.fromCharCode(c.charCodeAt(0)-0xFEE0); })
+    .replace(/₁/g,'1').replace(/₂/g,'2').replace(/[₃-₉]/g,function(c){return String(c.charCodeAt(0)-0x2080);})
+    .replace(/[－−–—﹣]/g,'-').replace(/＜/g,'<').replace(/＞/g,'>')
+    .replace(/[（）()]/g,'')
+    .replace(/\s+/g,'')
+    .replace(/[，,。.、；;：:！!？?"'"'《》【】\[\]]/g,'')
+    .toLowerCase();
+}
+function fracHtml(s){
+  return String(s).replace(/\{([^{}|]+)\|([^{}|]+)\}/g,
+    function(_,n,d){ return '<span class="frac"><span class="num">'+n+'</span><span class="den">'+d+'</span></span>'; });
+}
+function fracPlain(s){ return String(s).replace(/\{([^{}|]+)\|([^{}|]+)\}/g,'$1/$2'); }
+function idxOfKey(options, key){
+  for(var i=0;i<options.length;i++) if(options[i].key===key) return options[i];
+  return {key:key, text:''};
+}
+function toast(msg){
+  var t=$('toast'); if(!t) return;
+  t.textContent=msg; t.classList.add('on');
+  if(t._tm) clearTimeout(t._tm);
+  t._tm=setTimeout(function(){ t.classList.remove('on'); },1900);
+}
+function download(filename, text, mime, bom){
+  var content = bom ? ('\ufeff'+text) : text;
+  var blob = new Blob([content], {type:(mime||'text/plain')+';charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href=url; a.download=filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); },300);
+}
+function csvCell(v){ return '"' + String(v==null?'':v).replace(/"/g,'""') + '"'; }
+function csvRow(arr){ return arr.map(csvCell).join(','); }
+function copyText(text){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ toast('错因回执已复制到剪贴板。'); }, fallback);
+  } else { fallback(); }
+  function fallback(){
+    var ta=document.createElement('textarea');
+    ta.value=text; ta.style.position='fixed'; ta.style.left='-9999px';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); toast('错因回执已复制到剪贴板。'); }
+    catch(e){ toast('复制失败，请改用导出按钮。'); }
+    document.body.removeChild(ta);
+  }
+}
+
+/* ---------- 音效（Web Audio，零依赖） ---------- */
+var actx=null;
+function audioCtx(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return actx; }
+function tone(freq,dur,type,vol,delay){
+  var a=audioCtx(); if(!a) return;
+  try{
+    var t0=a.currentTime+(delay||0);
+    var o=a.createOscillator(), g=a.createGain();
+    o.type=type||'sine'; o.frequency.setValueAtTime(freq,t0);
+    g.gain.setValueAtTime(0.0001,t0);
+    g.gain.exponentialRampToValueAtTime(vol||0.16,t0+0.012);
+    g.gain.exponentialRampToValueAtTime(0.0001,t0+dur);
+    o.connect(g); g.connect(a.destination); o.start(t0); o.stop(t0+dur+0.03);
+  }catch(e){}
+}
+function sfxRight(){ tone(660,0.10,'sine',0.16,0); tone(880,0.14,'sine',0.14,0.10); }
+function sfxWrong(){ tone(190,0.20,'sawtooth',0.12,0); tone(150,0.24,'sawtooth',0.10,0.10); }
+function sfxEnd(){ tone(523,0.14,'sine',0.15,0); tone(659,0.14,'sine',0.15,0.13); tone(784,0.22,'sine',0.15,0.26); }
+
+/* ======================= 全局状态 ======================= */
+var LS_PROFILE = 'hyperbola3_profile_v1';   // 记住姓名
+var LS_LAST    = 'hyperbola3_last_v1';      // 上次总结算
+var LS_BOOK    = 'hyperbola3_wrongbook_v1'; // 第三局错题本累积
+
+var G = {
+  name:'',
+  mode:'all',        // 'all' = 三局连做；'1' / '2' / '3' = 单局
+  round:0,           // 当前所在局
+  timerId:0,
+  startTs:0
+};
+var RES = { 1:null, 2:null, 3:null };   // 本次会话三局结果
+var S1 = null;   // 第一局内部状态
+var S2 = null;   // 第二局内部状态
+var S3 = null;   // 第三局内部状态
+
+function newSortState(items){
+  var ids = items.map(function(x){ return x.id; });
+  return { pool:shuffle(ids.slice()), slots:new Array(items.length).fill(null), sel:null, checked:false, score:0, marks:[], wrong:[] };
+}
+function newS1(){
+  S1 = { a:newSortState(R1_BLOCKS), b:{ text:'', checked:false, score:0, result:null, tries:0 }, phase:'a' };
+}
+function newS2(){ S2 = { s:newSortState(R2_STEPS) }; }
+function newS3(name){
+  S3 = { name:name||G.name||'匿名同学', startTime:Date.now(), startedAt:new Date(), hp:100, idx:0, records:[], qStart:Date.now() };
+}
+function itemTextOf(items,id){
+  for(var i=0;i<items.length;i++) if(items[i].id===id) return items[i].text;
+  return '（空）';
+}
+function idAtPos(items,pos){
+  for(var i=0;i<items.length;i++) if(items[i].pos===pos) return items[i].id;
+  return null;
+}
+
+/* ======================= 排序组件（两局复用，互不干扰） ======================= */
+function Sorter(items, getState, poolBox, slotsBox){
+  var self=this;
+  this.items=items; this.getState=getState; this.poolBox=poolBox; this.slotsBox=slotsBox; this.drag=null;
+
+  this.itemById=function(id){
+    for(var i=0;i<items.length;i++) if(items[i].id===id) return items[i];
+    return null;
+  };
+  this.text=function(id){ var it=self.itemById(id); return it?it.text:'（空）'; };
+
+  this.renderPool=function(){
+    var st=self.getState(), box=self.poolBox;
+    box.innerHTML='';
+    if(!st.pool.length){
+      var e=document.createElement('div'); e.className='note'; e.textContent='（已全部放入）'; box.appendChild(e); return;
+    }
+    st.pool.forEach(function(id){
+      var b=document.createElement('div');
+      b.className='blk'+(st.sel===id?' sel':'');
+      b.textContent=self.text(id);
+      b.draggable=true;
+      b.onclick=function(){ st.sel=(st.sel===id?null:id); self.renderPool(); };
+      b.ondragstart=function(ev){ self.drag={id:id,from:'pool'}; b.classList.add('dragging'); try{ ev.dataTransfer.setData('text/plain',id); ev.dataTransfer.effectAllowed='move'; }catch(e){} };
+      b.ondragend=function(){ b.classList.remove('dragging'); };
+      box.appendChild(b);
+    });
+  };
+
+  this.renderSlots=function(){
+    var st=self.getState(), box=self.slotsBox;
+    box.innerHTML='';
+    for(var i=0;i<st.slots.length;i++){
+      (function(i){
+        var id=st.slots[i];
+        var d=document.createElement('div');
+        d.className='slot';
+        if(st.checked){
+          if(st.marks[i]==='ok') d.className+=' ok';
+          else if(st.marks[i]==='bad') d.className+=' bad';
+        }
+        var ix=document.createElement('div'); ix.className='idx'; ix.textContent=(i+1);
+        d.appendChild(ix);
+        if(id){
+          var t=document.createElement('div'); t.className='txt'; t.textContent=self.text(id);
+          var up=document.createElement('button'); up.className='mini'; up.textContent='↑'; up.title='上移';
+          up.onclick=function(ev){ ev.stopPropagation(); self.move(i,-1); };
+          var dn=document.createElement('button'); dn.className='mini'; dn.textContent='↓'; dn.title='下移';
+          dn.onclick=function(ev){ ev.stopPropagation(); self.move(i,1); };
+          d.appendChild(t); d.appendChild(up); d.appendChild(dn);
+          d.draggable=true;
+          d.ondragstart=function(ev){ self.drag={id:id,from:'slot',at:i}; try{ ev.dataTransfer.setData('text/plain',id); ev.dataTransfer.effectAllowed='move'; }catch(e){} };
+          d.onclick=function(){ self.removeAt(i); };
+        }else{
+          var p=document.createElement('div'); p.className='ph';
+          p.textContent=(st.sel?'点这里放入所选词块':'空位（先在左侧选中）');
+          d.appendChild(p);
+          d.onclick=function(){ self.placeTo(i); };
+        }
+        d.ondragover=function(ev){ ev.preventDefault(); d.classList.add('drop-on'); };
+        d.ondragleave=function(){ d.classList.remove('drop-on'); };
+        d.ondrop=function(ev){
+          ev.preventDefault(); d.classList.remove('drop-on');
+          var pid=self.drag?self.drag.id:(ev.dataTransfer?ev.dataTransfer.getData('text/plain'):null);
+          if(!pid) return;
+          var from=self.drag?self.drag.from:'pool';
+          var at=self.drag?self.drag.at:-1;
+          if(from==='pool'){ var k=st.pool.indexOf(pid); if(k>=0) st.pool.splice(k,1); }
+          else if(at>=0){ st.slots[at]=null; }
+          var old=st.slots[i];
+          st.slots[i]=pid;
+          if(old) st.pool.push(old);
+          st.sel=null; st.checked=false;
+          self.renderPool(); self.renderSlots();
+        };
+        box.appendChild(d);
+      })(i);
+    }
+  };
+
+  this.renderAll=function(){ self.renderPool(); self.renderSlots(); };
+
+  this.placeTo=function(i){
+    var st=self.getState();
+    if(!st.sel) return;
+    var id=st.sel, k=st.pool.indexOf(id);
+    if(k<0) return;
+    st.pool.splice(k,1);
+    var old=st.slots[i];
+    st.slots[i]=id;
+    if(old) st.pool.push(old);
+    st.sel=null; st.checked=false;
+    self.renderAll();
+  };
+  this.removeAt=function(i){
+    var st=self.getState();
+    var id=st.slots[i];
+    if(!id) return;
+    st.slots[i]=null; st.pool.push(id); st.checked=false;
+    self.renderAll();
+  };
+  this.move=function(i,dir){
+    var st=self.getState(), j=i+dir;
+    if(j<0||j>=st.slots.length) return;
+    var t=st.slots[i]; st.slots[i]=st.slots[j]; st.slots[j]=t;
+    st.checked=false;
+    self.renderSlots();
+  };
+  this.reset=function(){
+    var st=self.getState();
+    var ids=st.pool.concat(st.slots.filter(function(x){ return !!x; }));
+    st.pool=shuffle(ids); st.slots=new Array(ids.length).fill(null);
+    st.sel=null; st.checked=false; st.marks=[]; st.score=0; st.wrong=[];
+    self.renderAll();
+  };
+  /* 通用判分：逐位比对 pos */
+  this.check=function(){
+    var st=self.getState(), n=items.length, score=0, marks=[], wrong=[];
+    for(var i=0;i<n;i++){
+      var want=idAtPos(items,i+1);
+      if(st.slots[i]===want){ marks[i]='ok'; score++; }
+      else{
+        marks[i]='bad';
+        wrong.push({ pos:i+1, want:itemTextOf(items,want), got:(st.slots[i]?self.text(st.slots[i]):'（空）') });
+      }
+    }
+    st.marks=marks; st.score=score; st.checked=true; st.wrong=wrong;
+    return { score:score, wrong:wrong, marks:marks };
+  };
+}
+
+var sortR1A=null, sortR2=null;
+function initSorters(){
+  sortR1A = new Sorter(R1_BLOCKS, function(){ return S1?S1.a:null; }, $('r1pool'), $('r1slots'));
+  sortR2  = new Sorter(R2_STEPS,  function(){ return S2?S2.s:null; }, $('r2pool'), $('r2slots'));
+}
+/* ======================= 屏幕切换 / 计时 ======================= */
+var ROUND_NAME = { 1:'第一局 · 定义归纳', 2:'第二局 · 方程推导', 3:'第三局 · 习题闯关' };
+function goScr(id){
+  ['scrHome','scrR1','scrR2','scrR3','scrResult'].forEach(function(k){
+    var el=$(k); if(el) el.classList.toggle('hide', k!==id);
+  });
+  if(window.scrollTo) window.scrollTo(0,0);
+}
+function showTop(on){
+  var t=$('topbar'); if(!t) return;
+  t.classList.toggle('hide', !on);
+}
+function timerStart(){
+  G.startTs=Date.now();
+  if(G.timerId) clearInterval(G.timerId);
+  G.timerId=setInterval(function(){ $('timer').textContent=fmtTime(Date.now()-G.startTs); },300);
+}
+function timerStop(){
+  var ms = G.startTs ? (Date.now()-G.startTs) : 0;
+  if(G.timerId){ clearInterval(G.timerId); G.timerId=0; }
+  G.startTs=0;
+  return ms;
+}
+function setStep(txt){ $('topStep').textContent=txt; }
+
+/* ======================= 首页 ======================= */
+function saveName(name){
+  try{ localStorage.setItem(LS_PROFILE, JSON.stringify({name:name, ts:Date.now()})); }catch(e){}
+}
+function loadName(){
+  try{
+    var p=JSON.parse(localStorage.getItem(LS_PROFILE)||'null');
+    return (p&&p.name)?p.name:'';
+  }catch(e){ return ''; }
+}
+function showHome(){
+  goScr('scrHome'); showTop(false);
+  try{ if(G.timerId){ clearInterval(G.timerId); G.timerId=0; } }catch(e){}
+  var remembered=loadName();
+  if(remembered && !$('inpHomeName').value) $('inpHomeName').value=remembered;
+  paintHomeProgress();
+  paintHomeLast();
+}
+function roundDone(n){ return !!RES[n]; }
+function paintHomeProgress(){
+  var html='';
+  [1,2,3].forEach(function(n){
+    if(!RES[n]) return;
+    html += '第'+['一','二','三'][n-1]+'局 '+ROUND_NAME[n].split('·')[1].trim()+'：<b>'+rateOf(n)+'%</b>　';
+  });
+  $('homeProgress').innerHTML = html ? ('本次会话已完成：'+html) : '本次会话还没有完成的局。';
+}
+function paintHomeLast(){
+  var box=$('homeLast');
+  var last=null;
+  try{ last=JSON.parse(localStorage.getItem(LS_LAST)||'null'); }catch(e){ last=null; }
+  if(!last || !last.name){ box.innerHTML=''; return; }
+  box.innerHTML='本机上次总结算：'+esc(last.name)+' · 综合 '+last.avg+'% · '+esc(last.rank)+
+    ' · 用时 '+last.timeStr+'　<a href="javascript:void(0)" id="clrLast" style="color:#dc2626">清除</a>';
+  var el=$('clrLast');
+  if(el) el.onclick=function(){ try{ localStorage.removeItem(LS_LAST); }catch(e){} showHome(); };
+}
+
+/* ======================= 进入某一局 ======================= */
+function startRound(n, mode){
+  G.mode = mode||String(n);
+  G.round = n;
+  G.name = ($('inpHomeName').value||'').trim() || '未署名';
+  saveName(G.name);
+  $('topName').textContent = '学生 '+G.name;
+  $('topRound').textContent = ROUND_NAME[n].split('·')[1].trim();
+  showTop(true);
+  timerStart();
+  if(n===1) enterR1();
+  else if(n===2) enterR2();
+  else enterR3();
+}
+/* 一局结束后去哪 */
+function leaveRound(n){
+  var ms = timerStop();
+  if(n===1){ RES[1].timeMs=ms; }
+  if(n===2){ RES[2].timeMs=ms; }
+  if(n===3){ RES[3].timeMs=ms; }
+  if(G.mode==='all'){
+    if(n<3) startRound(n+1,'all');
+    else showResult();
+  } else {
+    showResult();
+  }
+}
+
+/* ======================= 第一局 · 定义归纳 ======================= */
+function enterR1(){
+  goScr('scrR1');
+  if(!S1) newS1();
+  S1.phase='a';
+  $('pR1a').classList.remove('hide');
+  $('pR1b').classList.add('hide');
+  $('r1aReport').classList.add('hide');
+  $('r1aNextRow').classList.add('hide');
+  $('r1bReport').classList.add('hide');
+  $('r1bNextRow').classList.add('hide');
+  $('stR1a').className='st on';
+  $('stR1b').className='st';
+  setStep('第一局 ①/② · 词块拼装');
+  if(S1.a.checked) S1.a = newSortState(R1_BLOCKS);   // 已判分过 → 重开一份干净的
+  sortR1A.renderAll();
+  $('r1ans').value = S1.b.text||'';
+  countR1Text();
+}
+function countR1Text(){ $('r1count').textContent='已输入 '+(($('r1ans').value||'').replace(/\s/g,'').length)+' 字'; }
+
+/* ① 词块拼装判分 */
+function checkR1A(){
+  var st=S1.a;
+  if(st.pool.length){ alert('还有 '+st.pool.length+' 个词块没有放入，请放完再提交。'); return null; }
+  var r = sortR1A.check();
+  /* 三要素诊断（abs / bound / plane） */
+  var diag=[];
+  ['abs','bound','plane'].forEach(function(k){
+    var want=null;
+    R1_BLOCKS.forEach(function(b){ if(b.key===k) want=b; });
+    if(!want) return;
+    diag.push({ key:k, ok:(st.marks[want.pos-1]==='ok'), name:R1_DIAG[k].name, short:R1_DIAG[k].short, msg:R1_DIAG[k].msg });
+  });
+  S1.aDiag = diag;
+  renderR1AReport(r.score, r.wrong, diag);
+  sortR1A.renderSlots();
+  $('r1aNextRow').classList.remove('hide');
+  return r;
+}
+function renderR1AReport(score, wrong, diag){
+  var html='<h4>① 词块拼装：<span class="score-big">'+score+' / 9</span> 块正确</h4>';
+  html+='<div class="diag">';
+  diag.forEach(function(d){
+    html+='<div class="d '+(d.ok?'ok':'bad')+'">'+(d.ok?'✔ ':'✘ ')+'要素：'+esc(d.name)+(d.ok?' 齐全':' —— '+esc(d.msg))+'</div>';
+  });
+  html+='</div>';
+  if(wrong.length){
+    html+='<div class="note" style="margin-top:6px"><b>错位/遗漏：</b><br>'+
+      wrong.map(function(w){ return '· 第 '+w.pos+' 块应为「'+esc(w.want)+'」，你放的是「'+esc(w.got)+'」'; }).join('<br>')+'</div>';
+  } else {
+    html+='<div class="note" style="margin-top:6px;color:#15803d"><b>九块全对：</b>顺序完全正确。</div>';
+  }
+  html+='<div class="note">说明：本环节只给你自己排出的顺序，不显示标准定义原文。</div>';
+  $('r1aReport').innerHTML=html;
+  $('r1aReport').classList.remove('hide');
+}
+
+/* ② 自己写定义 · 五要素规则引擎 */
+function checkR1B(){
+  var raw=($('r1ans').value||'').trim();
+  S1.b.text=raw;
+  if(!raw){
+    S1.b.score=0; S1.b.checked=true; S1.b.result=null; S1.b.tries++;
+    renderR1BReport(0,null,'还没有作答，请写出你认为关键的条件。');
+    return null;
+  }
+  var t=norm(raw);
+  var res=[];
+  R1_RULES.forEach(function(r){
+    var hit=false;
+    for(var i=0;i<r.syn.length;i++){ if(t.indexOf(norm(r.syn[i]))>=0){ hit=true; break; } }
+    var softMsg='';
+    if(!hit && r.soft){
+      for(var k=0;k<r.soft.length;k++){
+        if(t.indexOf(norm(r.soft[k][0]))>=0){ softMsg=r.soft[k][1]; break; }
+      }
+    }
+    var askMsg = softMsg || (hit ? '' : r.ask);
+    res.push({ no:r.no, name:r.name, hit:hit, ask:askMsg, plain:r.askPlain||r.ask });
+  });
+  var score=res.filter(function(x){ return x.hit; }).length;
+  S1.b.score=score; S1.b.checked=true; S1.b.result=res; S1.b.tries++;
+  renderR1BReport(score,res,'');
+  return res;
+}
+function renderR1BReport(score,res,tip){
+  var html='<h4>② 自己写定义：<span class="score-big">'+score+' / 5</span> 要素命中</h4>';
+  html+='<div class="note">下面逐条核对，✘ 的<b>只给追问，不输出标准定义原文</b>。</div>';
+  if(tip) html+='<div class="note" style="color:#b91c1c">'+esc(tip)+'</div>';
+  if(res && res.length){
+    html+='<ul class="checks">';
+    res.forEach(function(r){
+      html+='<li class="'+(r.hit?'pass':'fail')+'"><span class="k">'+(r.hit?'✔':'✘')+'</span>要素'+r.no+'　'+esc(r.name)+
+        (r.hit?'':'<span class="ask">追问：'+esc(r.ask)+'</span>')+'</li>';
+    });
+    html+='</ul>';
+    if(score<5) html+='<div class="note">改完再点一次「提交检测」，次数不限。</div>';
+  }
+  $('r1bReport').innerHTML=html;
+  $('r1bReport').classList.remove('hide');
+  $('r1bNextRow').classList.remove('hide');
+}
+
+/* 第一局完成结算 */
+function finishR1(){
+  if(!S1.a.checked || !S1.b.checked){
+    alert('① 词块拼装和 ② 自己写定义都要提交过，才算完成第一局。');
+    return;
+  }
+  RES[1] = {
+    blocks:S1.a.score, blocksMax:9,
+    hits:S1.b.score, hitsMax:5,
+    order:S1.a.slots.map(function(id){ return id?sortR1A.text(id):'（空）'; }),
+    wrong:S1.a.wrong||[],
+    diag:S1.aDiag||[],
+    text:S1.b.text||'',
+    rules:S1.b.result||[],
+    tries:S1.b.tries,
+    rate:0, timeMs:0
+  };
+  RES[1].rate = Math.round(((RES[1].blocks/9)*0.5 + (RES[1].hits/5)*0.5)*100);
+  leaveRound(1);
+}
+/* ======================= 第二局 · 方程推导（7 步排序） ======================= */
+function enterR2(){
+  goScr('scrR2');
+  if(!S2) newS2();
+  S2.s = newSortState(R2_STEPS);
+  $('r2Report').classList.add('hide');
+  $('r2NextRow').classList.add('hide');
+  $('r2pickTip').textContent='按推导顺序排列（共 7 步）';
+  setStep('第二局 · 化简 7 步');
+  sortR2.renderAll();
+}
+function checkR2(){
+  var st=S2.s;
+  if(st.pool.length){ alert('还有 '+st.pool.length+' 个步骤没有放入，请放完再提交。'); return null; }
+  var r=sortR2.check();
+  /* 第 4、6 步卡点提示 */
+  var keyHints=[];
+  r.wrong.forEach(function(w){
+    if(w.pos===4) keyHints.push('卡点① · 第 4 步：不先移项就平方，根式去不掉。');
+    if(w.pos===6) keyHints.push('卡点② · 第 6 步：第一次平方后还剩一个根式，必须再来一轮。');
+  });
+  var html='<h4>第二局 · 化简步骤排序：<span class="score-big">'+r.score+' / 7</span> 步正确</h4>';
+  if(keyHints.length){
+    html+='<div class="diag">'+keyHints.map(function(h){ return '<div class="d bad">✘ '+esc(h)+'</div>'; }).join('')+'</div>';
+  }
+  if(r.wrong.length){
+    html+='<div class="note" style="margin-top:6px"><b>错位步骤：</b>'+
+      r.wrong.map(function(w){ return '第 '+w.pos+' 步（你放的是「'+esc(w.got)+'」）'; }).join('、')+
+      '</div><div class="note">对应步骤的思路提示：<br>'+
+      r.wrong.map(function(w){
+        var h=''; R2_STEPS.forEach(function(b){ if(b.pos===w.pos) h=b.hint; });
+        return '· 第 '+w.pos+' 步：'+esc(h);
+      }).join('<br>')+'</div>';
+  } else {
+    html+='<div class="note" style="margin-top:6px;color:#15803d"><b>七步全对：</b>c² = a² + b²，即 b² = c² − a²，标准方程 x²/a² − y²/b² = 1（焦点在 x 轴）。</div>';
+  }
+  $('r2Report').innerHTML=html;
+  $('r2Report').classList.remove('hide');
+  $('r2NextRow').classList.remove('hide');
+  sortR2.renderSlots();
+  return r;
+}
+function finishR2(){
+  if(!S2 || !S2.s.checked){ alert('请先提交本局排序。'); return; }
+  RES[2] = {
+    steps:S2.s.score, stepsMax:7,
+    order:S2.s.slots.map(function(id){ return id?sortR2.text(id):'（空）'; }),
+    wrong:S2.s.wrong||[],
+    rate:Math.round(S2.s.score/7*100),
+    timeMs:0
+  };
+  leaveRound(2);
+}
+
+/* ======================= 第三局 · 习题闯关（5 关 + 100 血） ======================= */
+function enterR3(){
+  goScr('scrR3');
+  newS3(G.name);
+  setHpR3(100,false);
+  $('r3nextRow').style.display='none';
+  setStep('第三局 · 5 关');
+  renderQuiz();
+}
+function titleOfHp(hp){
+  if(hp>=90) return {m:'🏆', t:'冠军 · 双曲线大师', c:'var(--gold)'};
+  if(hp>=70) return {m:'🎯', t:'优秀 · 渐近线高手', c:'var(--cyan-2)'};
+  if(hp>=40) return {m:'🛡', t:'良好 · 离心率勇士', c:'var(--navy-3)'};
+  return {m:'💪', t:'需要加油 · 再走一遍三个关键词', c:'var(--red)'};
+}
+function setHpR3(v,hurt){
+  $('r3hpNum').textContent=v;
+  var f=$('r3hpFill');
+  f.style.width=Math.max(0,v)+'%';
+  f.className='hp-fill'+(v<=40?' hurt':'')+(hurt?' pulse':'');
+}
+function renderQuiz(){
+  var q=Q3_BANK[S3.idx];
+  $('r3lvChip').textContent='第 '+(S3.idx+1)+' / '+Q3_BANK.length+' 关';
+  $('r3lvTag').textContent=q.level;
+  $('r3stem').innerHTML=fracHtml(q.stem)+'（　　）';
+  $('r3tip').className='tip';
+  $('r3tip').innerHTML='';
+  $('r3nextRow').style.display='none';
+  var box=$('r3opts');
+  box.className='opts';
+  box.innerHTML='';
+  q.options.forEach(function(op){
+    var b=document.createElement('button');
+    b.className='opt';
+    b.innerHTML='<span class="key">'+op.key+'</span><span>'+fracHtml(op.text)+'</span>';
+    b.onclick=function(){ answerQuiz(q,op.key,b); };
+    box.appendChild(b);
+  });
+  S3.qStart=Date.now();
+}
+function answerQuiz(q,key,btn){
+  var sec=(Date.now()-S3.qStart)/1000;
+  var ok=(key===q.answer);
+  var btns=$('r3opts').querySelectorAll('.opt');
+  for(var i=0;i<btns.length;i++) btns[i].disabled=true;
+  if(ok){ btn.classList.add('right'); sfxRight(); setHpR3(S3.hp,false); }
+  else{
+    btn.classList.add('wrong');
+    $('r3opts').classList.add('shake');
+    for(var j=0;j<btns.length;j++){
+      var k=btns[j].querySelector('.key');
+      if(k && k.textContent===q.answer) btns[j].classList.add('right');
+      else if(btns[j]!==btn) btns[j].classList.add('dim');
+    }
+    S3.hp=Math.max(0,S3.hp-20);
+    setHpR3(S3.hp,true);
+    sfxWrong();
+  }
+  S3.records.push({
+    no:q.id, level:q.level, stem:fracPlain(q.stem),
+    choose:key, chooseText:fracPlain(idxOfKey(q.options,key).text),
+    answer:q.answer, answerText:fracPlain(idxOfKey(q.options,q.answer).text),
+    correct:ok, sec:Math.round(sec*10)/10, hp:S3.hp, reason:q.reason
+  });
+  var tip=$('r3tip');
+  if(ok){
+    tip.className='tip on';
+    tip.innerHTML='<b>✓ 答对了！</b>用时 '+sec.toFixed(1)+' 秒，血量保持 '+S3.hp+'。';
+    setTimeout(nextQuiz,1150);
+  }else{
+    tip.className='tip on bad';
+    tip.innerHTML='<b>✗ 答错了，血量 −20（剩余 '+S3.hp+'）</b>'+fracHtml(q.hint);
+    var last=(S3.idx===Q3_BANK.length-1)||S3.hp===0;
+    $('r3nextRow').style.display='flex';
+    $('r3nextBtn').textContent = last?'查看结算 →':'继续挑战 →';
+    $('r3nextBtn').onclick=nextQuiz;
+  }
+}
+function nextQuiz(){
+  if(S3.hp===0 || S3.idx===Q3_BANK.length-1){ finishR3(); return; }
+  S3.idx++;
+  renderQuiz();
+}
+function finishR3(){
+  var ms=timerStop();
+  var total=S3.records.length;
+  var right=S3.records.filter(function(r){ return r.correct; }).length;
+  RES[3]={
+    right:right, rightMax:5, total:total,
+    hp:S3.hp, hpMax:100,
+    accRate: total?Math.round(right/total*100):0,
+    title:titleOfHp(S3.hp).t,
+    records:S3.records.slice(),
+    startTime:S3.startTime, startedAt:S3.startedAt,
+    rate:Math.round(((right/5)*0.7+(S3.hp/100)*0.3)*100),
+    timeMs:ms
+  };
+  /* 错题本累积（沿用原闯关文件的 localStorage 错题本） */
+  try{
+    var book=JSON.parse(localStorage.getItem(LS_BOOK)||'[]');
+    S3.records.filter(function(r){ return !r.correct; }).forEach(function(r){
+      book.push({ time:nowText(), name:G.name, no:r.no, stem:r.stem, choose:r.choose, answer:r.answer, reason:r.reason });
+    });
+    localStorage.setItem(LS_BOOK, JSON.stringify(book.slice(-200)));
+  }catch(e){}
+  sfxEnd();
+  showResult();
+}
+/* ======================= 统一核算：三局得分率 / 综合评级 / 诊断 ======================= */
+/* 第一局：拼装正确块数/9 × 0.5 + 五要素命中数/5 × 0.5 */
+function rate1(){
+  if(!RES[1]) return null;
+  return Math.round(((RES[1].blocks/9)*0.5 + (RES[1].hits/5)*0.5)*100);
+}
+/* 第二局：排对步数/7 */
+function rate2(){
+  if(!RES[2]) return null;
+  return Math.round(RES[2].steps/7*100);
+}
+/* 第三局：5 题正确数/5 × 0.7 + 剩余血量/100 × 0.3 */
+function rate3(){
+  if(!RES[3]) return null;
+  return Math.round((((RES[3].right/5)*0.7) + ((RES[3].hp/100)*0.3))*100);
+}
+function rateOf(n){ return n===1?rate1():(n===2?rate2():rate3()); }
+function playedRounds(){ return [1,2,3].filter(function(n){ return !!RES[n]; }); }
+function avgRate(){
+  var p=playedRounds();
+  if(!p.length) return null;
+  var s=0; p.forEach(function(n){ s+=rateOf(n); });
+  return Math.round(s/p.length);
+}
+function rankOf(avg){
+  if(avg>=90) return {m:'🏆', t:'双曲线大师', c:'var(--gold)'};
+  if(avg>=75) return {m:'🎯', t:'渐近线高手', c:'var(--cyan-2)'};
+  if(avg>=60) return {m:'🛡', t:'离心率勇士', c:'var(--navy-3)'};
+  return {m:'💪', t:'再走一遍三个关键词', c:'var(--red)'};
+}
+var ADVICE = {
+  1:'定义的三个关键词还没立住：两个定点 / 差的绝对值 / 常数有上限，回去再看一遍。',
+  2:'化简卡在移项与第二次平方：先移项让根式单独留一边，平方后还剩根式就再来一轮。',
+  3:'方程的识别与求解还要练：先判焦点在哪条轴，再定 a、b，最后验 b²。'
+};
+function buildDiagnosis(){
+  var p=playedRounds();
+  if(!p.length) return '本次还没有完成的局，先做一局再来。';
+  if(p.length===3 && p.every(function(n){ return rateOf(n)>=90; })) return '三局都稳，可以去做课后变式了。';
+  var min=p[0];
+  p.forEach(function(n){ if(rateOf(n)<rateOf(min)) min=n; });
+  return ADVICE[min];
+}
+function weakestRound(){
+  var p=playedRounds();
+  if(!p.length) return 0;
+  var min=p[0];
+  p.forEach(function(n){ if(rateOf(n)<rateOf(min)) min=n; });
+  return min;
+}
+function totalTimeMs(){
+  var s=0;
+  [1,2,3].forEach(function(n){ if(RES[n]) s+=(RES[n].timeMs||0); });
+  return s;
+}
+function modeText(){
+  var p=playedRounds();
+  if(G.mode==='all' && p.length===3) return '三局连做';
+  if(!p.length) return '未开始';
+  return '单局练习：'+p.map(function(n){ return '第'+['一','二','三'][n-1]+'局'; }).join('、');
+}
+
+/* ======================= 统一错因清单 ======================= */
+function buildErrList(){
+  var out=[];
+  /* 第一局 */
+  if(RES[1]){
+    var r1=RES[1];
+    if(r1.wrong && r1.wrong.length){
+      out.push('第一局：第 '+r1.wrong.map(function(w){ return w.pos; }).join('、')+' 块错位');
+      r1.wrong.slice(0,9).forEach(function(w){
+        out.push('第一局 · 第 '+w.pos+' 块应为「'+w.want+'」，你放的是「'+w.got+'」');
+      });
+    }
+    (r1.diag||[]).forEach(function(d){ if(!d.ok) out.push('第一局：'+d.short+'（'+d.msg+'）'); });
+    (r1.rules||[]).forEach(function(rr){ if(!rr.hit) out.push('第一局：自写定义缺要素「'+rr.name+'」→ 追问：'+rr.ask); });
+    if(!r1.wrong.length && r1.hits===5 && !(r1.diag||[]).some(function(d){ return !d.ok; })){
+      out.push('第一局：满分，无错因。');
+    }
+  }
+  /* 第二局 */
+  if(RES[2]){
+    var r2=RES[2];
+    if(r2.wrong && r2.wrong.length){
+      out.push('第二局：第 '+r2.wrong.map(function(w){ return w.pos; }).join('、')+' 步错位');
+      r2.wrong.forEach(function(w){
+        var h=''; R2_STEPS.forEach(function(b){ if(b.pos===w.pos) h=b.hint; });
+        out.push('第二局 · 第 '+w.pos+' 步思路：'+h);
+      });
+    } else { out.push('第二局：七步全对，无错因。'); }
+  }
+  /* 第三局 */
+  if(RES[3]){
+    var wrong3=RES[3].records.filter(function(r){ return !r.correct; });
+    if(wrong3.length){
+      wrong3.forEach(function(r){
+        out.push('第三局：第 '+r.no+' 题选 '+r.choose+'，应为 '+r.answer+'（'+r.reason+'）');
+      });
+    } else { out.push('第三局：五题全对，无错因。'); }
+  }
+  return out;
+}
+function buildReceipt(){
+  var L=[];
+  L.push('《双曲线三局闯关》统一错因回执');
+  L.push('学生：'+G.name+'　用时：'+fmtTime(totalTimeMs())+'　模式：'+modeText());
+  L.push('导出时间：'+nowText());
+  L.push('----------------------------------------');
+  if(RES[1]) L.push('第一局 定义归纳：拼装 '+RES[1].blocks+'/9 块 · 五要素 '+RES[1].hits+'/5　得分率 '+rate1()+'%');
+  if(RES[2]) L.push('第二局 方程推导：排对 '+RES[2].steps+'/7 步　得分率 '+rate2()+'%');
+  if(RES[3]) L.push('第三局 习题闯关：答对 '+RES[3].right+'/5 题 · 剩余血量 '+RES[3].hp+'/100　得分率 '+rate3()+'%');
+  var avg=avgRate();
+  L.push('综合得分率：'+avg+'%　综合评级：'+rankOf(avg).t);
+  L.push('一句诊断：'+buildDiagnosis());
+  L.push('----------------------------------------');
+  L.push('【错因清单】');
+  var e=buildErrList();
+  if(!e.length) L.push('（本次没有可诊断的错因）');
+  e.forEach(function(x){ L.push('· '+x); });
+  L.push('----------------------------------------');
+  if(RES[1] && RES[1].text){ L.push('【第一局 学生定义原文】'); L.push(RES[1].text); }
+  return L.join('\n');
+}
+
+/* ======================= 结算页 ======================= */
+function rawOf(n){
+  if(n===1 && RES[1]) return '拼装 '+RES[1].blocks+'/9 块 · 五要素 '+RES[1].hits+'/5（合计 '+(RES[1].blocks+RES[1].hits)+'/14 块·要素）';
+  if(n===2 && RES[2]) return '排对 '+RES[2].steps+'/7 步';
+  if(n===3 && RES[3]) return '答对 '+RES[3].right+'/5 题 · 剩余血量 '+RES[3].hp+'/100';
+  return '未作答';
+}
+function detailOf(n){
+  if(n===1 && RES[1]){
+    var r1=RES[1];
+    var s='<b>拼装顺序：</b>'+esc(r1.order.join(' → '));
+    s+='<br><b>定义原文：</b>'+(r1.text?esc(r1.text).replace(/\n/g,'<br>'):'（未作答）');
+    s+='<br><b>五要素：</b>'+(r1.rules||[]).map(function(rr){ return (rr.hit?'✔':'✘')+rr.no+rr.name; }).join('　');
+    return s;
+  }
+  if(n===2 && RES[2]){
+    return '<b>排序结果：</b>'+esc(RES[2].order.join(' → '));
+  }
+  if(n===3 && RES[3]){
+    return '<b>每题作答：</b><br>'+RES[3].records.map(function(r){
+      return '· 第 '+r.no+' 题：选 '+r.choose+'，正确 '+r.answer+'，'+(r.correct?'✔ 对':'✘ 错')+'（'+r.sec+' 秒，作答后血量 '+r.hp+'）';
+    }).join('<br>')+'<br><b>称号：</b>'+esc(RES[3].title);
+  }
+  return '未作答';
+}
+function showResult(){
+  showTop(true);
+  $('topRound').textContent='总结算';
+  setStep('统一核算');
+  goScr('scrResult');
+  var p=playedRounds();
+  var avg=avgRate();
+  $('rsAvg').textContent = (avg===null?'—':avg+'%');
+  $('rsK1').textContent = RES[1]?rate1()+'%':'—';
+  $('rsK2').textContent = RES[2]?rate2()+'%':'—';
+  $('rsK3').textContent = RES[3]?rate3()+'%':'—';
+  if(avg===null){
+    $('rsMedal').textContent='—';
+    $('rsTitle').textContent='还没有可结算的成绩';
+    $('rsSub').textContent='先回首页做一局吧。';
+  } else {
+    var rk=rankOf(avg);
+    $('rsMedal').textContent=rk.m;
+    $('rsTitle').textContent=rk.t;
+    $('rsTitle').style.color=rk.c;
+    $('rsSub').textContent='学生 '+G.name+'　综合得分率 '+avg+'%　用时 '+fmtTime(totalTimeMs())+'　'+modeText()+
+      (p.length<3?'（共 '+p.length+'/3 局，评级按已完成局平均）':'');
+  }
+
+  var rows='';
+  var line=function(name,rate,raw,detail){
+    return '<tr><td style="width:16%"><b>'+name+'</b></td>'+
+           '<td style="width:14%">'+raw+'</td>'+
+           '<td style="width:12%">得分率 <b class="score-big" style="font-size:1.1em">'+(rate===null?'—':rate+'%')+'</b></td>'+
+           '<td>'+detail+'</td></tr>';
+  };
+  rows+=line('第一局 定义归纳', rate1(), rawOf(1), detailOf(1));
+  rows+=line('第二局 方程推导', rate2(), rawOf(2), detailOf(2));
+  rows+=line('第三局 习题闯关', rate3(), rawOf(3), detailOf(3));
+
+  var html='';
+  html+='<div class="sec-title" style="margin-top:0">分项展示（三局分开结算）</div>';
+  html+='<table class="tb"><thead><tr><th>局</th><th>原始计数（得分/满分）</th><th>得分率</th><th>作答明细</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  html+='<div class="note" style="margin-top:8px">计分口径：第一局 =（拼装块数/9 × 0.5 + 五要素命中/5 × 0.5）；第二局 = 排对步数/7；第三局 =（正确题数/5 × 0.7 + 剩余血量/100 × 0.3）。</div>';
+  if(avg!==null){
+    html+='<div class="sec-title">综合评级：三局得分率的平均值</div>';
+    html+='<div class="qtext" style="margin:2px 0">'+rankOf(avg).m+' '+esc(rankOf(avg).t)+'　<span class="score-big">'+avg+'%</span></div>';
+    html+='<div class="note">评级线：≥90 🏆 双曲线大师 ｜ 75–89 🎯 渐近线高手 ｜ 60–74 🛡 离心率勇士 ｜ &lt;60 💪 再走一遍三个关键词。</div>';
+    html+='<div class="report"><h4>一句诊断</h4><div style="font-size:clamp(14px,2.2vw,19px);color:var(--navy-2);font-weight:600">'+esc(buildDiagnosis())+'</div></div>';
+    var wk=weakestRound();
+    if(wk) html+='<div class="note">最弱的一局：第'+['一','二','三'][wk-1]+'局（'+rateOf(wk)+'%）。</div>';
+  }
+  var errs=buildErrList();
+  html+='<div class="sec-title">统一错因回执（三局合并）</div>';
+  html+='<div class="err"><ul>'+(errs.length?errs.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join(''):'<li>本次没有可诊断的错因。</li>')+'</ul></div>';
+  html+='<div class="keywords">① <b>焦点在哪根轴</b> —— 焦点在 x 轴：x²/a² − y²/b² = 1；焦点在 y 轴：y²/a² − x²/b² = 1（正项跟着焦点走）<br>'+
+        '② <b>c² = a² + b²</b> —— 双曲线 b² = c² − a²（<u>椭圆才是 b² = a² − c²</u>，两者绝不许混）<br>'+
+        '③ <b>定义里的绝对值</b> —— ||PF₁| − |PF₂|| = 2a 才是整条双曲线，去掉绝对值只剩一支</div>';
+  $('rsBody').innerHTML=html;
+  $('rsFoot').textContent=G.name+'　|　'+nowText()+'　|　数据仅存本机';
+
+  try{
+    localStorage.setItem(LS_LAST, JSON.stringify({
+      name:G.name, avg:avg, rank:(avg===null?'—':rankOf(avg).t), timeStr:fmtTime(totalTimeMs()), ts:nowText(),
+      r1:rate1(), r2:rate2(), r3:rate3()
+    }));
+  }catch(e){}
+}
+
+/* ======================= 统一导出 ======================= */
+function buildUnifiedObj(){
+  var avg=avgRate();
+  return {
+    游戏:'双曲线三局闯关',
+    版本:1,
+    学生姓名:G.name,
+    模式:modeText(),
+    用时:fmtTime(totalTimeMs()),
+    用时毫秒:totalTimeMs(),
+    三局:{
+      第一局_定义归纳: RES[1] ? {
+        拼装正确块数:RES[1].blocks, 拼装满分:9,
+        五要素命中数:RES[1].hits, 五要素满分:5,
+        原始合计:(RES[1].blocks+RES[1].hits)+'/14',
+        得分率:rate1()+'%',
+        拼装作答顺序:RES[1].order,
+        拼装错位:RES[1].wrong,
+        三要素诊断:RES[1].diag,
+        学生定义原文:RES[1].text,
+        五要素明细:RES[1].rules,
+        检测次数:RES[1].tries
+      } : '未作答',
+      第二局_方程推导: RES[2] ? {
+        排对步数:RES[2].steps, 满分:7,
+        原始计分:RES[2].steps+'/7',
+        得分率:rate2()+'%',
+        排序作答:RES[2].order,
+        错位步骤:RES[2].wrong
+      } : '未作答',
+      第三局_习题闯关: RES[3] ? {
+        正确题数:RES[3].right, 题数满分:5,
+        剩余血量:RES[3].hp, 血量满分:100,
+        原始计分:RES[3].right+'/5 题 · '+RES[3].hp+'/100 血',
+        得分率:rate3()+'%',
+        称号:RES[3].title,
+        每题作答:RES[3].records.map(function(r){
+          return {题号:r.no, 关卡:r.level, 题干:r.stem, 学生答案:r.choose, 正确答案:r.answer, 对错:(r.correct?'对':'错'), 用时秒:r.sec, 作答后血量:r.hp};
+        })
+      } : '未作答'
+    },
+    综合得分率:(avg===null?null:avg+'%'),
+    综合评级:(avg===null?'—':rankOf(avg).t),
+    最弱的一局:(weakestRound()?('第'+['一','二','三'][weakestRound()-1]+'局'):'—'),
+    一句诊断:buildDiagnosis(),
+    错因回执:buildErrList(),
+    导出时间:nowText()
+  };
+}
+function buildUnifiedCsv(){
+  var head=['学生姓名','用时','模式',
+    '第一局得分(拼装块/9)','第一局得分(五要素/5)','第一局原始合计(块·要素/14)','第一局得分率',
+    '第二局得分(步/7)','第二局得分率',
+    '第三局得分(题/5)','第三局剩余血量(/100)','第三局得分率','第三局称号',
+    '综合得分率','综合评级','最弱的一局','一句诊断',
+    '第一局拼装作答(按顺序)','第一局定义原文','第一局五要素命中',
+    '第二局排序作答(按顺序)','第三局每题作答',
+    '错因回执','导出时间'];
+  var join=function(a,sep){ return (a||[]).join(sep||' | '); };
+  var row=[
+    G.name, fmtTime(totalTimeMs()), modeText(),
+    RES[1]?RES[1].blocks+'/9':'未作答', RES[1]?RES[1].hits+'/5':'未作答',
+    RES[1]?(RES[1].blocks+RES[1].hits)+'/14':'未作答', RES[1]?rate1()+'%':'未作答',
+    RES[2]?RES[2].steps+'/7':'未作答', RES[2]?rate2()+'%':'未作答',
+    RES[3]?RES[3].right+'/5':'未作答', RES[3]?RES[3].hp+'/100':'未作答', RES[3]?rate3()+'%':'未作答',
+    RES[3]?RES[3].title:'未作答',
+    (avgRate()===null?'未结算':avgRate()+'%'), (avgRate()===null?'未结算':rankOf(avgRate()).t),
+    (weakestRound()?('第'+['一','二','三'][weakestRound()-1]+'局'):'—'),
+    buildDiagnosis(),
+    RES[1]?join(RES[1].order,' → '):'未作答',
+    RES[1]?(RES[1].text||'').replace(/\r?\n/g,' '):'未作答',
+    RES[1]?join((RES[1].rules||[]).map(function(r){ return (r.hit?'✔':'✘')+r.no+r.name; }),' '):'未作答',
+    RES[2]?join(RES[2].order,' → '):'未作答',
+    RES[3]?join(RES[3].records.map(function(r){ return '第'+r.no+'题选'+r.choose+'(正确'+r.answer+','+(r.correct?'对':'错')+',血'+r.hp+')'; }),' | '):'未作答',
+    join(buildErrList(),' ／ '),
+    nowText()
+  ];
+  return [csvRow(head),csvRow(row)].join('\r\n');
+}
+function quizWrongRows(){
+  if(!RES[3]) return [];
+  return RES[3].records.filter(function(r){ return !r.correct; });
+}
+function quizWrongTxt(){
+  var L=[];
+  L.push('《双曲线三局闯关 · 第三局错题本》');
+  L.push('学生：'+G.name+'　时间：'+nowText());
+  if(!RES[3]){ L.push('第三局未作答。'); return L.join('\r\n'); }
+  L.push('答对 '+RES[3].right+'/5　剩余血量 '+RES[3].hp+'/100　称号：'+RES[3].title);
+  L.push('----------------------------------------');
+  var w=quizWrongRows();
+  if(!w.length) L.push('五题全对，没有错题。');
+  w.forEach(function(r,i){
+    L.push('错题 '+(i+1)+'（第 '+r.no+' 题）');
+    L.push('题目：'+r.stem);
+    L.push('我的答案：'+r.choose+'. '+r.chooseText);
+    L.push('正确答案：'+r.answer+'. '+r.answerText);
+    L.push('错因：'+r.reason);
+    L.push('');
+  });
+  return L.join('\r\n');
+}
+function quizWrongCsv(){
+  var rows=[csvRow(['题号','题目','我的答案','正确答案','错因'])]
+  ;
+  quizWrongRows().forEach(function(r){
+    rows.push(csvRow([r.no, r.stem, r.choose+'. '+r.chooseText, r.answer+'. '+r.answerText, r.reason]));
+  });
+  return rows.join('\r\n');
+}
+
+/* ======================= 事件绑定 ======================= */
+function bind(id, fn){
+  var el=$(id);
+  if(el) el.onclick=fn;
+  return el;
+}
+function initBindings(){
+  bind('btnAll', function(){
+    if(!($('inpHomeName').value||'').trim() && !confirm('还没有填写姓名，要继续吗？（可在首页随时补填）')) return;
+    audioCtx(); RES[1]=RES[2]=RES[3]=null; S1=S2=S3=null;
+    startRound(1,'all');
+  });
+  var gos=document.querySelectorAll('[data-go]');
+  Array.prototype.forEach.call(gos, function(b){
+    b.onclick=function(){
+      var n=parseInt(b.getAttribute('data-go'),10);
+      audioCtx();
+      if(n===1){ S1=null; } else if(n===2){ S2=null; } else { S3=null; }
+      startRound(n,String(n));
+    };
+  });
+  bind('btnToResult', showResult);
+  bind('btnClearSession', function(){
+    RES[1]=RES[2]=RES[3]=null; S1=S2=S3=null; G.mode='all'; G.round=0;
+    toast('本次三局成绩已清空'); paintHomeProgress();
+  });
+
+  /* 第一局 */
+  bind('r1aCheck', function(){ checkR1A(); });
+  bind('r1aReset', function(){ sortR1A.reset(); $('r1aReport').classList.add('hide'); $('r1aNextRow').classList.add('hide'); });
+  bind('r1aNext', function(){
+    if(!S1.a.checked){ alert('请先点「提交①」。'); return; }
+    S1.phase='b';
+    $('pR1a').classList.add('hide');
+    $('pR1b').classList.remove('hide');
+    $('stR1a').className='st done';
+    $('stR1b').className='st on';
+    setStep('第一局 ②/② · 自己写定义');
+    window.scrollTo(0,0);
+  });
+  bind('r1bDetect', function(){ checkR1B(); });
+  bind('r1bClear', function(){
+    $('r1ans').value=''; S1.b.text=''; countR1Text();
+    $('r1bReport').classList.add('hide'); $('r1bNextRow').classList.add('hide');
+  });
+  bind('r1bBack', function(){
+    S1.phase='a';
+    $('pR1b').classList.add('hide');
+    $('pR1a').classList.remove('hide');
+    $('stR1b').className='st';
+    $('stR1a').className='st on';
+    setStep('第一局 ①/② · 词块拼装');
+  });
+  bind('r1bNext', finishR1);
+
+  /* 第二局 */
+  bind('r2Check', function(){ checkR2(); });
+  bind('r2Reset', function(){ sortR2.reset(); $('r2Report').classList.add('hide'); $('r2NextRow').classList.add('hide'); });
+  bind('r2Next', finishR2);
+
+  /* 结算页 */
+  bind('btnExpJson', function(){ download('三局闯关_统一数据_'+G.name+'_'+stamp()+'.json', JSON.stringify(buildUnifiedObj(),null,2), 'application/json', false); toast('已导出统一 JSON'); });
+  bind('btnExpCsv',  function(){ download('三局闯关_统一数据_'+G.name+'_'+stamp()+'.csv', buildUnifiedCsv(), 'text/csv', true); toast('已导出统一 CSV'); });
+  bind('btnExpTxt',  function(){ download('三局闯关_错因回执_'+G.name+'_'+stamp()+'.txt', buildReceipt(), 'text/plain', false); toast('错因回执 TXT 已下载'); });
+  bind('btnCopyAll', function(){ copyText(buildReceipt()); });
+  bind('btnQuizTxt', function(){ download('三局闯关_第三局错题本_'+G.name+'_'+stamp()+'.txt', quizWrongTxt(), 'text/plain', false); toast('第三局错题本 TXT 已下载'); });
+  bind('btnQuizCsv', function(){ download('三局闯关_第三局错题本_'+G.name+'_'+stamp()+'.csv', quizWrongCsv(), 'text/csv', true); toast('第三局错题本 CSV 已下载'); });
+  bind('btnBackHome', showHome);
+  bind('btnAgainAll', function(){
+    RES[1]=RES[2]=RES[3]=null; S1=S2=S3=null;
+    startRound(1,'all');
+  });
+
+  $('r1ans').oninput = countR1Text;
+  $('inpHomeName').addEventListener('keydown', function(e){
+    if(e.key==='Enter') $('btnAll').click();
+  });
+}
+
+/* ======================= 启动 ======================= */
+function initApp(){
+  initSorters();
+  initBindings();
+  var remembered=loadName();
+  if(remembered) $('inpHomeName').value=remembered;
+  showHome();
+}
+initApp();
+
+</script>
+</body>
+</html>
