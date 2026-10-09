@@ -7,57 +7,81 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
-background:#ffffff;color:#1e293b;display:flex;flex-direction:column;padding:1.5vh 1.8vw;gap:1.4vh}
-header{display:flex;align-items:baseline;gap:1.6vw;border-bottom:3px solid #e0f2fe;padding-bottom:1.1vh}
-h1{font-size:clamp(28px,3.4vw,64px);color:#0891b2;letter-spacing:.06em}
+body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;background:#ffffff;color:#1e293b;
+overflow-y:auto;scroll-snap-type:y mandatory}
+.screen{height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;padding:1.5vh 1.8vw;gap:1.2vh}
+header{display:flex;align-items:baseline;gap:1.6vw;border-bottom:3px solid #e0f2fe;padding-bottom:1vh;flex:none}
+h1{font-size:clamp(26px,3.1vw,56px);color:#0891b2;letter-spacing:.05em}
 .meta{font-size:clamp(14px,1.15vw,24px);color:#64748b}
 .topic{font-size:clamp(15px,1.25vw,26px);color:#047857;border:1px solid #a7f3d0;background:#ecfdf5;
-border-radius:999px;padding:.55vh 1.2vw;align-self:center;margin-left:auto}
+border-radius:999px;padding:.5vh 1.1vw;align-self:center;margin-left:auto}
 main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2vh;min-height:0}
-.stem{font-size:clamp(26px,2.7vw,56px);line-height:1.5;color:#1e293b}
-table{border-collapse:collapse;font-size:clamp(20px,2vw,42px);margin:1.2vh auto;background:#ffffff;
+.stem{font-size:clamp(24px,2.5vw,50px);line-height:1.5}
+table{border-collapse:collapse;font-size:clamp(20px,2vw,42px);margin:1vh auto;background:#fff;
 box-shadow:0 1px 3px rgba(15,23,42,.06);border-radius:6px;overflow:hidden}
-td{border:1px solid #cbd5e1;padding:.65vh 1.5vw;text-align:center;color:#1e293b}
+td{border:1px solid #cbd5e1;padding:.6vh 1.4vw;text-align:center}
 tr:first-child td{background:#f0f9ff;font-weight:700;color:#0369a1}
-.opts{display:grid;grid-template-columns:1fr 1fr;gap:1.6vh 2vw;font-size:clamp(22px,2.35vw,48px)}
-.opt{background:#ffffff;border:2px solid #e2e8f0;border-radius:12px;padding:1.15vh 1.3vw;color:#1e293b;
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:1.5vh 2vw;font-size:clamp(21px,2.2vw,44px)}
+.opt{background:#fff;border:2px solid #e2e8f0;border-radius:12px;padding:1.05vh 1.2vw;
 box-shadow:0 1px 3px rgba(15,23,42,.06)}
 .opt b{color:#2563eb;margin-right:.6vw}
-.subs{display:flex;flex-direction:column;gap:1.4vh;font-size:clamp(20px,1.95vw,42px)}
-.sub{background:#f8fcff;border-left:7px solid #0891b2;border-radius:8px;padding:1.1vh 1.5vw;
-line-height:1.5;color:#1e293b;box-shadow:0 1px 3px rgba(15,23,42,.06)}
-footer{border-top:3px solid #e0f2fe;padding-top:1.2vh}
-#btn{font-size:clamp(15px,1.25vw,26px);background:#0891b2;color:#ffffff;border:0;border-radius:10px;
+.subs{display:flex;flex-direction:column;gap:1.2vh;font-size:clamp(19px,1.9vw,40px)}
+.sub{background:#f8fcff;border-left:7px solid #0891b2;border-radius:8px;padding:1vh 1.4vw;line-height:1.5;
+box-shadow:0 1px 3px rgba(15,23,42,.06)}
+footer{border-top:3px solid #e0f2fe;padding-top:1vh;flex:none}
+#btn{font-size:clamp(15px,1.25vw,26px);background:#0891b2;color:#fff;border:0;border-radius:10px;
 padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 #btn:hover{background:#0e7490}
-.ans{display:none;margin-top:1.2vh;font-size:clamp(22px,2.1vw,44px);line-height:1.55}
+.ans{display:none;margin-top:1vh;font-size:clamp(21px,2vw,42px);line-height:1.55}
 .ans.on{display:block}
 .akey{color:#dc2626;font-weight:700}
-.recite{background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:1vh 1.5vw;
-font-size:clamp(15px,1.25vw,27px);line-height:1.55}
-.recite h2{font-size:clamp(16px,1.35vw,30px);color:#047857;margin-bottom:.5vh}
-.recite ul{list-style:none;display:flex;flex-wrap:wrap;gap:.5vh 2.2vw}
-.recite li{color:#0f766e}
-.recite li::before{content:"▪ ";color:#14b8a6;font-weight:700}
+.hint{flex:none;text-align:center;font-size:clamp(13px,1.05vw,22px);color:#94a3b8;padding-top:.4vh}
+/* 第 2 屏 */
+.rcards{flex:1;display:flex;flex-direction:column;gap:1.4vh;justify-content:center;min-height:0}
+.rcard{background:#f0fdfa;border:1px solid #99f6e4;border-radius:14px;padding:1.3vh 1.6vw}
+.rrow{display:flex;align-items:flex-start;gap:1vw}
+.rtag{font-size:clamp(16px,1.5vw,32px);color:#047857;font-weight:700;white-space:nowrap}
+.rtext{font-size:clamp(18px,1.75vw,38px);line-height:1.5;color:#134e4a;flex:1}
+.rsrc{font-size:clamp(18px,1.75vw,38px);line-height:1.2;background:#ffffff;border:1px solid #5eead4;
+color:#0f766e;border-radius:8px;padding:.2vh .9vw;cursor:pointer;white-space:nowrap;flex:none}
+.rsrc:hover{background:#ccfbf1}
+.rsrctext{display:none;font-size:clamp(15px,1.3vw,27px);color:#0f766e;margin-top:.7vh;
+border-top:1px dashed #5eead4;padding-top:.6vh}
+.rsrctext.on{display:block}
 </style>
 </head>
 <body>
-<header>
-  <h1>每日一题</h1>
-  <div class="meta">2026-10-12　|　微信公众号：锤子数学</div>
-  <div class="topic">集合的划分 · 等和 · 构造与证明</div>
-</header>
-<main>
-  <div class="stem">设集合 M = {2026, 2026+1, ⋯, 2026+n}，n ∈ N*。若存在非空集合 A、B，满足 A∪B = M，A∩B = ∅，则称 A、B 是集合 M 的一个划分。记 φ(P) 为任意非空集合 P 的所有元素之和。</div>
-  
-  <div class="subs"><div class="sub">（1）当 n = 3 时，求集合 M 的一个划分 A、B，使得 φ(A) = φ(B)；</div><div class="sub">（2）当 n = 2026 时，是否存在集合 M 的一个划分 A、B，使得 φ(A) = φ(B)？若存在，求出；若不存在，说明理由；</div><div class="sub">（3）若集合 M 存在一个划分 A、B，使得 φ(A) = φ(B)，求满足条件的所有正整数 n。</div></div>
-  <section class="recite"><h2>今日背诵 · 知识点</h2><ul><li>总和为偶数只是必要条件</li><li>连续整数中选 r 个：和可取 [L,U] 内每个整数</li><li>构造 + 递推（每加 4 个元素补一次）</li><li>易错：只证必要性、漏构造；忽略「非空」</li></ul></section>
-</main>
-<footer>
-  <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-  <div class="ans" id="ans"><div class="akey">答案：（1）如 A={2026,2029}、B={2027,2028}，φ(A)=φ(B)=4055；（2）不存在（全部元素之和 = 2027×3039 为奇数，而 2φ(A) 为偶数，矛盾）；（3）n = 4k−1（k ∈ N*）或 n = 4k（k ∈ N*，k ≥ 23）</div></div>
-</footer>
-<script>document.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();document.getElementById('btn').click();}});</script>
+<div class="screen">
+  <header>
+    <h1>每日一题</h1>
+    <div class="meta">2026-10-12　|　微信公众号：锤子数学</div>
+    <div class="topic">集合的划分 · 等和 · 构造与证明</div>
+  </header>
+  <main>
+    <div class="stem">设集合 M = {2026, 2026+1, ⋯, 2026+n}，n ∈ N*。若存在非空集合 A、B，满足 A∪B = M，A∩B = ∅，则称 A、B 是集合 M 的一个划分。记 φ(P) 为任意非空集合 P 的所有元素之和。</div>
+    
+    <div class="subs"><div class="sub">（1）当 n = 3 时，求集合 M 的一个划分 A、B，使得 φ(A) = φ(B)；</div><div class="sub">（2）当 n = 2026 时，是否存在集合 M 的一个划分 A、B，使得 φ(A) = φ(B)？若存在，求出；若不存在，说明理由；</div><div class="sub">（3）若集合 M 存在一个划分 A、B，使得 φ(A) = φ(B)，求满足条件的所有正整数 n。</div></div>
+  </main>
+  <footer>
+    <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
+    <div class="ans" id="ans"><div class="akey">答案：（1）如 A={2026,2029}、B={2027,2028}，φ(A)=φ(B)=4055；（2）不存在（全部元素之和 = 2027×3039 为奇数，而 2φ(A) 为偶数，矛盾）；（3）n = 4k−1（k ∈ N*）或 n = 4k（k ∈ N*，k ≥ 23）</div></div>
+  </footer>
+  <div class="hint">↓ 向下滑动：进入「今日背诵 · 知识点」</div>
+</div>
+<div class="screen">
+  <header>
+    <h1>今日背诵</h1>
+    <div class="meta">2026-10-12　|　微信公众号：锤子数学</div>
+    <div class="topic">知识点 · 易错点</div>
+  </header>
+  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【集合·划分】</span><span class="rtext">等和划分的必要条件：总和为偶数（还要够「匀」）。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">人教A版·必修第一册 第一章《集合与常用逻辑用语》（页码/例题号待核）</div></div><div class="rcard"><div class="rrow"><span class="rtag">【整数选和】</span><span class="rtext">连续整数中选 r 个，其和可取 [L, U] 内的每一个整数（L、U 为最小/最大和）。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">人教A版·必修第一册 第一章《集合与常用逻辑用语》（页码/例题号待核）</div></div><div class="rcard"><div class="rrow"><span class="rtag">【构造】</span><span class="rtext">充分性靠构造 + 递推：每加 4 个连续整数，首尾配对补回平衡。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">人教A版·必修第一册 第一章《集合与常用逻辑用语》（页码/例题号待核）</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：只证必要性就收工；忽略 A、B 必须非空。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">人教A版·必修第一册 第一章《集合与常用逻辑用语》（页码/例题号待核）</div></div></div>
+  <div class="hint">↑ 向上滑动：返回「每日一题」</div>
+</div>
+<script>
+document.addEventListener('keydown',function(e){
+  if(e.key===' '||e.key==='Enter'){e.preventDefault();document.getElementById('btn').click();}
+});
+function toggleSrc(i){document.getElementById('src'+i).classList.toggle('on');}
+</script>
 </body>
 </html>

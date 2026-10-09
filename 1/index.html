@@ -7,57 +7,81 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
-background:#ffffff;color:#1e293b;display:flex;flex-direction:column;padding:1.5vh 1.8vw;gap:1.4vh}
-header{display:flex;align-items:baseline;gap:1.6vw;border-bottom:3px solid #e0f2fe;padding-bottom:1.1vh}
-h1{font-size:clamp(28px,3.4vw,64px);color:#0891b2;letter-spacing:.06em}
+body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;background:#ffffff;color:#1e293b;
+overflow-y:auto;scroll-snap-type:y mandatory}
+.screen{height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;padding:1.5vh 1.8vw;gap:1.2vh}
+header{display:flex;align-items:baseline;gap:1.6vw;border-bottom:3px solid #e0f2fe;padding-bottom:1vh;flex:none}
+h1{font-size:clamp(26px,3.1vw,56px);color:#0891b2;letter-spacing:.05em}
 .meta{font-size:clamp(14px,1.15vw,24px);color:#64748b}
 .topic{font-size:clamp(15px,1.25vw,26px);color:#047857;border:1px solid #a7f3d0;background:#ecfdf5;
-border-radius:999px;padding:.55vh 1.2vw;align-self:center;margin-left:auto}
+border-radius:999px;padding:.5vh 1.1vw;align-self:center;margin-left:auto}
 main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2vh;min-height:0}
-.stem{font-size:clamp(26px,2.7vw,56px);line-height:1.5;color:#1e293b}
-table{border-collapse:collapse;font-size:clamp(20px,2vw,42px);margin:1.2vh auto;background:#ffffff;
+.stem{font-size:clamp(24px,2.5vw,50px);line-height:1.5}
+table{border-collapse:collapse;font-size:clamp(20px,2vw,42px);margin:1vh auto;background:#fff;
 box-shadow:0 1px 3px rgba(15,23,42,.06);border-radius:6px;overflow:hidden}
-td{border:1px solid #cbd5e1;padding:.65vh 1.5vw;text-align:center;color:#1e293b}
+td{border:1px solid #cbd5e1;padding:.6vh 1.4vw;text-align:center}
 tr:first-child td{background:#f0f9ff;font-weight:700;color:#0369a1}
-.opts{display:grid;grid-template-columns:1fr 1fr;gap:1.6vh 2vw;font-size:clamp(22px,2.35vw,48px)}
-.opt{background:#ffffff;border:2px solid #e2e8f0;border-radius:12px;padding:1.15vh 1.3vw;color:#1e293b;
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:1.5vh 2vw;font-size:clamp(21px,2.2vw,44px)}
+.opt{background:#fff;border:2px solid #e2e8f0;border-radius:12px;padding:1.05vh 1.2vw;
 box-shadow:0 1px 3px rgba(15,23,42,.06)}
 .opt b{color:#2563eb;margin-right:.6vw}
-.subs{display:flex;flex-direction:column;gap:1.4vh;font-size:clamp(20px,1.95vw,42px)}
-.sub{background:#f8fcff;border-left:7px solid #0891b2;border-radius:8px;padding:1.1vh 1.5vw;
-line-height:1.5;color:#1e293b;box-shadow:0 1px 3px rgba(15,23,42,.06)}
-footer{border-top:3px solid #e0f2fe;padding-top:1.2vh}
-#btn{font-size:clamp(15px,1.25vw,26px);background:#0891b2;color:#ffffff;border:0;border-radius:10px;
+.subs{display:flex;flex-direction:column;gap:1.2vh;font-size:clamp(19px,1.9vw,40px)}
+.sub{background:#f8fcff;border-left:7px solid #0891b2;border-radius:8px;padding:1vh 1.4vw;line-height:1.5;
+box-shadow:0 1px 3px rgba(15,23,42,.06)}
+footer{border-top:3px solid #e0f2fe;padding-top:1vh;flex:none}
+#btn{font-size:clamp(15px,1.25vw,26px);background:#0891b2;color:#fff;border:0;border-radius:10px;
 padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 #btn:hover{background:#0e7490}
-.ans{display:none;margin-top:1.2vh;font-size:clamp(22px,2.1vw,44px);line-height:1.55}
+.ans{display:none;margin-top:1vh;font-size:clamp(21px,2vw,42px);line-height:1.55}
 .ans.on{display:block}
 .akey{color:#dc2626;font-weight:700}
-.recite{background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:1vh 1.5vw;
-font-size:clamp(15px,1.25vw,27px);line-height:1.55}
-.recite h2{font-size:clamp(16px,1.35vw,30px);color:#047857;margin-bottom:.5vh}
-.recite ul{list-style:none;display:flex;flex-wrap:wrap;gap:.5vh 2.2vw}
-.recite li{color:#0f766e}
-.recite li::before{content:"▪ ";color:#14b8a6;font-weight:700}
+.hint{flex:none;text-align:center;font-size:clamp(13px,1.05vw,22px);color:#94a3b8;padding-top:.4vh}
+/* 第 2 屏 */
+.rcards{flex:1;display:flex;flex-direction:column;gap:1.4vh;justify-content:center;min-height:0}
+.rcard{background:#f0fdfa;border:1px solid #99f6e4;border-radius:14px;padding:1.3vh 1.6vw}
+.rrow{display:flex;align-items:flex-start;gap:1vw}
+.rtag{font-size:clamp(16px,1.5vw,32px);color:#047857;font-weight:700;white-space:nowrap}
+.rtext{font-size:clamp(18px,1.75vw,38px);line-height:1.5;color:#134e4a;flex:1}
+.rsrc{font-size:clamp(18px,1.75vw,38px);line-height:1.2;background:#ffffff;border:1px solid #5eead4;
+color:#0f766e;border-radius:8px;padding:.2vh .9vw;cursor:pointer;white-space:nowrap;flex:none}
+.rsrc:hover{background:#ccfbf1}
+.rsrctext{display:none;font-size:clamp(15px,1.3vw,27px);color:#0f766e;margin-top:.7vh;
+border-top:1px dashed #5eead4;padding-top:.6vh}
+.rsrctext.on{display:block}
 </style>
 </head>
 <body>
-<header>
-  <h1>每日一题</h1>
-  <div class="meta">2026-10-12　|　微信公众号：锤子数学</div>
-  <div class="topic">概率 · 随机游走 · 方差</div>
-</header>
-<main>
-  <div class="stem">一个质点在随机外力的作用下，从原点 O 出发在数轴上移动，每次向左或向右移动一个单位且相互独立。已知向右移的概率为 3/5，向左移的概率为 2/5。设该质点移动 n 次后在数轴上对应的数为随机变量 ξₙ，则 ξₙ 的方差 D(ξₙ) = ______（用含 n 的式子表示）。</div>
-  
-  <div class="subs"></div>
-  <section class="recite"><h2>今日背诵 · 知识点</h2><ul><li>X ~ B(n,p)：E(X) = np，D(X) = np(1−p)</li><li>D(aX + b) = a²D(X)（系数要平方）</li><li>ξ = 2X − n ⇒ D(ξ) = 4D(X)</li><li>易错：把 D(aX) 算成 aD(X)</li></ul></section>
-</main>
-<footer>
-  <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-  <div class="ans" id="ans"><div class="akey">答案：24n/25</div></div>
-</footer>
-<script>document.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();document.getElementById('btn').click();}});</script>
+<div class="screen">
+  <header>
+    <h1>每日一题</h1>
+    <div class="meta">2026-10-12　|　微信公众号：锤子数学</div>
+    <div class="topic">概率 · 随机游走 · 方差</div>
+  </header>
+  <main>
+    <div class="stem">一个质点在随机外力的作用下，从原点 O 出发在数轴上移动，每次向左或向右移动一个单位且相互独立。已知向右移的概率为 3/5，向左移的概率为 2/5。设该质点移动 n 次后在数轴上对应的数为随机变量 ξₙ，则 ξₙ 的方差 D(ξₙ) = ______（用含 n 的式子表示）。</div>
+    
+    <div class="subs"></div>
+  </main>
+  <footer>
+    <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
+    <div class="ans" id="ans"><div class="akey">答案：24n/25</div></div>
+  </footer>
+  <div class="hint">↓ 向下滑动：进入「今日背诵 · 知识点」</div>
+</div>
+<div class="screen">
+  <header>
+    <h1>今日背诵</h1>
+    <div class="meta">2026-10-12　|　微信公众号：锤子数学</div>
+    <div class="topic">知识点 · 易错点</div>
+  </header>
+  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【概率·二项分布】</span><span class="rtext">X ~ B(n,p)：E(X) = np，D(X) = np(1−p)。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">人教A版·选择性必修第三册 第七章《随机变量及其分布》（页码/例题号待核）</div></div><div class="rcard"><div class="rrow"><span class="rtag">【方差性质】</span><span class="rtext">D(aX + b) = a²D(X)——系数要平方，加减常数不影响方差。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">人教A版·选择性必修第三册 第七章《随机变量及其分布》（页码/例题号待核）</div></div><div class="rcard"><div class="rrow"><span class="rtag">【位移】</span><span class="rtext">ξ = 2X − n ⇒ D(ξ) = 4D(X)，把随机游走的方差转成二项分布的方差。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">人教A版·选择性必修第三册 第七章《随机变量及其分布》（页码/例题号待核）</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：把 D(aX) 直接算成 aD(X)（漏平方，结果差 2 倍）。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">人教A版·选择性必修第三册 第七章《随机变量及其分布》（页码/例题号待核）</div></div></div>
+  <div class="hint">↑ 向上滑动：返回「每日一题」</div>
+</div>
+<script>
+document.addEventListener('keydown',function(e){
+  if(e.key===' '||e.key==='Enter'){e.preventDefault();document.getElementById('btn').click();}
+});
+function toggleSrc(i){document.getElementById('src'+i).classList.toggle('on');}
+</script>
 </body>
 </html>
