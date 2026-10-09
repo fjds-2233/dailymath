@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-12</title>
+<title>每日一题 · 2026-10-09</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -54,27 +54,27 @@ border-top:1px dashed #5eead4;padding-top:.6vh;white-space:nowrap;overflow:hidde
 <div class="screen">
   <header>
     <h1>每日一题</h1>
-    <div class="meta">2026-10-12　|　微信公众号：锤子数学</div>
-    <div class="topic">集合的划分 · 等和 · 构造与证明</div>
+    <div class="meta">2026-10-09　|　微信公众号：锤子数学</div>
+    <div class="topic">椭圆综合 · 面积最值 · 定点问题</div>
   </header>
   <main>
-    <div class="stem">设集合 M = {2026, 2026+1, ⋯, 2026+n}，n ∈ N*。若存在非空集合 A、B，满足 A∪B = M，A∩B = ∅，则称 A、B 是集合 M 的一个划分。记 φ(P) 为任意非空集合 P 的所有元素之和。</div>
+    <div class="stem">在平面直角坐标系 xOy 中，已知椭圆 C: x²/a² + y²/b² = 1（a > b > 0）的右焦点为 F(2, 0)，离心率为 1/2。</div>
     
-    <div class="subs"><div class="sub">（1）当 n = 3 时，求集合 M 的一个划分 A、B，使得 φ(A) = φ(B)；</div><div class="sub">（2）当 n = 2026 时，是否存在集合 M 的一个划分 A、B，使得 φ(A) = φ(B)？若存在，求出；若不存在，说明理由；</div><div class="sub">（3）若集合 M 存在一个划分 A、B，使得 φ(A) = φ(B)，求满足条件的所有正整数 n。</div></div>
+    <div class="subs"><div class="sub">（1）求椭圆 C 的标准方程；</div><div class="sub">（2）设直线 l: y = kx + 2 与 C 交于 A、B 两点。(i) 求 △ABO 面积的最大值；(ii) 在 y 轴上是否存在一定点 P，使得直线 PA、PB 的斜率之和恒为 0？若存在，求出 P 的坐标；若不存在，请说明理由。</div></div>
   </main>
   <footer>
     <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-    <div class="ans" id="ans"><div class="akey">答案：（1）如 A={2026,2029}、B={2027,2028}，φ(A)=φ(B)=4055；（2）不存在（全部元素之和 = 2027×3039 为奇数，而 2φ(A) 为偶数，矛盾）；（3）n = 4k−1（k ∈ N*）或 n = 4k（k ∈ N*，k ≥ 23）</div></div>
+    <div class="ans" id="ans"><div class="akey">答案：（1）x²/16 + y²/12 = 1；（2）(i) 最大值为 8√6/3；(ii) 存在，P(0, 6)</div></div>
   </footer>
   <div class="hint">↓ 向下滑动：进入「今日背诵 · 知识点」</div>
 </div>
 <div class="screen">
   <header>
     <h1>今日背诵</h1>
-    <div class="meta">2026-10-12　|　微信公众号：锤子数学</div>
+    <div class="meta">2026-10-09　|　微信公众号：锤子数学</div>
     <div class="topic">知识点 · 易错点</div>
   </header>
-  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【集合·划分】</span><span class="rtext">等和划分的必要条件：总和为偶数（还要够「匀」）。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·必修一 第1章《集合》1.2/1.3 子集与集合运算 · 考向：集合划分与构造</div></div><div class="rcard"><div class="rrow"><span class="rtag">【整数选和】</span><span class="rtext">连续整数中选 r 个，其和可取 [L, U] 内的每一个整数（L、U 为最小/最大和）。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·必修一 第1章《集合》1.2/1.3 子集与集合运算 · 考向：集合划分与构造</div></div><div class="rcard"><div class="rrow"><span class="rtag">【构造】</span><span class="rtext">充分性靠构造 + 递推：每加 4 个连续整数，首尾配对补回平衡。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·必修一 第1章《集合》1.2/1.3 子集与集合运算 · 考向：集合划分与构造</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：只证必要性就收工；忽略 A、B 必须非空。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·必修一 第1章《集合》1.2/1.3 子集与集合运算 · 考向：集合划分与构造</div></div></div>
+  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【解析几何·椭圆】</span><span class="rtext">椭圆 c² = a² − b²，e = c/a；由焦点与 a 定出 a、b。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·选必一 第3章《圆锥曲线与方程》3.1 椭圆 · 考向：联立韦达、面积最值、定点</div></div><div class="rcard"><div class="rrow"><span class="rtag">【解析几何·弦】</span><span class="rtext">联立直线与椭圆 → 韦达定理，把 x₁+x₂、x₁x₂ 整体代入。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·选必一 第3章《圆锥曲线与方程》3.1 椭圆 · 考向：联立韦达、面积最值、定点</div></div><div class="rcard"><div class="rrow"><span class="rtag">【面积】</span><span class="rtext">△ABO 面积 = ½|x₁y₂ − x₂y₁|；过定点常可用 k=0 取最值。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·选必一 第3章《圆锥曲线与方程》3.1 椭圆 · 考向：联立韦达、面积最值、定点</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：设斜率时漏掉竖直（斜率不存在）情形；定点问题漏证充分性。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·选必一 第3章《圆锥曲线与方程》3.1 椭圆 · 考向：联立韦达、面积最值、定点</div></div></div>
   <div class="hint">↑ 向上滑动：返回「每日一题」</div>
 </div>
 <script>
