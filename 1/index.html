@@ -34,6 +34,12 @@ padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 .ans{display:none;margin-top:1.2vh;font-size:clamp(22px,2.1vw,44px);line-height:1.55}
 .ans.on{display:block}
 .akey{color:#dc2626;font-weight:700}
+.recite{background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:1vh 1.5vw;
+font-size:clamp(15px,1.25vw,27px);line-height:1.55}
+.recite h2{font-size:clamp(16px,1.35vw,30px);color:#047857;margin-bottom:.5vh}
+.recite ul{list-style:none;display:flex;flex-wrap:wrap;gap:.5vh 2.2vw}
+.recite li{color:#0f766e}
+.recite li::before{content:"▪ ";color:#14b8a6;font-weight:700}
 </style>
 </head>
 <body>
@@ -46,6 +52,7 @@ padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
   <div class="stem">一个质点在随机外力的作用下，从原点 O 出发在数轴上移动，每次向左或向右移动一个单位且相互独立。已知向右移的概率为 3/5，向左移的概率为 2/5。设该质点移动 n 次后在数轴上对应的数为随机变量 ξₙ，则 ξₙ 的方差 D(ξₙ) = ______（用含 n 的式子表示）。</div>
   
   <div class="subs"></div>
+  <section class="recite"><h2>今日背诵 · 知识点</h2><ul><li>X ~ B(n,p)：E(X) = np，D(X) = np(1−p)</li><li>D(aX + b) = a²D(X)（系数要平方）</li><li>ξ = 2X − n ⇒ D(ξ) = 4D(X)</li><li>易错：把 D(aX) 算成 aD(X)</li></ul></section>
 </main>
 <footer>
   <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
