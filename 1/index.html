@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-10</title>
+<title>每日一题 · 2026-10-11</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -54,27 +54,27 @@ border-top:1px dashed #5eead4;padding-top:.6vh;white-space:nowrap;overflow:hidde
 <div class="screen">
   <header>
     <h1>每日一题</h1>
-    <div class="meta">2026-10-10　|　微信公众号：锤子数学</div>
-    <div class="topic">概率 · 投篮测试 · 分布列与条件概率</div>
+    <div class="meta">2026-10-11　|　微信公众号：锤子数学</div>
+    <div class="topic">对数运算 · 实际应用（蓄电池）</div>
   </header>
   <main>
-    <div class="stem">小王同学参加一个投篮测试，其规则是：有 5 次投篮机会，若连续投中两次则通过测试并结束测试；若未通过测试，将继续投篮直至 5 次投篮机会用完；第 5 次投篮后，不论通过与否均结束测试。现假定小王同学每次投篮结果相互独立，命中率均为 p（0 < p < 1），记 X 为小王同学测试结束时投篮的次数。</div>
+    <div class="stem">Peukert 于 1897 年提出蓄电池的容量 C（单位：A·h）、放电时间 t（单位：h）与放电电流 I（单位：A）之间关系的经验公式 C = Iⁿ·t，其中 n = log₍₃/₂₎2 为 Peukert 常数。在电池容量不变的条件下，当放电电流 I = 18A 时，放电时间 t = 14h，则当放电电流 I = 8A 时，放电时间为（　　）</div>
     
-    <div class="subs"><div class="sub">（1）求 X 的分布列及数学期望；</div><div class="sub">（2）若在通过测试的条件下，小王同学恰好投篮 2 次的概率大于 1/(5p − p³)，求 p 的取值范围。</div></div>
+    <div class="opts"><div class="opt"><b>A.</b>28h</div><div class="opt"><b>B.</b>56h</div><div class="opt"><b>C.</b>70h</div><div class="opt"><b>D.</b>112h</div></div>
   </main>
   <footer>
     <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-    <div class="ans" id="ans"><div class="akey">答案：（1）P(X=2)=p²，P(X=3)=P(X=4)=(1−p)p²，P(X=5)=1−3p²+2p³；E(X)=5−6p²+3p³；（2）p ∈ (1/2, 1)</div></div>
+    <div class="ans" id="ans"><div class="akey">答案：B</div></div>
   </footer>
   <div class="hint">↓ 向下滑动：进入「今日背诵 · 知识点」</div>
 </div>
 <div class="screen">
   <header>
     <h1>今日背诵</h1>
-    <div class="meta">2026-10-10　|　微信公众号：锤子数学</div>
+    <div class="meta">2026-10-11　|　微信公众号：锤子数学</div>
     <div class="topic">知识点 · 易错点</div>
   </header>
-  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【概率·独立重复】</span><span class="rtext">每次投篮独立，连续命中/首次通过的概率都按 p^k q^m 相乘。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·选必二 第8章《概率》8.1 条件概率 + 8.2 分布列与数字特征 · 考向：分布列、期望、条件概率</div></div><div class="rcard"><div class="rrow"><span class="rtag">【概率·分布列】</span><span class="rtext">X 的取值要穷举到 5；注意第 5 次也可能构成「连续两次通过」。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·选必二 第8章《概率》8.1 条件概率 + 8.2 分布列与数字特征 · 考向：分布列、期望、条件概率</div></div><div class="rcard"><div class="rrow"><span class="rtag">【条件概率】</span><span class="rtext">P(X=k|A) = P(X=k)/P(A)，先求 P(A) 再比大小。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·选必二 第8章《概率》8.1 条件概率 + 8.2 分布列与数字特征 · 考向：分布列、期望、条件概率</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：漏掉第 5 次那一种通过方式，导致 P(A) 与答案整体偏小。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·选必二 第8章《概率》8.1 条件概率 + 8.2 分布列与数字特征 · 考向：分布列、期望、条件概率</div></div></div>
+  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【对数·互化】</span><span class="rtext">指数与对数互化 aᵇ = N ⇔ b = log_a N，是解对数方程的第一步。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·必修一 第4章《指数与对数》4.2 对数 · 考向：对数运算、换底、实际应用</div></div><div class="rcard"><div class="rrow"><span class="rtag">【对数·应用】</span><span class="rtext">C = Iⁿ·t 型：容量不变 ⇒ I₁ⁿt₁ = I₂ⁿt₂，比值再化简。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·必修一 第4章《指数与对数》4.2 对数 · 考向：对数运算、换底、实际应用</div></div><div class="rcard"><div class="rrow"><span class="rtag">【换底】</span><span class="rtext">log_ab · log_ba = 1；底数与真数同时变幂可约分。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·必修一 第4章《指数与对数》4.2 对数 · 考向：对数运算、换底、实际应用</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：(9/4)ⁿ 一类指数运算：先化成 (3/2)²ⁿ 再用条件。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·必修一 第4章《指数与对数》4.2 对数 · 考向：对数运算、换底、实际应用</div></div></div>
   <div class="hint">↑ 向上滑动：返回「每日一题」</div>
 </div>
 <script>
