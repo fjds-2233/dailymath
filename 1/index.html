@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-12</title>
+<title>每日一题 · 2026-10-13</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -54,27 +54,27 @@ border-top:1px dashed #5eead4;padding-top:.6vh;white-space:nowrap;overflow:hidde
 <div class="screen">
   <header>
     <h1>每日一题</h1>
-    <div class="meta">2026-10-12　|　微信公众号：锤子数学</div>
-    <div class="topic">概率 · 随机游走 · 方差</div>
+    <div class="meta">2026-10-13　|　学科网 · 上海南汇中学高三10月阶段检测</div>
+    <div class="topic">复数 · 纯虚数的定义</div>
   </header>
   <main>
-    <div class="stem">一个质点在随机外力的作用下，从原点 O 出发在数轴上移动，每次向左或向右移动一个单位且相互独立。已知向右移的概率为 3/5，向左移的概率为 2/5。设该质点移动 n 次后在数轴上对应的数为随机变量 ξₙ，则 ξₙ 的方差 D(ξₙ) = ______（用含 n 的式子表示）。</div>
+    <div class="stem">已知复数 z = a² − 1 + (a − 1)i 为纯虚数（其中 i 为虚数单位），则实数 a = ______。</div>
     
     <div class="subs"></div>
   </main>
   <footer>
     <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-    <div class="ans" id="ans"><div class="akey">答案：24n/25</div></div>
+    <div class="ans" id="ans"><div class="akey">答案：−1</div></div>
   </footer>
   <div class="hint">↓ 向下滑动：进入「今日背诵 · 知识点」</div>
 </div>
 <div class="screen">
   <header>
     <h1>今日背诵</h1>
-    <div class="meta">2026-10-12　|　微信公众号：锤子数学</div>
+    <div class="meta">2026-10-13　|　学科网 · 上海南汇中学高三10月阶段检测</div>
     <div class="topic">知识点 · 易错点</div>
   </header>
-  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【概率·二项分布】</span><span class="rtext">X ~ B(n,p)：E(X) = np，D(X) = np(1−p)。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·选必二 第8章《概率》8.2.3 二项分布 + 8.2.2 数字特征 · 考向：二项分布方差、方差性质</div></div><div class="rcard"><div class="rrow"><span class="rtag">【方差性质】</span><span class="rtext">D(aX + b) = a²D(X)——系数要平方，加减常数不影响方差。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·选必二 第8章《概率》8.2.3 二项分布 + 8.2.2 数字特征 · 考向：二项分布方差、方差性质</div></div><div class="rcard"><div class="rrow"><span class="rtag">【位移】</span><span class="rtext">ξ = 2X − n ⇒ D(ξ) = 4D(X)，把随机游走的方差转成二项分布的方差。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·选必二 第8章《概率》8.2.3 二项分布 + 8.2.2 数字特征 · 考向：二项分布方差、方差性质</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：把 D(aX) 直接算成 aD(X)（漏平方，结果差 2 倍）。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·选必二 第8章《概率》8.2.3 二项分布 + 8.2.2 数字特征 · 考向：二项分布方差、方差性质</div></div></div>
+  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【复数·概念】</span><span class="rtext">复数 z = a + bi（a、b 为实数）；a 是实部、b 是虚部。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·必修二 第12章《复数》· 考向：复数的概念</div></div><div class="rcard"><div class="rrow"><span class="rtag">【纯虚数】</span><span class="rtext">纯虚数 ⇔ 实部 = 0 且 虚部 ≠ 0；两个条件缺一不可。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·必修二 第12章《复数》· 考向：纯虚数的定义</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：只令实部为 0，忘了检验虚部不为 0，结果多留一个根。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·必修二 第12章《复数》· 考向：纯虚数的定义</div></div><div class="rcard"><div class="rrow"><span class="rtag">【解题】</span><span class="rtext">先解实部方程得 a = ±1，再由 a − 1 ≠ 0 舍去 a = 1，得 a = −1。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·必修二 第12章《复数》· 考向：纯虚数的定义</div></div></div>
   <div class="hint">↑ 向上滑动：返回「每日一题」</div>
 </div>
 <script>
