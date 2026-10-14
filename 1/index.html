@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-14</title>
+<title>每日一题 · 2026-10-15</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -54,13 +54,13 @@ border-top:1px dashed #5eead4;padding-top:.6vh;white-space:nowrap;overflow:hidde
 <div class="screen">
   <header>
     <h1>每日一题</h1>
-    <div class="meta">2026-10-14　|　学科网 · 河南湘豫联考高三10月</div>
-    <div class="topic">分式不等式 · 充分必要条件</div>
+    <div class="meta">2026-10-15　|　学科网 · 安徽省部分校高三10月学情检测B</div>
+    <div class="topic">导数 · 赋值法求导数值</div>
   </header>
   <main>
-    <div class="stem">已知 x ∈ R，则不等式「x ≥ 1」是不等式「(x − 2)/(x − 1) ≤ 1」的（　　）</div>
+    <div class="stem">已知函数 f(x) = 4 ln x − x·f′(2)，则 f′(2) = （　　）</div>
     
-    <div class="opts"><div class="opt"><b>A.</b>充分不必要条件</div><div class="opt"><b>B.</b>必要不充分条件</div><div class="opt"><b>C.</b>充要条件</div><div class="opt"><b>D.</b>既不充分也不必要条件</div></div>
+    <div class="opts"><div class="opt"><b>A.</b>−1</div><div class="opt"><b>B.</b>1</div><div class="opt"><b>C.</b>2</div><div class="opt"><b>D.</b>4</div></div>
   </main>
   <footer>
     <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
@@ -71,10 +71,10 @@ border-top:1px dashed #5eead4;padding-top:.6vh;white-space:nowrap;overflow:hidde
 <div class="screen">
   <header>
     <h1>今日背诵</h1>
-    <div class="meta">2026-10-14　|　学科网 · 河南湘豫联考高三10月</div>
+    <div class="meta">2026-10-15　|　学科网 · 安徽省部分校高三10月学情检测B</div>
     <div class="topic">知识点 · 易错点</div>
   </header>
-  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【不等式·分式】</span><span class="rtext">解分式不等式先移项通分，化成一边为 0 再判号——不要直接两边乘分母。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·必修一 第3章《不等式》· 考向：分式不等式的解法</div></div><div class="rcard"><div class="rrow"><span class="rtag">【充要条件】</span><span class="rtext">判断「p 是 q 的什么条件」看两件事：p⟹q 成不成立、q⟹p 成不成立。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·必修一 第2章《常用逻辑用语》· 考向：充分条件与必要条件</div></div><div class="rcard"><div class="rrow"><span class="rtag">【本题关键】</span><span class="rtext">(x−2)/(x−1) ≤ 1 ⟺ −1/(x−1) ≤ 0 ⟺ x > 1；两端一个是 x≥1、一个是 x>1。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·必修一 第3章《不等式》· 考向：分式不等式的等价变形</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：把「x≥1」当成能推出「x>1」（x=1 就是反例），从而选成 A。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·必修一 第2章《常用逻辑用语》· 考向：端点值的取舍</div></div></div>
+  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【导数·赋值】</span><span class="rtext">f′(2) 是一个确定的数（常数）。求导时把它当系数看：f(x)=4ln x − x·f′(2) ⟹ f′(x)=4/x − f′(2)。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·选必一 第5章《导数及其应用》5.2 导数的运算 · 考向：导数的运算法则</div></div><div class="rcard"><div class="rrow"><span class="rtag">【基本初等函数导数】</span><span class="rtext">(ln x)′ = 1/x；常数与 x 相乘的项，求导后常数照留。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·选必一 第5章《导数及其应用》5.2 · 考向：基本初等函数的导数</div></div><div class="rcard"><div class="rrow"><span class="rtag">【本题关键】</span><span class="rtext">先求导，再把 x = 2 代进去，得到关于 f′(2) 的一次方程：f′(2) = 2 − f′(2) ⟹ f′(2) = 1。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·选必一 第5章《导数及其应用》5.2 · 考向：赋值法求导数值</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：把 f′(2) 当成含 x 的式子一起求导，多算出一项。记住：它是数，不是函数。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·选必一 第5章《导数及其应用》5.2 · 考向：导数的概念理解</div></div></div>
   <div class="hint">↑ 向上滑动：返回「每日一题」</div>
 </div>
 <script>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-14</title>
+<title>每日一题 · 2026-10-15</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -54,27 +54,27 @@ border-top:1px dashed #5eead4;padding-top:.6vh;white-space:nowrap;overflow:hidde
 <div class="screen">
   <header>
     <h1>每日一题</h1>
-    <div class="meta">2026-10-14　|　学科网 · 河南湘豫联考高三10月</div>
-    <div class="topic">导数 · 极值与参数范围</div>
+    <div class="meta">2026-10-15　|　学科网 · 安徽省部分校高三10月学情检测B</div>
+    <div class="topic">对数复合函数 · 单调性与恒成立</div>
   </header>
   <main>
-    <div class="stem">已知函数 f(x) = x²/(kx − 1)（k < 0）。</div>
+    <div class="stem">已知函数 f(x) = log₂(−2x² + mx + 12)。</div>
     
-    <div class="subs"><div class="sub">（1）当 k = −2 时，求 f(x) 在区间 [−2, −2/3] 上的最大值与最小值；</div><div class="sub">（2）若 f(x) 的极小值小于 1，求 k 的取值范围。</div></div>
+    <div class="subs"><div class="sub">（1）若 f(x) 在 [1, 3] 上单调递减，求实数 m 的取值范围；</div><div class="sub">（2）设函数 g(x) = −(4^x) + 2^(x+1) + 4，若对 ∀x₁, x₂ ∈ [1, 3]，f(x₁) ≥ g(x₂) 恒成立，求实数 m 的取值范围。</div></div>
   </main>
   <footer>
     <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-    <div class="ans" id="ans"><div class="akey">答案：（1）最大值 4/3，最小值 1；（2）k ∈ (−∞, −2)</div></div>
+    <div class="ans" id="ans"><div class="akey">答案：（1）(2, 4]；（2）[22/3, +∞)</div></div>
   </footer>
   <div class="hint">↓ 向下滑动：进入「今日背诵 · 知识点」</div>
 </div>
 <div class="screen">
   <header>
     <h1>今日背诵</h1>
-    <div class="meta">2026-10-14　|　学科网 · 河南湘豫联考高三10月</div>
+    <div class="meta">2026-10-15　|　学科网 · 安徽省部分校高三10月学情检测B</div>
     <div class="topic">知识点 · 易错点</div>
   </header>
-  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【导数·求导】</span><span class="rtext">商式求导：f(x)=x²/(kx−1) ⟹ f′(x)=x(kx−2)/(kx−1)²，分母恒正，只看分子。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·选必一 第5章《导数及其应用》5.2 导数的运算 · 考向：商的导数</div></div><div class="rcard"><div class="rrow"><span class="rtag">【极值】</span><span class="rtext">令 f′(x)=0 得 x=0 与 x=2/k；k<0 时 2/k < 1/k < 0，逐段判号定极大/极小。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·选必一 第5章《导数及其应用》5.3 · 考向：含参函数的极值</div></div><div class="rcard"><div class="rrow"><span class="rtag">【闭区间最值】</span><span class="rtext">闭区间最值 = 极值点与两个端点函数值里比大小，缺一不可。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·选必一 第5章《导数及其应用》5.3 · 考向：闭区间上的最值</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：漏掉定义域 x ≠ 1/k 的断点；解 k²>4 后忘用 k<0 舍去 k>2。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·选必一 第5章《导数及其应用》5.3 · 考向：极值与参数范围</div></div></div>
+  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【复合函数单调】</span><span class="rtext">f(x) = log₂u(x)：外层 log₂ 单调递增，所以 f 的增减完全由内层 u(x) 决定，但必须同时保证 u(x) > 0。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·必修一 第6章《幂函数、指数函数和对数函数》· 考向：复合函数的单调性</div></div><div class="rcard"><div class="rrow"><span class="rtag">【对数不等式】</span><span class="rtext">log₂u ≥ 4 ⟺ u ≥ 2⁴ = 16（底 2 > 1，不等号方向不变）。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·必修一 第6章《幂函数、指数函数和对数函数》· 考向：对数不等式的解法</div></div><div class="rcard"><div class="rrow"><span class="rtag">【恒成立转化】</span><span class="rtext">「∀x₁, x₂，f(x₁) ≥ g(x₂)」⟺ f 的最小值 ≥ g 的最大值——两个最值各自独立算，不要混。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·必修一 第5章《函数概念与性质》· 考向：函数的最值与恒成立</div></div><div class="rcard"><div class="rrow"><span class="rtag">【分离参数】</span><span class="rtext">m ≥ 2x + 4/x 对 x ∈ [1, 3] 恒成立 ⟺ m ≥ (2x + 4/x) 的最大值；该最大值在 x = 3 处取到 22/3。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·必修一 第3章《不等式》· 考向：基本不等式与函数最值</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：只让内层 u > 0 就收工，漏掉 log₂u ≥ 4 这一步；另注意 x=3 处取到的是区间最大值，别误用 x=√2 处的 4√2。</span><button class="rsrc" onclick="toggleSrc(4)">来源</button></div><div class="rsrctext" id="src4">苏教版·必修一 第6章 · 考向：对数函数与二次函数的复合</div></div></div>
   <div class="hint">↑ 向上滑动：返回「每日一题」</div>
 </div>
 <script>
