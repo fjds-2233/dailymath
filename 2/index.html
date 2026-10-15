@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-15</title>
+<title>每日一题 · 2026-10-16</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -42,39 +42,45 @@ padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 .rrow{display:flex;align-items:flex-start;gap:1vw}
 .rtag{font-size:clamp(16px,1.5vw,32px);color:#047857;font-weight:700;white-space:nowrap}
 .rtext{font-size:clamp(18px,1.75vw,38px);line-height:1.5;color:#134e4a;flex:1}
+.rnum{font-size:clamp(17px,1.6vw,34px);color:#0d9488;font-weight:700;white-space:nowrap;flex:none}
 .rsrc{font-size:clamp(18px,1.75vw,38px);line-height:1.2;background:#ffffff;border:1px solid #5eead4;
 color:#0f766e;border-radius:8px;padding:.2vh .9vw;cursor:pointer;white-space:nowrap;flex:none}
 .rsrc:hover{background:#ccfbf1}
 .rsrctext{font-size:clamp(15px,1.3vw,27px);color:#0f766e;margin-top:.7vh;
 border-top:1px dashed #5eead4;padding-top:.6vh;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rsrctext.on{white-space:normal;overflow:visible;text-overflow:clip}
+/* 练手指引卡（去九章方略找题） */
+.pcard{background:#fffbeb;border:2px solid #fcd34d}
+.pcard .rtag{color:#b45309}
+.pcard .rtext{color:#78350f}
+.pfoot{font-size:clamp(15px,1.3vw,27px);color:#78716c;margin-top:1.2vh;text-align:center}
 </style>
 </head>
 <body>
 <div class="screen">
   <header>
     <h1>每日一题</h1>
-    <div class="meta">2026-10-15　|　学科网 · 安徽省部分校高三10月学情检测B</div>
-    <div class="topic">对数复合函数 · 单调性与恒成立</div>
+    <div class="meta">2026-10-16　|　微信公众号 · 锤子数学（盐城中学高三第一次阶段检测）</div>
+    <div class="topic">新定义「相离度」· 向量叉积与 sinθ</div>
   </header>
   <main>
-    <div class="stem">已知函数 f(x) = log₂(−2x² + mx + 12)。</div>
+    <div class="stem">在平面直角坐标系 xOy 中，对于非零向量 a = (x₁, y₁)，b = (x₂, y₂)，定义这两个向量的「相离度」为 d(a, b) = |x₁y₂ − x₂y₁| ÷ [√(x₁² + y₁²) · √(x₂² + y₂²)]，容易知道 a、b 平行的充要条件为 d(a, b) = 0。</div>
     
-    <div class="subs"><div class="sub">（1）若 f(x) 在 [1, 3] 上单调递减，求实数 m 的取值范围；</div><div class="sub">（2）设函数 g(x) = −(4^x) + 2^(x+1) + 4，若对 ∀x₁, x₂ ∈ [1, 3]，f(x₁) ≥ g(x₂) 恒成立，求实数 m 的取值范围。</div></div>
+    <div class="subs"><div class="sub">（1）已知向量 a = (√5, 2)，b = (1, −4√5)，求 d(a, b)；</div><div class="sub">（2）(i) 设向量 a、b 的夹角为 θ，证明：d(a, b) = sin θ；(ii) 在 △ABC 中，AB = 4，AC = 8，D 为 BC 的中点，且 AD = 2√7，若 AD→ = 2PD→，求 d(AP→, BP→)。</div></div>
   </main>
   <footer>
     <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-    <div class="ans" id="ans"><div class="akey">答案：（1）(2, 4]；（2）[22/3, +∞)</div></div>
+    <div class="ans" id="ans"><div class="akey">答案：（1）22/27；（2）(i) d = sin θ（证略）；(ii) 4√3/7</div></div>
   </footer>
-  <div class="hint">↓ 向下滑动：进入「今日背诵 · 知识点」</div>
+  <div class="hint">↓ 向下滑动：进入「思维建模 · 练手指引」</div>
 </div>
 <div class="screen">
   <header>
-    <h1>今日背诵</h1>
-    <div class="meta">2026-10-15　|　学科网 · 安徽省部分校高三10月学情检测B</div>
-    <div class="topic">知识点 · 易错点</div>
+    <h1>思维建模</h1>
+    <div class="meta">2026-10-16　|　微信公众号 · 锤子数学（盐城中学高三第一次阶段检测）</div>
+    <div class="topic">新定义问题 · 通用方法与注意点</div>
   </header>
-  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【复合函数单调】</span><span class="rtext">f(x) = log₂u(x)：外层 log₂ 单调递增，所以 f 的增减完全由内层 u(x) 决定，但必须同时保证 u(x) > 0。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·必修一 第6章《幂函数、指数函数和对数函数》· 考向：复合函数的单调性</div></div><div class="rcard"><div class="rrow"><span class="rtag">【对数不等式】</span><span class="rtext">log₂u ≥ 4 ⟺ u ≥ 2⁴ = 16（底 2 > 1，不等号方向不变）。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·必修一 第6章《幂函数、指数函数和对数函数》· 考向：对数不等式的解法</div></div><div class="rcard"><div class="rrow"><span class="rtag">【恒成立转化】</span><span class="rtext">「∀x₁, x₂，f(x₁) ≥ g(x₂)」⟺ f 的最小值 ≥ g 的最大值——两个最值各自独立算，不要混。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·必修一 第5章《函数概念与性质》· 考向：函数的最值与恒成立</div></div><div class="rcard"><div class="rrow"><span class="rtag">【分离参数】</span><span class="rtext">m ≥ 2x + 4/x 对 x ∈ [1, 3] 恒成立 ⟺ m ≥ (2x + 4/x) 的最大值；该最大值在 x = 3 处取到 22/3。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·必修一 第3章《不等式》· 考向：基本不等式与函数最值</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：只让内层 u > 0 就收工，漏掉 log₂u ≥ 4 这一步；另注意 x=3 处取到的是区间最大值，别误用 x=√2 处的 4√2。</span><button class="rsrc" onclick="toggleSrc(4)">来源</button></div><div class="rsrctext" id="src4">苏教版·必修一 第6章 · 考向：对数函数与二次函数的复合</div></div></div>
+  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rnum">1</span><span class="rtext">向量背景的新定义，通常建立在向量的「方向性 + 大小性」上：本质是让你用已有知识，去翻译一个新运算或新概念。</span></div></div><div class="rcard"><div class="rrow"><span class="rnum">2</span><span class="rtext">第一步——读懂定义本身：它定义的是一个「数」还是一种「关系」？用到哪些向量运算（加、减、数乘、数量积）？</span></div></div><div class="rcard"><div class="rrow"><span class="rnum">3</span><span class="rtext">第二步——把它翻译成熟悉的语言再动手：定义式若能看成长度、夹角、共线或面积，就先转成图形意义，算起来会短很多。</span></div></div><div class="rcard"><div class="rrow"><span class="rnum">4</span><span class="rtext">注意点：不要一上来就硬算。定义式里出现「分子是叉积、分母是两个模长」这类结构时，第一反应应该是它等于夹角的正弦——这是把新定义拉回旧知识的捷径。</span></div></div><div class="rcard pcard"><div class="rrow"><span class="rtag">练手</span><span class="rtext">《九章方略》限时练 17「正弦定理、余弦定理的综合应用」（向量 + 解三角形）；想多练新定义就看限时练 16「平面向量与解三角形(2)」</span></div></div><div class="pfoot">方法与注意点 · 通用模型</div></div>
   <div class="hint">↑ 向上滑动：返回「每日一题」</div>
 </div>
 <script>

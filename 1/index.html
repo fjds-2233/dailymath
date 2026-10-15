@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-15</title>
+<title>每日一题 · 2026-10-16</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -42,39 +42,45 @@ padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 .rrow{display:flex;align-items:flex-start;gap:1vw}
 .rtag{font-size:clamp(16px,1.5vw,32px);color:#047857;font-weight:700;white-space:nowrap}
 .rtext{font-size:clamp(18px,1.75vw,38px);line-height:1.5;color:#134e4a;flex:1}
+.rnum{font-size:clamp(17px,1.6vw,34px);color:#0d9488;font-weight:700;white-space:nowrap;flex:none}
 .rsrc{font-size:clamp(18px,1.75vw,38px);line-height:1.2;background:#ffffff;border:1px solid #5eead4;
 color:#0f766e;border-radius:8px;padding:.2vh .9vw;cursor:pointer;white-space:nowrap;flex:none}
 .rsrc:hover{background:#ccfbf1}
 .rsrctext{font-size:clamp(15px,1.3vw,27px);color:#0f766e;margin-top:.7vh;
 border-top:1px dashed #5eead4;padding-top:.6vh;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rsrctext.on{white-space:normal;overflow:visible;text-overflow:clip}
+/* 练手指引卡（去九章方略找题） */
+.pcard{background:#fffbeb;border:2px solid #fcd34d}
+.pcard .rtag{color:#b45309}
+.pcard .rtext{color:#78350f}
+.pfoot{font-size:clamp(15px,1.3vw,27px);color:#78716c;margin-top:1.2vh;text-align:center}
 </style>
 </head>
 <body>
 <div class="screen">
   <header>
     <h1>每日一题</h1>
-    <div class="meta">2026-10-15　|　学科网 · 安徽省部分校高三10月学情检测B</div>
-    <div class="topic">导数 · 赋值法求导数值</div>
+    <div class="meta">2026-10-16　|　微信公众号 · 锤子数学（盐城中学高三第一次阶段检测）</div>
+    <div class="topic">基本不等式 · 分式型最值</div>
   </header>
   <main>
-    <div class="stem">已知函数 f(x) = 4 ln x − x·f′(2)，则 f′(2) = （　　）</div>
+    <div class="stem">设 a > 0，b > 0，则 b/a + (4a + 2b)/b 的最小值为 ______。</div>
     
-    <div class="opts"><div class="opt"><b>A.</b>−1</div><div class="opt"><b>B.</b>1</div><div class="opt"><b>C.</b>2</div><div class="opt"><b>D.</b>4</div></div>
+    <div class="subs"></div>
   </main>
   <footer>
     <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-    <div class="ans" id="ans"><div class="akey">答案：B</div></div>
+    <div class="ans" id="ans"><div class="akey">答案：6</div></div>
   </footer>
-  <div class="hint">↓ 向下滑动：进入「今日背诵 · 知识点」</div>
+  <div class="hint">↓ 向下滑动：进入「思维建模 · 练手指引」</div>
 </div>
 <div class="screen">
   <header>
-    <h1>今日背诵</h1>
-    <div class="meta">2026-10-15　|　学科网 · 安徽省部分校高三10月学情检测B</div>
-    <div class="topic">知识点 · 易错点</div>
+    <h1>思维建模</h1>
+    <div class="meta">2026-10-16　|　微信公众号 · 锤子数学（盐城中学高三第一次阶段检测）</div>
+    <div class="topic">基本不等式 · 通用方法与注意点</div>
   </header>
-  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rtag">【导数·赋值】</span><span class="rtext">f′(2) 是一个确定的数（常数）。求导时把它当系数看：f(x)=4ln x − x·f′(2) ⟹ f′(x)=4/x − f′(2)。</span><button class="rsrc" onclick="toggleSrc(0)">来源</button></div><div class="rsrctext" id="src0">苏教版·选必一 第5章《导数及其应用》5.2 导数的运算 · 考向：导数的运算法则</div></div><div class="rcard"><div class="rrow"><span class="rtag">【基本初等函数导数】</span><span class="rtext">(ln x)′ = 1/x；常数与 x 相乘的项，求导后常数照留。</span><button class="rsrc" onclick="toggleSrc(1)">来源</button></div><div class="rsrctext" id="src1">苏教版·选必一 第5章《导数及其应用》5.2 · 考向：基本初等函数的导数</div></div><div class="rcard"><div class="rrow"><span class="rtag">【本题关键】</span><span class="rtext">先求导，再把 x = 2 代进去，得到关于 f′(2) 的一次方程：f′(2) = 2 − f′(2) ⟹ f′(2) = 1。</span><button class="rsrc" onclick="toggleSrc(2)">来源</button></div><div class="rsrctext" id="src2">苏教版·选必一 第5章《导数及其应用》5.2 · 考向：赋值法求导数值</div></div><div class="rcard"><div class="rrow"><span class="rtag">【易错】</span><span class="rtext">易错：把 f′(2) 当成含 x 的式子一起求导，多算出一项。记住：它是数，不是函数。</span><button class="rsrc" onclick="toggleSrc(3)">来源</button></div><div class="rsrctext" id="src3">苏教版·选必一 第5章《导数及其应用》5.2 · 考向：导数的概念理解</div></div></div>
+  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rnum">1</span><span class="rtext">配凑法求最值：把式子配成「和为常数」或「积为常数」，再用 a + b ≥ 2√(ab)。</span></div></div><div class="rcard"><div class="rrow"><span class="rnum">2</span><span class="rtext">常数代换法：已知 x + y = t（t 为常数），求 a/x + b/y 的最小值——先把 a/x + b/y 乘 1（即乘 (x+y)/t）再展开，就能凑出定积。</span></div></div><div class="rcard"><div class="rrow"><span class="rnum">3</span><span class="rtext">变量较多时先消元：用已知条件消掉一部分变量，再凑「和/积为常数」的形式。</span></div></div><div class="rcard"><div class="rrow"><span class="rnum">4</span><span class="rtext">注意点：用不等式前先看清「一正、二定、三相等」——取等条件必须能真的取到，否则最小值不是它。</span></div></div><div class="rcard pcard"><div class="rrow"><span class="rtag">练手</span><span class="rtext">《九章方略》限时练 2「相等关系与不等关系」—— 基本不等式与恒成立的题都在这一练里</span></div></div><div class="pfoot">方法与注意点 · 通用模型</div></div>
   <div class="hint">↑ 向上滑动：返回「每日一题」</div>
 </div>
 <script>
