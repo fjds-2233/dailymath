@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-16</title>
+<title>每日一题 · 2026-10-17</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -54,33 +54,37 @@ border-top:1px dashed #5eead4;padding-top:.6vh;white-space:nowrap;overflow:hidde
 .pcard .rtag{color:#b45309}
 .pcard .rtext{color:#78350f}
 .pfoot{font-size:clamp(15px,1.3vw,27px);color:#78716c;margin-top:1.2vh;text-align:center}
+/* 知识点图（定稿）：整条知识点截图，按可用高度等比缩放 */
+.kcard{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:1.2vh 1.4vw;
+display:flex;justify-content:center;align-items:center;overflow:hidden;flex:1;min-height:0}
+.kcard img{height:100%;width:auto;max-width:100%;object-fit:contain}
 </style>
 </head>
 <body>
 <div class="screen">
   <header>
     <h1>每日一题</h1>
-    <div class="meta">2026-10-16　|　微信公众号 · 锤子数学（盐城中学高三第一次阶段检测）</div>
-    <div class="topic">基本不等式 · 分式型最值</div>
+    <div class="meta">2026-10-17　|　学科网 · 河南平顶山部分校10月过程性作业评价</div>
+    <div class="topic">分段函数单调性与参数范围</div>
   </header>
   <main>
-    <div class="stem">设 a > 0，b > 0，则 b/a + (4a + 2b)/b 的最小值为 ______。</div>
+    <div class="stem">已知 a>0 且 a≠1，函数 f(x)={ (a-1)x+1/2（x<1）; logₐx（x≥1） } 在 (0,+∞) 上单调递减，则 a 的取值范围为（　）</div>
     
-    <div class="subs"></div>
+    <div class="opts"><div class="opt"><b>A.</b>[1/2, 1)</div><div class="opt"><b>B.</b>(1/2, 1)</div><div class="opt"><b>C.</b>(0, 1/2]</div><div class="opt"><b>D.</b>(0, 1/2)</div></div>
   </main>
   <footer>
     <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-    <div class="ans" id="ans"><div class="akey">答案：6</div></div>
+    <div class="ans" id="ans"><div class="akey">答案：A</div></div>
   </footer>
-  <div class="hint">↓ 向下滑动：进入「思维建模 · 练手指引」</div>
+  <div class="hint">↓ 向下滑动：进入「知识点背诵」</div>
 </div>
 <div class="screen">
   <header>
-    <h1>思维建模</h1>
-    <div class="meta">2026-10-16　|　微信公众号 · 锤子数学（盐城中学高三第一次阶段检测）</div>
-    <div class="topic">基本不等式 · 通用方法与注意点</div>
+    <h1>知识点背诵</h1>
+    <div class="meta">2026-10-17　|　学科网 · 河南平顶山部分校10月过程性作业评价</div>
+    <div class="topic">函数的性质</div>
   </header>
-  <div class="rcards"><div class="rcard"><div class="rrow"><span class="rnum">1</span><span class="rtext">配凑法求最值：把式子配成「和为常数」或「积为常数」，再用 a + b ≥ 2√(ab)。</span></div></div><div class="rcard"><div class="rrow"><span class="rnum">2</span><span class="rtext">常数代换法：已知 x + y = t（t 为常数），求 a/x + b/y 的最小值——先把 a/x + b/y 乘 1（即乘 (x+y)/t）再展开，就能凑出定积。</span></div></div><div class="rcard"><div class="rrow"><span class="rnum">3</span><span class="rtext">变量较多时先消元：用已知条件消掉一部分变量，再凑「和/积为常数」的形式。</span></div></div><div class="rcard"><div class="rrow"><span class="rnum">4</span><span class="rtext">注意点：用不等式前先看清「一正、二定、三相等」——取等条件必须能真的取到，否则最小值不是它。</span></div></div><div class="rcard pcard"><div class="rrow"><span class="rtag">练手</span><span class="rtext">《九章方略》限时练 2「相等关系与不等关系」—— 基本不等式与恒成立的题都在这一练里</span></div></div><div class="pfoot">方法与注意点 · 通用模型</div></div>
+  <div class="rcards"><div class="kcard"><img src="k.png" alt="知识点"></div><div class="rcard pcard"><div class="rrow"><span class="rtag">练手</span><span class="rtext">《九章方略》限时练 4「函数的概念与性质」—— 分段函数单调性、由单调性求参数范围的题都在这一练里</span></div></div></div>
   <div class="hint">↑ 向上滑动：返回「每日一题」</div>
 </div>
 <script>
