@@ -17,6 +17,8 @@ h1{font-size:clamp(26px,3.1vw,56px);color:#0891b2;letter-spacing:.05em}
 border-radius:999px;padding:.5vh 1.1vw;align-self:center;margin-left:auto}
 main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2vh;min-height:0}
 .stem{font-size:clamp(24px,2.5vw,50px);line-height:1.5}
+.qfig{display:flex;justify-content:center;align-items:center;min-height:0;flex:none}
+.qfig img{max-height:32vh;max-width:100%;object-fit:contain;border:1px solid #e2e8f0;border-radius:10px;background:#fff;padding:.6vh .8vw}
 table{border-collapse:collapse;font-size:clamp(20px,2vw,42px);margin:1vh auto;background:#fff;
 box-shadow:0 1px 3px rgba(15,23,42,.06);border-radius:6px;overflow:hidden}
 td{border:1px solid #cbd5e1;padding:.6vh 1.4vw;text-align:center}
@@ -42,6 +44,8 @@ padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 .rrow{display:flex;align-items:flex-start;gap:1vw}
 .rtag{font-size:clamp(16px,1.5vw,32px);color:#047857;font-weight:700;white-space:nowrap}
 .rtext{font-size:clamp(18px,1.75vw,38px);line-height:1.5;color:#134e4a;flex:1}
+.mcard{background:#f8fafc;border-color:#cbd5e1}
+.mtext{font-size:clamp(16px,1.45vw,31px);line-height:1.65;color:#334155;flex:1}
 .rnum{font-size:clamp(17px,1.6vw,34px);color:#0d9488;font-weight:700;white-space:nowrap;flex:none}
 .rsrc{font-size:clamp(18px,1.75vw,38px);line-height:1.2;background:#ffffff;border:1px solid #5eead4;
 color:#0f766e;border-radius:8px;padding:.2vh .9vw;cursor:pointer;white-space:nowrap;flex:none}
@@ -61,7 +65,7 @@ display:flex;justify-content:center;align-items:center;overflow:hidden;flex:1;mi
 </style>
 </head>
 <body>
-<div class="screen">
+<div class="screen" id="q">
   <header>
     <h1>每日一题</h1>
     <div class="meta">2026-10-23　|　学科网 · 天津益中高三10月阶段检测</div>
@@ -69,6 +73,7 @@ display:flex;justify-content:center;align-items:center;overflow:hidden;flex:1;mi
   </header>
   <main>
     <div class="stem">已知函数 f(x)=1/x+ln x-(a·eˣ)/x (a∈R)。</div>
+    
     
     <div class="subs"><div class="sub">（1）当 a=0 时，求曲线 y=f(x) 在 x=1 处的切线方程；</div><div class="sub">（2）当 a>0 时，讨论 f(x) 的单调性；</div><div class="sub">（3）若 x>1 时， f(x)+1 ≥ x+1/x 恒成立，求 a 的取值范围。</div></div>
   </main>
@@ -78,14 +83,23 @@ display:flex;justify-content:center;align-items:center;overflow:hidden;flex:1;mi
   </footer>
   <div class="hint">↓ 向下滑动：进入「知识点背诵」</div>
 </div>
-<div class="screen">
+<div class="screen" id="kb">
   <header>
     <h1>知识点背诵</h1>
     <div class="meta">2026-10-23　|　学科网 · 天津益中高三10月阶段检测</div>
     <div class="topic">导数的应用</div>
   </header>
   <div class="rcards"><div class="kcard"><img src="k.png" alt="知识点"></div><div class="rcard pcard"><div class="rrow"><span class="rtag">练手</span><span class="rtext">《九章方略》限时练 11「导数的综合应用」—— 与本题考点相关的题都在这一练里</span></div></div></div>
-  <div class="hint">↑ 向上滑动：返回「每日一题」</div>
+  <div class="hint">↑ 返回「每日一题」 · ↓ 继续下滑「思维建模」</div>
+</div>
+<div class="screen" id="model">
+  <header>
+    <h1>思维建模</h1>
+    <div class="meta">2026-10-23　|　通用模型 · 与今日题目无关</div>
+    <div class="topic">第10节  圆锥曲线的切线与光学性质</div>
+  </header>
+  <div class="rcards"><div class="rcard mcard"><div class="rrow"><span class="rnum">1</span><span class="mtext">1.圆的切点弦方程可由以圆外点为圆心,切线长为半径的圆与该圆方程相减求得. 2.切点弦问题常涉及弦方程、弦长、弦过定点以及最值、范围问题.</span></div></div><div class="rcard mcard"><div class="rrow"><span class="rnum">2</span><span class="mtext">光学性质问题往往与圆锥曲线中的新定义问题或者结合生活情境问题进行考查,教材中将其作为阅读内容,实际上圆锥曲线的光学性质与切线等问题联系密切,是高考热点问题.</span></div></div><div class="pfoot">通用模型 · 与今日题目无关</div></div>
+  <div class="hint">↑ 向上滑动：返回「知识点背诵」</div>
 </div>
 <script>
 document.addEventListener('keydown',function(e){
