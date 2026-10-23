@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-23</title>
+<title>每日一题 · 2026-10-24</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -68,25 +68,31 @@ display:flex;justify-content:center;align-items:center;overflow:hidden;flex:1;mi
 <div class="screen" id="q">
   <header>
     <h1>每日一题</h1>
-    <div class="meta">2026-10-23　|　学科网 · 天津益中高三10月阶段检测</div>
-    <div class="topic">导数与函数综合应用</div>
+    <div class="meta">2026-10-24　|　浙南名校大联考 ｜ 安徽大联考（函数专题）</div>
+    <div class="topic">导数与不等式恒成立</div>
   </header>
   <main>
-    <div class="stem">已知函数 f(x)=1/x+ln x-(a·eˣ)/x (a∈R)。</div>
+    <div class="stem">已知函数 f(x) = 2ln x - ax, a∈R.
+
+(1)若 f(x) 的最大值为 f(2)，求 a 的值；
+
+(2)若存在 x 使得 f(x) > -1，求 a 的取值范围；
+
+(3)若 a > 0， f(x) ≤ e^(ax) - x² 恒成立，求 a 的取值范围.</div>
     
     
-    <div class="subs"><div class="sub">（1）当 a=0 时，求曲线 y=f(x) 在 x=1 处的切线方程；</div><div class="sub">（2）当 a>0 时，讨论 f(x) 的单调性；</div><div class="sub">（3）若 x>1 时， f(x)+1 ≥ x+1/x 恒成立，求 a 的取值范围。</div></div>
+    <div class="subs"><div class="sub">若 f(x) 的最大值为 f(2)，求 a 的值</div><div class="sub">若存在 x 使得 f(x) > -1，求 a 的取值范围</div><div class="sub">若 a > 0， f(x) ≤ e^(ax) - x² 恒成立，求 a 的取值范围</div></div>
   </main>
   <footer>
     <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-    <div class="ans" id="ans"><div class="akey">答案：（1） y=1；（2）当 a≥1 时，函数 f(x) 的单调减区间为 (1,+∞) ，单调增区间为 (0,1) ，当 1/e<a<1 时，函数 f(x) 的单调减区间为 (0,-ln a),(1,+∞) ，单调增区间为 (-ln a, 1) ，当 a=1/e 时，函数 f(x) 的单调减区间为 (0,+∞) ，无单调增区间，当 0<a<1/e 时，函数 f(x) 的单调减区间为 (0,1),(-ln a,+∞) ，单调增区间为 (1,-ln a) ；(3) (-∞,-e⁻²]</div></div>
+    <div class="ans" id="ans"><div class="akey">答案：（1）a=1 ；（2）a∈(-∞, 2/√e) ；（3）a∈[2/e, +∞)</div></div>
   </footer>
   <div class="hint">↓ 向下滑动：进入「知识点背诵」</div>
 </div>
 <div class="screen" id="kb">
   <header>
     <h1>知识点背诵</h1>
-    <div class="meta">2026-10-23　|　学科网 · 天津益中高三10月阶段检测</div>
+    <div class="meta">2026-10-24　|　浙南名校大联考 ｜ 安徽大联考（函数专题）</div>
     <div class="topic">导数的应用</div>
   </header>
   <div class="rcards"><div class="kcard"><img src="k.png" alt="知识点"></div><div class="rcard pcard"><div class="rrow"><span class="rtag">练手</span><span class="rtext">《九章方略》限时练 11「导数的综合应用」—— 与本题考点相关的题都在这一练里</span></div></div></div>
@@ -95,10 +101,10 @@ display:flex;justify-content:center;align-items:center;overflow:hidden;flex:1;mi
 <div class="screen" id="model">
   <header>
     <h1>思维建模</h1>
-    <div class="meta">2026-10-23　|　通用模型 · 与今日题目无关</div>
-    <div class="topic">第10节  圆锥曲线的切线与光学性质</div>
+    <div class="meta">2026-10-24　|　通用模型 · 与今日题目无关</div>
+    <div class="topic">第13节  定值问题</div>
   </header>
-  <div class="rcards"><div class="rcard mcard"><div class="rrow"><span class="rnum">1</span><span class="mtext">1.圆的切点弦方程可由以圆外点为圆心,切线长为半径的圆与该圆方程相减求得. 2.切点弦问题常涉及弦方程、弦长、弦过定点以及最值、范围问题.</span></div></div><div class="rcard mcard"><div class="rrow"><span class="rnum">2</span><span class="mtext">光学性质问题往往与圆锥曲线中的新定义问题或者结合生活情境问题进行考查,教材中将其作为阅读内容,实际上圆锥曲线的光学性质与切线等问题联系密切,是高考热点问题.</span></div></div><div class="pfoot">通用模型 · 与今日题目无关</div></div>
+  <div class="rcards"><div class="rcard mcard"><div class="rrow"><span class="rnum">1</span><span class="mtext">探求圆锥曲线中的定线段的长的问题,一般用直接求解法,即先利用弦长公式把要探求的线段表示出来,然后利用题中的条件(如直线与曲线相切等)得到弦长表达式中的相关量之间的关系式,把这个关系式代入弦长表达式中,化简可得弦长为定值.</span></div></div><div class="rcard mcard"><div class="rrow"><span class="rnum">2</span><span class="mtext">1.求代数式为定值.依题设条件,得出与代数式参数有关的等式,代入代数式,化简即可得出定值. 2.在证明一条直线斜率或两条直线斜率和,差或者积与商为定值的问题中,我们需要先将斜率表示出来,然后利用相关量之间的关系式化简即可.</span></div></div><div class="pfoot">通用模型 · 与今日题目无关</div></div>
   <div class="hint">↑ 向上滑动：返回「知识点背诵」</div>
 </div>
 <script>
