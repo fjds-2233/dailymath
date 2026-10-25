@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-25</title>
+<title>每日一题 · 2026-10-26</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -68,47 +68,37 @@ display:flex;justify-content:center;align-items:center;overflow:hidden;flex:1;mi
 <div class="screen" id="q">
   <header>
     <h1>每日一题</h1>
-    <div class="meta">2026-10-25　|　福建9月大联考 ｜ 安徽大联考（函数专题）</div>
-    <div class="topic">函数定义域与零点计数</div>
+    <div class="meta">2026-10-26　|　福建9月大联考 ｜ 北京二十四中高三10月月考</div>
+    <div class="topic">导数切线、恒成立问题</div>
   </header>
   <main>
-    <div class="stem">已知函数 f(x) 的定义域为 R，对任意正实数 t，定义集合
-
-Dₜ={x₀|f(x₀+t)=f(x₀)}。
-
-(1) 若 x∈(0,1) 时， f(x)=log₂x，且 1/2∈D₅，求 f(11/2) 的值；
-
-(2) 若 f(x)={ x+2, x≥0 ; 4-x², x<0 }，且 Dₜ 为非空集合，求 t 的取值范围；
-
-(3) 若 f(x) 为偶函数，当 0<x≤3 时， f(x)=x-3，且 ∀t∈(0,6)，都有 Dₜ⊆D₆。
-(i) 求 y=f(x)， x∈(6,9) 时的解析式；
-(ii) 证明：对任意实数 a，函数 y=f(x)-a 在区间 [-9,9] 上最多有 9 个零点。</div>
+    <div class="stem">已知函数 f(x)=ax²+xln x (a∈R) 图象在点 (1, f(1)) 处的切线与直线 x+3y=0 垂直.（1）求实数 a 的值；（2）若存在 k∈Z，使得 f(x)>k 恒成立，求实数 k 的最大值.</div>
     
     
-    <div class="subs"><div class="sub">若 x∈(0,1) 时， f(x)=log₂x，且 1/2∈D₅，求 f(11/2) 的值</div><div class="sub">若 f(x)={ x+2, x≥0 ; 4-x², x<0 }，且 Dₜ 为非空集合，求 t 的取值范围</div><div class="sub">若 f(x) 为偶函数，当 0<x≤3 时， f(x)=x-3，且 ∀t∈(0,6)，都有 Dₜ⊆D₆。 (i) 求 y=f(x)， x∈(6,9) 时的解析式； (ii) 证明：对任意实数 a，函数 y=f(x)-a 在区间 [-9,9] 上最多有 9 个零点</div></div>
+    <div class="subs"><div class="sub">求实数 a 的值</div><div class="sub">若存在 k∈Z，使得 f(x)>k 恒成立，求实数 k 的最大值</div></div>
   </main>
   <footer>
     <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-    <div class="ans" id="ans"><div class="akey">答案：（1）f(11/2)=-1 ；（2）t∈[√2, 9/4] ；（3）(i) f(x)=x-9 ；(ii) 证明见解析</div></div>
+    <div class="ans" id="ans"><div class="akey">答案：（1）1（2）-1</div></div>
   </footer>
   <div class="hint">↓ 向下滑动：进入「知识点背诵」</div>
 </div>
 <div class="screen" id="kb">
   <header>
     <h1>知识点背诵</h1>
-    <div class="meta">2026-10-25　|　福建9月大联考 ｜ 安徽大联考（函数专题）</div>
-    <div class="topic">函数的性质</div>
+    <div class="meta">2026-10-26　|　福建9月大联考 ｜ 北京二十四中高三10月月考</div>
+    <div class="topic">导数的应用</div>
   </header>
-  <div class="rcards"><div class="kcard"><img src="k.png" alt="知识点"></div><div class="rcard pcard"><div class="rrow"><span class="rtag">练手</span><span class="rtext">《九章方略》限时练 4「函数的概念与性质」—— 与本题考点相关的题都在这一练里</span></div></div></div>
+  <div class="rcards"><div class="kcard"><img src="k.png" alt="知识点"></div><div class="rcard pcard"><div class="rrow"><span class="rtag">练手</span><span class="rtext">《九章方略》限时练 9「导数及其应用(1)」—— 与本题考点相关的题都在这一练里</span></div></div></div>
   <div class="hint">↑ 返回「每日一题」 · ↓ 继续下滑「思维建模」</div>
 </div>
 <div class="screen" id="model">
   <header>
     <h1>思维建模</h1>
-    <div class="meta">2026-10-25　|　通用模型 · 与今日题目无关</div>
-    <div class="topic">第15节  求值、证明、探索性问题</div>
+    <div class="meta">2026-10-26　|　通用模型 · 与今日题目无关</div>
+    <div class="topic">第16节  解析几何中的融合创新问题</div>
   </header>
-  <div class="rcards"><div class="rcard mcard"><div class="rrow"><span class="rnum">1</span><span class="mtext">求值问题往往考查以面积、斜率、坐标、代数式等为背景的问题,对计算能力的要求较高;另外,求值时,也要考虑某些特殊情形,如直线斜率不存在时的特殊值.</span></div></div><div class="rcard mcard"><div class="rrow"><span class="rnum">2</span><span class="mtext">此类问题一般分为探究条件、探究结论两种.若探究条件,则可先假设条件成立,再验证结论是否成立,成立则存在,否则不存在;若探究结论,则应先求出结论的表达式,再针对其表达式进行讨论,往往涉及对参数的讨论.</span></div></div><div class="pfoot">通用模型 · 与今日题目无关</div></div>
+  <div class="rcards"><div class="rcard mcard"><div class="rrow"><span class="rnum">1</span><span class="mtext">本题分层设问,环环相扣,三问都可以通过基本方法简化计算过程;第(2)问利用固定斜率的直线与双曲线交点的性质可以迅速得出结论;第(3)问证明面积相等时,可以将问题转化为证明两条直线平行.试题充分体现了“多想少算”的设计理念.</span></div></div><div class="rcard mcard"><div class="rrow"><span class="rnum">2</span><span class="mtext">1.题干中定义“椭圆”的距离:|AB|=|x2-x1|+|y2-y1|称为曼哈顿距离,平面内到一个定点的曼哈顿距离等于定值的点的轨迹是一个正方形,到两个定点的距离之和等于定值的点的轨迹是一个六边形. 2.解决与曼哈顿距离有关的问题一般要利用绝对值的意义求解.</span></div></div><div class="pfoot">通用模型 · 与今日题目无关</div></div>
   <div class="hint">↑ 向上滑动：返回「知识点背诵」</div>
 </div>
 <script>
