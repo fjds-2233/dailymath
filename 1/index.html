@@ -44,8 +44,8 @@ padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
 .rrow{display:flex;align-items:flex-start;gap:1vw}
 .rtag{font-size:clamp(16px,1.5vw,32px);color:#047857;font-weight:700;white-space:nowrap}
 .rtext{font-size:clamp(18px,1.75vw,38px);line-height:1.5;color:#134e4a;flex:1}
-.mcard{background:#f8fafc;border-color:#cbd5e1}
-.mtext{font-size:clamp(16px,1.45vw,31px);line-height:1.65;color:#334155;flex:1}
+.mcard{background:#f8fafc;border-color:#cbd5e1;flex:1;display:flex;align-items:center}
+.mtext{font-size:clamp(22px,2.15vw,44px);line-height:1.55;color:#1e293b;flex:1;font-weight:600}
 .rnum{font-size:clamp(17px,1.6vw,34px);color:#0d9488;font-weight:700;white-space:nowrap;flex:none}
 .rsrc{font-size:clamp(18px,1.75vw,38px);line-height:1.2;background:#ffffff;border:1px solid #5eead4;
 color:#0f766e;border-radius:8px;padding:.2vh .9vw;cursor:pointer;white-space:nowrap;flex:none}
@@ -62,6 +62,10 @@ border-top:1px dashed #5eead4;padding-top:.6vh;white-space:nowrap;overflow:hidde
 .kcard{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:1.2vh 1.4vw;
 display:flex;justify-content:center;align-items:center;overflow:hidden;flex:1;min-height:0}
 .kcard img{height:100%;width:auto;max-width:100%;object-fit:contain}
+/* 知识点要点卡（2026-10-28）：只上 3 条关键要点，大字 */
+.kcard2{background:#f0fdfa;border:1px solid #99f6e4;border-radius:14px;padding:1.7vh 1.8vw;flex:1;
+display:flex;align-items:center}
+.ktext{font-size:clamp(26px,2.35vw,50px);line-height:1.5;color:#0f3f3a;flex:1;font-weight:600}
 </style>
 </head>
 <body>
@@ -89,7 +93,7 @@ display:flex;justify-content:center;align-items:center;overflow:hidden;flex:1;mi
     <div class="meta">2026-10-28　|　安徽大联考（函数专题） ｜ 安徽部分校高三10月学情检测B</div>
     <div class="topic">函数的性质</div>
   </header>
-  <div class="rcards"><div class="kcard"><img src="k.png" alt="知识点"></div><div class="rcard pcard"><div class="rrow"><span class="rtag">练手</span><span class="rtext">《九章方略》限时练 4「函数的概念与性质」—— 与本题考点相关的题都在这一练里</span></div></div></div>
+  <div class="rcards"><div class="rcard kcard2"><div class="rrow"><span class="rnum">1</span><span class="ktext">零点个数 = 两图象交点个数：先画图数交点，不要硬解方程。</span></div></div><div class="rcard kcard2"><div class="rrow"><span class="rnum">2</span><span class="ktext">|x + a| 是 V 形折线，斜率 ±1；a|x - a| 的斜率被 a 缩放，|a| 决定陡缓。</span></div></div><div class="rcard kcard2"><div class="rrow"><span class="rnum">3</span><span class="ktext">含参绝对值先按 a > 0、a = 0、a < 0 分三类，符号定折线方向。</span></div></div><div class="rcard pcard"><div class="rrow"><span class="rtag">练手</span><span class="rtext">《九章方略》限时练 4「函数的概念与性质」—— 与本题考点相关的题都在这一练里</span></div></div></div>
   <div class="hint">↑ 返回「每日一题」 · ↓ 继续下滑「思维建模」</div>
 </div>
 <div class="screen" id="model">
@@ -98,7 +102,7 @@ display:flex;justify-content:center;align-items:center;overflow:hidden;flex:1;mi
     <div class="meta">2026-10-28　|　通用模型 · 与今日题目无关</div>
     <div class="topic">第4节  直线与圆、圆与圆的位置关系</div>
   </header>
-  <div class="rcards"><div class="rcard mcard"><div class="rrow"><span class="rnum">1</span><span class="mtext">1.判断两圆的位置关系时常用几何法,即利用两圆圆心之间的距离与两圆半径之间的关系,一般不采用代数法. 2.若两圆相交,则两圆公共弦所在直线的方程可由两圆的方程作差消去x2,y2项得到.</span></div></div><div class="rcard mcard"><div class="rrow"><span class="rnum">2</span><span class="mtext">1.对于已知弦长求直线方程的问题,若弦是直径有且只有一条,否则一定有两条;两种情况常因漏掉直线斜率不存在的情形致误. 2.求过某点的圆的切线问题时,应首先确定点与圆的位置关系,再求切线方程.若点在圆上(即为切点),则过该点的切线只有一条;若点在圆外,则过该点的切线有两条,此时注意斜率不存在的切线. 3.涉及与圆的切线有关的线段长度范围(或最值)问题,解题关键…</span></div></div><div class="pfoot">通用模型 · 与今日题目无关</div></div>
+  <div class="rcards"><div class="rcard mcard"><div class="rrow"><span class="rnum">1</span><span class="mtext">判断两圆的位置关系时常用几何法,即利用两圆圆心之间的距离与两圆半径之间的关系,一般不采用代数法.</span></div></div><div class="rcard mcard"><div class="rrow"><span class="rnum">2</span><span class="mtext">对于已知弦长求直线方程的问题,若弦是直径有且只有一条,否则一定有两条;</span></div></div><div class="pfoot">通用模型 · 与今日题目无关</div></div>
   <div class="hint">↑ 向上滑动：返回「知识点背诵」</div>
 </div>
 <script>
