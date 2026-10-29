@@ -1,115 +1,270 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日一题 · 2026-10-30</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>每日一题 · 2026-10-29</title>
 <style>
+:root{
+  --ink:#2b2d42;--sub:#3a4054;--dim:#8a90ad;--card:#fff;
+  --blue:#38b6ff;--blue-d:#0f8fe8;--blue-bg:#e3f3ff;
+  --green:#00c9a7;--green-d:#00a386;--green-bg:#e0faf3;
+  --orange:#ff9f1c;--orange-d:#ef7e00;--orange-bg:#fff2dc;
+  --pink:#ff6b9d;--pink-d:#e73f79;--pink-bg:#ffe7ef;
+  --purple:#9b5cff;--purple-d:#7d35f0;--purple-bg:#efe6ff;
+  --yellow:#ffd500;--yellow-d:#e6ac00;--yellow-bg:#fff8d6;
+  --red:#ff4d6d;--red-d:#d9204a;--red-bg:#ffe3e9;
+  --cyan:#22d3ee;--cyan-d:#0aa8c4;--cyan-bg:#dcf7fc;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;background:#ffffff;color:#1e293b;
-overflow-y:auto;scroll-snap-type:y mandatory}
-.screen{height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;padding:1.5vh 1.8vw;gap:1.2vh}
-header{display:flex;align-items:baseline;gap:1.6vw;border-bottom:3px solid #e0f2fe;padding-bottom:1vh;flex:none}
-h1{font-size:clamp(26px,3.1vw,56px);color:#0891b2;letter-spacing:.05em}
-.meta{font-size:clamp(14px,1.15vw,24px);color:#64748b}
-.topic{font-size:clamp(15px,1.25vw,26px);color:#047857;border:1px solid #a7f3d0;background:#ecfdf5;
-border-radius:999px;padding:.5vh 1.1vw;align-self:center;margin-left:auto}
-main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2vh;min-height:0}
-.stem{font-size:clamp(24px,2.5vw,50px);line-height:1.5}
-.qfig{display:flex;justify-content:center;align-items:center;min-height:0;flex:none}
-.qfig img{max-height:32vh;max-width:100%;object-fit:contain;border:1px solid #e2e8f0;border-radius:10px;background:#fff;padding:.6vh .8vw}
-table{border-collapse:collapse;font-size:clamp(20px,2vw,42px);margin:1vh auto;background:#fff;
-box-shadow:0 1px 3px rgba(15,23,42,.06);border-radius:6px;overflow:hidden}
-td{border:1px solid #cbd5e1;padding:.6vh 1.4vw;text-align:center}
-tr:first-child td{background:#f0f9ff;font-weight:700;color:#0369a1}
-.opts{display:grid;grid-template-columns:1fr 1fr;gap:1.5vh 2vw;font-size:clamp(21px,2.2vw,44px)}
-.opt{background:#fff;border:2px solid #e2e8f0;border-radius:12px;padding:1.05vh 1.2vw;
-box-shadow:0 1px 3px rgba(15,23,42,.06)}
-.opt b{color:#2563eb;margin-right:.6vw}
-.subs{display:flex;flex-direction:column;gap:1.2vh;font-size:clamp(19px,1.9vw,40px)}
-.sub{background:#f8fcff;border-left:7px solid #0891b2;border-radius:8px;padding:1vh 1.4vw;line-height:1.5;
-box-shadow:0 1px 3px rgba(15,23,42,.06)}
-footer{border-top:3px solid #e0f2fe;padding-top:1vh;flex:none}
-#btn{font-size:clamp(15px,1.25vw,26px);background:#0891b2;color:#fff;border:0;border-radius:10px;
-padding:1vh 1.8vw;cursor:pointer;box-shadow:0 2px 6px rgba(8,145,178,.28)}
-#btn:hover{background:#0e7490}
-.ans{display:none;margin-top:1vh;font-size:clamp(21px,2vw,42px);line-height:1.55}
+html,body{width:100%;height:100%;overflow:hidden;background:#eef5fb}
+body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink)}
+.stage{position:fixed;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%);transform-origin:center;
+  overflow:hidden;display:flex;flex-direction:column;padding:34px 56px 26px;
+  background:radial-gradient(900px 420px at 8% -6%,rgba(255,255,255,.95),transparent 60%),
+    radial-gradient(760px 480px at 96% -10%,rgba(255,213,0,.25),transparent 60%),
+    radial-gradient(900px 620px at 104% 108%,rgba(56,182,255,.20),transparent 60%),
+    linear-gradient(165deg,#fdfcff 0%,#eef7ff 42%,#fdf3e0 100%)}
+.stage::after{content:"";position:absolute;inset:12px;pointer-events:none;border:3px dashed rgba(43,45,66,.13);border-radius:28px}
+.topbar{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding:0 6px 14px;border-bottom:3px solid rgba(43,45,66,.10)}
+.leftbar{display:flex;align-items:center;gap:14px;min-width:0}
+.logo{flex:0 0 auto;width:58px;height:58px;border-radius:17px;display:grid;place-items:center;font-size:32px;font-weight:900;color:#fff;
+  background:linear-gradient(135deg,var(--blue),var(--purple));box-shadow:0 10px 22px rgba(56,182,255,.45),inset 0 2px 0 rgba(255,255,255,.4);transform:rotate(-6deg)}
+.l-title h1{font-size:30px;letter-spacing:.10em;font-weight:900}
+.l-title h1 em{font-style:normal;background:linear-gradient(90deg,var(--orange),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.l-title p{font-size:14px;color:var(--dim);letter-spacing:.18em;margin-top:3px;font-weight:700}
+.center-date{font-size:22px;color:var(--sub);text-align:center;white-space:nowrap;font-weight:700}
+.center-date b{color:var(--ink);font-weight:900}
+.center-date .chip{display:inline-block;margin-left:10px;color:#fff;border-radius:999px;padding:3px 15px;font-size:16px;letter-spacing:.10em;font-weight:800;
+  background:linear-gradient(135deg,var(--purple),var(--pink));box-shadow:0 6px 14px rgba(155,92,255,.4)}
+.tabs{display:flex;gap:10px;justify-content:flex-end}
+.tab{display:flex;align-items:center;gap:9px;padding:8px 18px 8px 10px;border-radius:999px;border:2.5px solid rgba(43,45,66,.15);
+  background:rgba(255,255,255,.85);color:var(--sub);cursor:pointer;transition:all .22s;font-size:19px;font-weight:800;box-shadow:0 6px 14px rgba(43,45,66,.06)}
+.tab .num{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:16px;font-weight:900;background:#eef2f8}
+.tab.on{border-color:transparent;color:#fff;transform:translateY(-2px)}
+.tab.on[data-p="1"]{background:linear-gradient(135deg,#6cc6ff,var(--blue));box-shadow:0 12px 24px rgba(56,182,255,.45)}
+.tab.on[data-p="2"]{background:linear-gradient(135deg,#3fe0c0,var(--green));box-shadow:0 12px 24px rgba(0,201,167,.45)}
+.tab.on[data-p="3"]{background:linear-gradient(135deg,#ffbe5c,var(--orange));box-shadow:0 12px 24px rgba(255,159,28,.45)}
+.tab.on .num{background:rgba(255,255,255,.3);color:#fff}
+.main{position:relative;z-index:1;flex:1;min-height:0}
+.page{position:absolute;inset:0;display:none;padding-top:12px}
+.page.on{display:flex;flex-direction:column;animation:pop .38s ease}
+@keyframes pop{from{opacity:0;transform:scale(.986) translateY(10px)}to{opacity:1;transform:none}}
+.phead{display:flex;align-items:baseline;gap:20px;padding:0 4px 14px}
+.phead .big{font-size:54px;font-weight:900;letter-spacing:.05em;line-height:1}
+.phead .sub{font-size:29px;font-weight:900;letter-spacing:.10em}
+.phead .tag{font-size:18px;color:#fff;font-weight:800;border-radius:999px;padding:6px 17px;margin-left:6px}
+.phead .rule{flex:1;align-self:center;height:6px;border-radius:99px;margin-left:10px;background:linear-gradient(90deg,rgba(43,45,66,.20),transparent)}
+.pg1 .big{background:linear-gradient(120deg,var(--blue-d),var(--cyan-d));-webkit-background-clip:text;background-clip:text;color:transparent}
+.pg1 .sub{color:var(--blue-d)} .pg1 .tag{background:linear-gradient(135deg,#6cc6ff,var(--blue))}
+.pg2 .big{background:linear-gradient(120deg,var(--green-d),#0fb88f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pg2 .sub{color:var(--green-d)} .pg2 .tag{background:linear-gradient(135deg,#3fe0c0,var(--green))}
+.pg3 .big{background:linear-gradient(120deg,var(--orange-d),var(--pink-d));-webkit-background-clip:text;background-clip:text;color:transparent}
+.pg3 .sub{color:var(--orange-d)} .pg3 .tag{background:linear-gradient(135deg,#ffbe5c,var(--orange))}
+/* P1 */
+.pg1content{display:grid;grid-template-columns:1.62fr 1fr;gap:26px;flex:1;min-height:0}
+.qcard{position:relative;display:flex;flex-direction:column;padding:26px 34px 20px;border-radius:26px;background:var(--card);
+  box-shadow:0 18px 40px rgba(43,45,66,.14);overflow:hidden;border:3px solid var(--blue)}
+.qcard::before{content:"";position:absolute;left:0;top:0;right:0;height:10px;background:linear-gradient(90deg,var(--blue),var(--cyan),var(--yellow))}
+.qmeta{display:flex;gap:11px;align-items:center;margin-bottom:14px}
+.qnum{font-size:26px;font-weight:900;color:var(--blue-d)}
+.qtag{font-size:16px;color:#fff;font-weight:900;border-radius:999px;padding:5px 14px;background:linear-gradient(135deg,#5aa9e6,#0e7fd0)}
+.qtag.g{background:linear-gradient(135deg,#9fe8ca,var(--green-d))}
+.qtitle{font-size:31px;line-height:1.6;font-weight:800;color:var(--ink);letter-spacing:.01em}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-top:20px}
+.opt{font-size:26px;line-height:1.45;padding:13px 20px;border-radius:16px;font-weight:900;color:#fff;box-shadow:0 12px 24px rgba(43,45,66,.15)}
+.opt b{margin-right:10px}
+.opt.o1{background:linear-gradient(135deg,#6cc6ff,var(--blue-d))}
+.opt.o2{background:linear-gradient(135deg,#3fe0c0,var(--green-d))}
+.opt.o3{background:linear-gradient(135deg,#ffbe5c,var(--orange-d))}
+.opt.o4{background:linear-gradient(135deg,#ff9cc0,var(--pink-d))}
+.qfoot{margin-top:auto;padding-top:14px;border-top:2px dashed rgba(43,45,66,.18);display:flex;gap:14px;align-items:center}
+#btn{font:inherit;font-size:20px;font-weight:900;color:#fff;border:0;border-radius:999px;padding:10px 26px;cursor:pointer;
+  background:linear-gradient(135deg,#6cc6ff,var(--blue-d));box-shadow:0 10px 20px rgba(56,182,255,.42)}
+#btn:active{transform:translateY(1px)}
+.ans{display:none;font-size:34px;font-weight:900;color:var(--red-d);letter-spacing:.04em}
 .ans.on{display:block}
-.akey{color:#dc2626;font-weight:700}
-.hint{flex:none;text-align:center;font-size:clamp(13px,1.05vw,22px);color:#94a3b8;padding-top:.4vh}
-/* 第 2 屏 */
-.rcards{flex:1;display:flex;flex-direction:column;gap:1.4vh;justify-content:center;min-height:0}
-.rcard{background:#f0fdfa;border:1px solid #99f6e4;border-radius:14px;padding:1.3vh 1.6vw}
-.rrow{display:flex;align-items:flex-start;gap:1vw}
-.rtag{font-size:clamp(16px,1.5vw,32px);color:#047857;font-weight:700;white-space:nowrap}
-.rtext{font-size:clamp(18px,1.75vw,38px);line-height:1.5;color:#134e4a;flex:1}
-.mcard{background:#f8fafc;border-color:#cbd5e1;flex:1;display:flex;align-items:center}
-.mtext{font-size:clamp(22px,2.15vw,44px);line-height:1.55;color:#1e293b;flex:1;font-weight:600}
-.rnum{font-size:clamp(17px,1.6vw,34px);color:#0d9488;font-weight:700;white-space:nowrap;flex:none}
-.rsrc{font-size:clamp(18px,1.75vw,38px);line-height:1.2;background:#ffffff;border:1px solid #5eead4;
-color:#0f766e;border-radius:8px;padding:.2vh .9vw;cursor:pointer;white-space:nowrap;flex:none}
-.rsrc:hover{background:#ccfbf1}
-.rsrctext{font-size:clamp(15px,1.3vw,27px);color:#0f766e;margin-top:.7vh;
-border-top:1px dashed #5eead4;padding-top:.6vh;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rsrctext.on{white-space:normal;overflow:visible;text-overflow:clip}
-/* 练手指引卡（去九章方略找题） */
-.pcard{background:#fffbeb;border:2px solid #fcd34d}
-.pcard .rtag{color:#b45309}
-.pcard .rtext{color:#78350f}
-.pfoot{font-size:clamp(15px,1.3vw,27px);color:#78716c;margin-top:1.2vh;text-align:center}
-/* 知识点图（定稿）：整条知识点截图，按可用高度等比缩放 */
-.kcard{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:1.2vh 1.4vw;
-display:flex;justify-content:center;align-items:center;overflow:hidden;flex:1;min-height:0}
-.kcard img{height:100%;width:auto;max-width:100%;object-fit:contain}
-/* 知识点要点卡（2026-10-28）：只上 3 条关键要点，大字 */
-.kcard2{background:#f0fdfa;border:1px solid #99f6e4;border-radius:14px;padding:1.7vh 1.8vw;flex:1;
-display:flex;align-items:center}
-.ktext{font-size:clamp(26px,2.35vw,50px);line-height:1.5;color:#0f3f3a;flex:1;font-weight:600}
+.qfoot .tip{font-size:19px;color:var(--sub);font-weight:800}
+.qfoot .tip b{color:var(--orange-d);font-weight:900}
+.hcard{display:flex;flex-direction:column;gap:18px}
+.hblock{position:relative;flex:1;padding:22px 26px;border-radius:24px;background:var(--card);box-shadow:0 16px 34px rgba(43,45,66,.13);overflow:hidden}
+.hblock::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;border-radius:0 8px 8px 0}
+.hb-direct{background:linear-gradient(180deg,#fff6e8,#fff);border:3px solid var(--orange)}.hb-direct::before{background:var(--orange)}
+.hb-think{background:linear-gradient(180deg,#ffeaf2,#fff);border:3px solid var(--pink)}.hb-think::before{background:var(--pink)}
+.hb-title{font-size:24px;font-weight:900;letter-spacing:.09em;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.hb-direct .hb-title{color:var(--orange-d)}.hb-think .hb-title{color:var(--pink-d)}
+.hb-title .ico{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;font-size:19px;color:#fff}
+.hb-direct .ico{background:linear-gradient(135deg,#ffbe5c,var(--orange))}
+.hb-think .ico{background:linear-gradient(135deg,#ff9cc0,var(--pink))}
+.klist{list-style:none;display:flex;flex-direction:column;gap:10px}
+.klist li{font-size:24px;line-height:1.45;padding-left:30px;position:relative;font-weight:800;color:#1d2033}
+.klist li::before{content:"";position:absolute;left:2px;top:.62em;width:14px;height:14px;border-radius:50%}
+.hb-direct .klist li::before{background:var(--orange);box-shadow:0 0 0 5px var(--orange-bg)}
+.hb-think .klist li::before{background:var(--pink);box-shadow:0 0 0 5px var(--pink-bg)}
+/* P2 */
+.pg2content{display:grid;grid-template-rows:auto 1fr auto;gap:20px;flex:1;min-height:0}
+.ktheme{position:relative;display:flex;align-items:center;gap:22px;padding:16px 32px;border-radius:24px;
+  background:linear-gradient(120deg,var(--yellow-bg),#fff7d9);border:3px solid var(--yellow);box-shadow:0 14px 30px rgba(230,172,0,.22)}
+.ktheme .lab{flex:0 0 auto;font-size:20px;color:#fff;font-weight:900;letter-spacing:.10em;border-radius:999px;padding:7px 20px;
+  background:linear-gradient(135deg,var(--yellow-d),var(--orange-d))}
+.ktheme h2{font-size:42px;font-weight:900;letter-spacing:.03em}
+.ktheme .day{flex:1;text-align:right;font-size:20px;color:var(--sub);font-weight:800;padding-right:52px}
+.kcols{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:18px;min-height:0}
+.kblock{position:relative;display:flex;flex-direction:column;padding:16px 20px;border-radius:24px;background:var(--card);
+  box-shadow:0 16px 34px rgba(43,45,66,.13);overflow:hidden;min-height:0}
+.kblock::before{content:"";position:absolute;left:0;top:0;right:0;height:9px}
+.kb1{border:3px solid var(--orange)}.kb1::before{background:linear-gradient(90deg,var(--orange),var(--yellow))}
+.kb2{border:3px solid var(--blue)}.kb2::before{background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.kb3{border:3px solid var(--green)}.kb3::before{background:linear-gradient(90deg,var(--green),var(--cyan))}
+.kblock .kt{font-size:21px;font-weight:900;letter-spacing:.09em;padding-bottom:8px;margin-bottom:10px;
+  border-bottom:2.5px dashed rgba(43,45,66,.16);display:flex;align-items:center;gap:10px}
+.kb1 .kt{color:var(--orange-d)}.kb2 .kt{color:var(--blue-d)}.kb3 .kt{color:var(--green-d)}
+.kblock .kt .no{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-size:17px;color:#fff;font-weight:900}
+.kb1 .no{background:linear-gradient(135deg,#ffbe5c,var(--orange-d))}
+.kb2 .no{background:linear-gradient(135deg,#6cc6ff,var(--blue-d))}
+.kb3 .no{background:linear-gradient(135deg,#3fe0c0,var(--green-d))}
+.kbody{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.ktext{font-size:29px;line-height:1.52;font-weight:900;letter-spacing:.01em;color:#1d2033}
+.practice{display:flex;align-items:center;gap:18px;padding:14px 26px;border-radius:20px;background:var(--yellow-bg);
+  border:3px solid var(--yellow);box-shadow:0 10px 22px rgba(230,172,0,.18)}
+.practice .lab{flex:0 0 auto;font-size:19px;font-weight:900;color:#fff;letter-spacing:.10em;border-radius:999px;padding:6px 18px;
+  background:linear-gradient(135deg,var(--yellow-d),var(--orange-d))}
+.practice .txt{font-size:24px;font-weight:800;color:var(--ink)}
+/* P3 */
+.pg3content{display:grid;grid-template-rows:1fr auto;gap:20px;flex:1;min-height:0}
+.mcols{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:18px;min-height:0}
+.mblock{position:relative;display:flex;flex-direction:row;align-items:center;gap:18px;padding:18px 24px;border-radius:26px;
+  background:var(--card);box-shadow:0 18px 36px rgba(43,45,66,.14);overflow:hidden}
+.mblock::before{content:"";position:absolute;left:0;top:0;right:0;height:10px}
+.mb1{border:3px solid var(--purple)}.mb1::before{background:linear-gradient(90deg,var(--purple),var(--pink))}
+.mb2{border:3px solid var(--cyan-d)}.mb2::before{background:linear-gradient(90deg,var(--cyan),var(--blue))}
+.mno{flex:0 0 auto;width:48px;height:48px;border-radius:15px;display:grid;place-items:center;font-size:22px;color:#fff;font-weight:900}
+.mb1 .mno{background:linear-gradient(135deg,var(--purple),var(--purple-d))}
+.mb2 .mno{background:linear-gradient(135deg,var(--cyan),var(--blue-d))}
+.mtext{font-size:29px;line-height:1.52;font-weight:900;color:#1d2033;letter-spacing:.01em}
+.note{display:flex;align-items:center;gap:16px;padding:14px 26px;border-radius:20px;background:#efe6ff;border:3px solid var(--purple);
+  box-shadow:0 10px 22px rgba(155,92,255,.18);font-size:23px;font-weight:900;color:var(--purple-d)}
+.note .lab{flex:0 0 auto;font-size:19px;color:#fff;border-radius:999px;padding:6px 18px;background:linear-gradient(135deg,var(--purple),var(--pink))}
+/* 底部 */
+.bottombar{position:relative;z-index:2;display:flex;align-items:center;gap:18px;padding-top:12px;border-top:3px solid rgba(43,45,66,.10)}
+.dots{display:flex;gap:10px}
+.dot{width:15px;height:15px;border-radius:50%;background:rgba(43,45,66,.22);border:none;padding:0;cursor:pointer;transition:all .25s}
+.dot.on{width:48px;border-radius:999px}
+.dot.d1.on{background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.dot.d2.on{background:linear-gradient(90deg,var(--green),var(--cyan))}
+.dot.d3.on{background:linear-gradient(90deg,var(--orange),var(--pink))}
+.now{font-size:19px;color:var(--sub);font-weight:800}
+.now b{color:var(--ink);font-weight:900}
+.keys{margin-left:auto;font-size:15px;color:rgba(43,45,66,.42);font-weight:600;white-space:nowrap}
 </style>
 </head>
 <body>
-<div class="screen" id="q">
-  <header>
-    <h1>每日一题</h1>
-    <div class="meta">2026-10-30　|　河北衡水中学2026届高三年级上学期检测三数学试题 ｜ 上海南汇中学高三10月阶段练习</div>
-    <div class="topic">新定义函数证明与不等式</div>
-  </header>
-  <main>
-    <div class="stem">已知 y = f(x) 是定义在 R 上的函数，集合 M = {(k,b) | 对任意 x ∈ R，都有 f(x) &gt; kx + b}。当 (k,b) ∈ M 时，若函数 y = f(x) - (kx + b) 存在最小值 m，则称 m 为直线 l: y = kx + b 的“f-距离”。</div>
-    
-    
-    <div class="subs"><div class="sub">（1）若 f(x) = sin x，请判断 (0, -1) 和 (0, -2) 是否是集合 M 中的元素，并说明理由；</div><div class="sub">（2）设 f(x) = e^x，且存在实数 k，使得直线 l: y = kx + b 的“f-距离”不小于 1，求 b 的取值范围；</div><div class="sub">（3）设 y = f(x) 的导函数 y = f'(x) 在 R 上严格增。若对任意 (k,b) ∈ M，都有 (-k,b) ∈ M 且直线 l₁: y = kx + b 与 l₂: y = -kx + b 的“f-距离”相等。证明：y = f(x) 是偶函数。</div></div>
-  </main>
-  <footer>
-    <button id="btn" onclick="document.getElementById('ans').classList.toggle('on');this.textContent=this.textContent.includes('显示')?'隐藏答案':'显示答案'">显示答案</button>
-    <div class="ans" id="ans"><div class="akey">答案：（1）(0, -1) 不是，(0, -2) 是；（2）b ∈ (-∞,0]；（3）证明见解析</div></div>
-  </footer>
-  <div class="hint">↓ 向下滑动：进入「知识点背诵」</div>
-</div>
-<div class="screen" id="kb">
-  <header>
-    <h1>知识点背诵</h1>
-    <div class="meta">2026-10-30　|　河北衡水中学2026届高三年级上学期检测三数学试题 ｜ 上海南汇中学高三10月阶段练习</div>
-    <div class="topic">用不等式解决恒成立、有解问题</div>
-  </header>
-  <div class="rcards"><div class="rcard kcard2"><div class="rrow"><span class="rnum">1</span><span class="ktext">(k,b)∈M 即直线恒在图象下方，f-距离是竖向最小间距。</span></div></div><div class="rcard kcard2"><div class="rrow"><span class="rnum">2</span><span class="ktext">距离≥1 ⟺ f(x)−kx−b≥1 恒成立，化成求 f(x)−kx 的最小值。</span></div></div><div class="rcard kcard2"><div class="rrow"><span class="rnum">3</span><span class="ktext">第(3)问用 f″&gt;0 得 f′ 单调，先证 f 为偶函数再回代。</span></div></div><div class="rcard pcard"><div class="rrow"><span class="rtag">练手</span><span class="rtext">《九章方略》限时练 3「集合、常用逻辑与不等式综合」—— 与本题考点相关的题都在这一练里</span></div></div></div>
-  <div class="hint">↑ 返回「每日一题」 · ↓ 继续下滑「思维建模」</div>
-</div>
-<div class="screen" id="model">
-  <header>
-    <h1>思维建模</h1>
-    <div class="meta">2026-10-30　|　通用模型 · 与今日题目无关</div>
-    <div class="topic">第2节　等差数列及其前n项和</div>
-  </header>
-  <div class="rcards"><div class="rcard mcard"><div class="rrow"><span class="rnum">1</span><span class="mtext">项的性质:在等差数列{an}中,若m+n=p+q(m,n,p,q∈N*),则am+an=ap+aq.</span></div></div><div class="rcard mcard"><div class="rrow"><span class="rnum">2</span><span class="mtext">等差数列的通项公式及前n项和公式共涉及五个量a1,an,d,n,Sn,知其中三个就能求另外两个,体现了用方程的思…</span></div></div><div class="pfoot">通用模型 · 与今日题目无关</div></div>
-  <div class="hint">↑ 向上滑动：返回「知识点背诵」</div>
+<div class="stage">
+  <div class="topbar">
+    <div class="leftbar">
+      <div class="logo">每</div>
+      <div class="l-title">
+        <h1>每日<em>一题</em></h1>
+        <p>一题 · 知识 · 方法</p>
+      </div>
+    </div>
+    <div class="center-date">2026年10月29日 · <b>周四</b><span class="chip">分段函数与原点对称</span></div>
+    <div class="tabs">
+      <div class="tab on" data-p="1"><span class="num">1</span>每日一题</div>
+      <div class="tab" data-p="2"><span class="num">2</span>知识点背诵</div>
+      <div class="tab" data-p="3"><span class="num">3</span>方法梳理</div>
+    </div>
+  </div>
+
+  <div class="main">
+    <section class="page pg1 on">
+      <div class="phead"><div class="big">01</div><div class="sub">每日一题</div><div class="tag">分段函数与原点对称</div><div class="rule"></div></div>
+      <div class="pg1content">
+        <div class="qcard">
+          <div class="qmeta"><span class="qnum">第 2 题</span><span class="qtag">分段函数与原点对称</span><span class="qtag g">限时 · 独立完成</span></div>
+          <div class="qtitle">若函数 y = { 2x²/eˣ, x ≥ 0 ; ax, x &lt; 0 } 的图象上点 A、B 与点 C、D 分别关于原点对称（以上 4 点不重合），除此之外，函数的图象上不存在其它两点关于原点对称，则实数 a 的取值范围为___________.</div>
+          <div class="qopts" style="grid-template-columns:1fr"></div>
+          <div class="qfoot">
+            <button id="btn">显示答案</button>
+            <span class="ans" id="ans">答案：(0, 2/e)</span>
+            <span class="tip" style="margin-left:auto">先想再看 · 空格键也能显示</span>
+          </div>
+        </div>
+        <div class="hcard">
+          <div class="hblock hb-direct">
+            <div class="hb-title"><span class="ico">◎</span>今日考点</div>
+            <ul class="klist"><li>分段函数与原点对称</li><li>只考这一块，不扩散</li></ul>
+          </div>
+          <div class="hblock hb-think">
+            <div class="hb-title"><span class="ico">✦</span>作答要求</div>
+            <ul class="klist">
+              <li>先独立完成，不翻答案</li>
+              <li>关键一步写清楚再选</li>
+              <li>选完对答案，错题当天重做</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page pg2">
+      <div class="phead"><div class="big">02</div><div class="sub">知识点背诵</div><div class="tag">函数的性质</div><div class="rule"></div></div>
+      <div class="pg2content">
+        <div class="ktheme"><span class="lab">今日主题</span><h2>函数的性质</h2><span class="day">记忆用时：约 3 分钟</span></div>
+        <div class="kcols"><div class="kblock kb1"><div class="kt"><span class="no">1</span>要点 1</div><div class="kbody"><div class="ktext">f(−x) = −f(x) 的每个解对应一对原点对称点。</div></div></div><div class="kblock kb2"><div class="kt"><span class="no">2</span>要点 2</div><div class="kbody"><div class="ktext">h(x) = 2x/eˣ 的最大值为 2/e（x=1 处取到）。</div></div></div><div class="kblock kb3"><div class="kt"><span class="no">3</span>要点 3</div><div class="kbody"><div class="ktext">直线 y = k 与 h(x) 有两个交点 ⟺ 0 &lt; k &lt; 2/e。</div></div></div><div class="kblock kb1"><div class="kt"><span class="no">4</span>要点 4</div><div class="kbody"><div class="ktext">奇函数图象关于原点对称；偶函数关于 y 轴对称。</div></div></div><div class="kblock kb2"><div class="kt"><span class="no">5</span>要点 5</div><div class="kbody"><div class="ktext">分段函数在分界点处要单独看左右两侧的取值。</div></div></div><div class="kblock kb3"><div class="kt"><span class="no">6</span>要点 6</div><div class="kbody"><div class="ktext">2/e ≈ 0.74，1/e ≈ 0.37，卡范围时用得上。</div></div></div></div>
+        <div class="practice"><span class="lab">练手</span><span class="txt">《九章方略》限时练 4「函数的概念与性质」—— 与本题考点相关的题都在这一练里</span></div>
+      </div>
+    </section>
+
+    <section class="page pg3">
+      <div class="phead"><div class="big">03</div><div class="sub">方法梳理</div><div class="tag">通用模型</div><div class="rule"></div></div>
+      <div class="pg3content">
+        <div class="mcols"><div class="mblock mb1"><div class="mno">1</div><div class="mtext">数列的通项公式和前n项和公式在解题中起到变量代换作用,而a1和d是等差数列的两个基本量。</div></div><div class="mblock mb2"><div class="mno">2</div><div class="mtext">等差数列的通项公式及前n项和公式共涉及五个量a1,an,d,n,Sn,知其中三个就能求另外两个。</div></div><div class="mblock mb1"><div class="mno">3</div><div class="mtext">涉及等比数列的单调性与最值的问题,一般要考虑公比与首项的符号对其的影响.</div></div><div class="mblock mb2"><div class="mno">4</div><div class="mtext">等比数列中有五个量a1,n,q,an,Sn,一般可以“知三求二”,通过列方程(组)便可迎刃而解.</div></div></div>
+        <div class="note"><span class="lab">说明</span>通用模型 · 与今日题目无关，背的是方法不是这道题</div>
+      </div>
+    </section>
+  </div>
+
+  <div class="bottombar">
+    <div class="dots">
+      <button class="dot d1 on" data-p="1"></button>
+      <button class="dot d2" data-p="2"></button>
+      <button class="dot d3" data-p="3"></button>
+    </div>
+    <div class="now">第 <b>01</b> 页 · 每日一题 / 3</div>
+    <div class="keys">1 2 3 切页 · ←→ 翻页 · F 全屏 · 空格 显示答案</div>
+  </div>
 </div>
 <script>
-document.addEventListener('keydown',function(e){
-  if(e.key===' '||e.key==='Enter'){e.preventDefault();document.getElementById('btn').click();}
+const stage=document.querySelector('.stage');
+function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform='translate(-50%,-50%) scale('+s+')';}
+addEventListener('resize',fit);fit();
+const qs=new URLSearchParams(location.search);
+const AUTO=qs.get('auto')==='1';
+const SEC=Math.max(5,parseInt(qs.get('sec')||'25',10));
+let cur=1,timer=null;
+function go(n){
+  cur=n;
+  document.querySelectorAll('.page').forEach((p,i)=>p.classList.toggle('on',i===n-1));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',+t.dataset.p===n));
+  document.querySelectorAll('.dot').forEach(d=>d.classList.toggle('on',+d.dataset.p===n));
+  const names=['每日一题','知识点背诵','方法梳理'];
+  document.querySelectorAll('.now').forEach(el=>el.innerHTML='第 <b>0'+n+'</b> 页 · '+names[n-1]+' / 3');
+  if(AUTO){clearInterval(timer);timer=setInterval(()=>go(cur%3+1),SEC*1000);}
+}
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>go(+t.dataset.p));
+document.querySelectorAll('.dot').forEach(d=>d.onclick=()=>go(+d.dataset.p));
+addEventListener('keydown',e=>{
+  if(e.key==='1'||e.key==='2'||e.key==='3'){go(+e.key);return;}
+  if(e.key==='ArrowRight'){go(cur%3+1);return;}
+  if(e.key==='ArrowLeft'){go((cur+1)%3+1);return;}
+  if(e.key==='f'||e.key==='F'){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();return;}
+  if(e.key===' '||e.key==='Enter'){const b=document.getElementById('btn');if(b){e.preventDefault();b.click();}}
 });
-function toggleSrc(i){document.getElementById('src'+i).classList.toggle('on');}
+const b=document.getElementById('btn');
+if(b)b.onclick=()=>{const a=document.getElementById('ans');a.classList.toggle('on');
+  b.textContent=a.classList.contains('on')?'隐藏答案':'显示答案';};
+go(+(qs.get('page')||1));
 </script>
 </body>
 </html>
