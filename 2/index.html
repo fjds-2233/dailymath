@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>每日一题 · 2026-11-05</title>
+<title>每日一题 · 2026-11-06</title>
 <style>
 :root{
   --ink:#2b2d42;--sub:#3a4054;--dim:#8a90ad;--card:#fff;
@@ -168,7 +168,7 @@ body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif;color
         <p>一题 · 知识 · 方法</p>
       </div>
     </div>
-    <div class="center-date">2026年11月5日 · <b>周四</b><span class="chip">导数与构造函数求最值</span></div>
+    <div class="center-date">2026年11月6日 · <b>周五</b><span class="chip">导数应用：切线、单调性与不等式证明</span></div>
     <div class="tabs">
       <div class="tab on" data-p="1"><span class="num">1</span>每日一题</div>
       <div class="tab" data-p="2"><span class="num">2</span>知识点背诵</div>
@@ -178,22 +178,57 @@ body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif;color
 
   <div class="main">
     <section class="page pg1 on">
-      <div class="phead"><div class="big">01</div><div class="sub">每日一题</div><div class="tag">导数与构造函数求最值</div><div class="rule"></div></div>
+      <div class="phead"><div class="big">01</div><div class="sub">每日一题</div><div class="tag">导数应用：切线、单调性与不等式证明</div><div class="rule"></div></div>
       <div class="pg1content">
         <div class="qcard">
-          <div class="qmeta"><span class="qnum">第 2 题</span><span class="qtag">导数与构造函数求最值</span><span class="qtag g">限时 · 独立完成</span></div>
-          <div class="qtitle">已知 b&gt;0，若函数 f(x)=(ax²-bx+c)eˣ - 4ax³ + 4bx² - 4cx 的最小值为 0，则 (a/16c)ᵃ b 的最大值为________.</div>
-          <div class="qopts" style="grid-template-columns:1fr"></div>
+          <div class="qmeta"><span class="qnum">第 2 题</span><span class="qtag">导数应用：切线、单调性与不等式证明</span><span class="qtag g">限时 · 独立完成</span></div>
+          <div class="qtitle">已知函数 f(x)=2ln x-ax-b/x(a, b ∈ ℝ) .
+（1）若曲线 y=f(x) 在点 (1,f(1)) 处的切线方程为 y=x-4 ，求 a ， b 的值；
+（2）若 b&gt;-2 ，且 1 是 f(x) 的极值点，请根据 b 的取值范围讨论 f(x) 的单调区间；
+（3）若 0&lt;m&lt;n ，且 me^(1/m)=ne^(1/n) ，证明： m+n&gt;2 .</div>
+          <div class="qopts" style="grid-template-columns:1fr"><div class="opt o1"><b>1.</b>若曲线 y=f(x) 在点 (1,f(1)) 处的切线方程为 y=x-4 ，求 a ， b 的值；</div><div class="opt o2"><b>2.</b>若 b&gt;-2 ，且 1 是 f(x) 的极值点，请根据 b 的取值范围讨论 f(x) 的单调区间；</div><div class="opt o3"><b>3.</b>若 0&lt;m&lt;n ，且 me^(1/m)=ne^(1/n) ，证明： m+n&gt;2 .</div></div>
           <div class="qfoot">
             <button id="btn">显示答案</button>
-            <span class="ans" id="ans">答案：1/e</span>
+            <span class="ans" id="ans">答案：（1） a=2 ， b=1 (2) 当 b ≥ 0 时，f(x) 的单调递增区间为 (0, 1)，单调递减区间为 (1, +∞)。
+
+当 -1 &lt; b &lt; 0 时，f(x) 的单调递增区间为 (-b/(b+2), 1)，单调递减区间为 (0, -b/(b+2)) 和 (1, +∞)；
+
+当 b = -1 时，f(x) 在 (0, +∞) 上单调递减，f(x) 无极值点，不符合题意；
+
+当 -2 &lt; b &lt; -1 时，f(x) 的单调递增区间为 (1, -b/(b+2))，单调递减区间为 (0, 1) 和 (-b/(b+2), +∞)。
+
+(3) 证明：由 me^(1/m) = ne^(1/n)，
+
+可得 0 &lt; m/n = e^(1/n - 1/m) &lt; 1，
+
+则 ln(m/n) = 1/n - 1/m = (m-n)/(mn) = (m/n-1)/m，
+
+令 t = m/n (0 &lt; t &lt; 1)，则 ln t = (t-1)/m，
+
+所以 m = (t-1)/(ln t)， n = (t-1)/(t ln t)，
+
+因此 m+n = (t-1)/(ln t) + (t-1)/(t ln t) = (t²-1)/(t ln t)，
+
+要证 m+n &gt; 2，
+
+需证 (t²-1)/(t ln t) &gt; 2，
+
+即证 t - 1/t &lt; 2 ln t，
+
+即证 -2ln t - t + 1/t &gt; 0 (0 &lt; t &lt; 1)，
+
+由 (2) 可知，当 b = -1 时，f(x) = 2ln x - x + 1/x 在 (0, +∞) 上单调递减，
+
+所以当 0 &lt; t &lt; 1 时，f(t) &gt; f(1) = 0，即 2ln t - t + 1/t &gt; 0，
+
+故 m + n &gt; 2 得证.</span>
             <span class="tip" style="margin-left:auto">先想再看 · 空格键也能显示</span>
           </div>
         </div>
         <div class="hcard">
           <div class="hblock hb-direct">
             <div class="hb-title"><span class="ico">◎</span>今日考点</div>
-            <ul class="klist"><li>导数与构造函数求最值</li><li>只考这一块，不扩散</li></ul>
+            <ul class="klist"><li>导数应用：切线、单调性与不等式证明</li><li>只考这一块，不扩散</li></ul>
           </div>
           <div class="hblock hb-think">
             <div class="hb-title"><span class="ico">✦</span>作答要求</div>
@@ -208,18 +243,18 @@ body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif;color
     </section>
 
     <section class="page pg2">
-      <div class="phead"><div class="big">02</div><div class="sub">知识点背诵</div><div class="tag">导数中的构造函数问题</div><div class="rule"></div></div>
+      <div class="phead"><div class="big">02</div><div class="sub">知识点背诵</div><div class="tag">导数的应用</div><div class="rule"></div></div>
       <div class="pg2content">
-        <div class="ktheme"><span class="lab">今日主题</span><h2>导数中的构造函数问题</h2><span class="day">记忆用时：约 3 分钟</span></div>
-        <div class="kcols"><div class="kblock kb1"><div class="kt"><span class="no">1</span>要点 1</div><div class="kbody"><div class="ktext">最小值 0 ⇒ 极值点处同时有 f = 0 与 f′ = 0。</div></div></div><div class="kblock kb2"><div class="kt"><span class="no">2</span>要点 2</div><div class="kbody"><div class="ktext">含 eˣ 的多项式可提公因式，结构常对应某个函数的导数。</div></div></div><div class="kblock kb3"><div class="kt"><span class="no">3</span>要点 3</div><div class="kbody"><div class="ktext">幂指型最值：取对数化为一元函数，再用导数求最值。</div></div></div><div class="kblock kb1"><div class="kt"><span class="no">4</span>要点 4</div><div class="kbody"><div class="ktext">构造函数比较大小：把要证的式子移项成一侧为 0 的形式。</div></div></div><div class="kblock kb2"><div class="kt"><span class="no">5</span>要点 5</div><div class="kbody"><div class="ktext">幂指函数求导：先取对数再求导，或写成 e^(g ln f)。</div></div></div><div class="kblock kb3"><div class="kt"><span class="no">6</span>要点 6</div><div class="kbody"><div class="ktext">最值为 0 且能取到 ⇒ 该点既是极值点又是零点。</div></div></div></div>
-        <div class="practice"><span class="lab">练手</span><span class="txt">《九章方略》限时练 11「导数的综合应用」—— 与本题考点相关的题都在这一练里</span></div>
+        <div class="ktheme"><span class="lab">今日主题</span><h2>导数的应用</h2><span class="day">记忆用时：约 3 分钟</span></div>
+        <div class="kcols"><div class="kblock kb1"><div class="kt"><span class="no">1</span>要点 1</div><div class="kbody"><div class="ktext">切线方程给两条信息：切点坐标与 f′(x₀) = 斜率。</div></div></div><div class="kblock kb2"><div class="kt"><span class="no">2</span>要点 2</div><div class="kbody"><div class="ktext">分类讨论的分界来自 f′ 的根是否落在定义域内。</div></div></div><div class="kblock kb3"><div class="kt"><span class="no">3</span>要点 3</div><div class="kbody"><div class="ktext">双变量同构式：两边结构相同就换元 t，把两变量压成一个。</div></div></div><div class="kblock kb1"><div class="kt"><span class="no">4</span>要点 4</div><div class="kbody"><div class="ktext">极值点必满足 f′(x₀)=0，且要在定义域内部。</div></div></div><div class="kblock kb2"><div class="kt"><span class="no">5</span>要点 5</div><div class="kbody"><div class="ktext">含参讨论先找 f′ 的零点，再判它是否落在定义域内。</div></div></div><div class="kblock kb3"><div class="kt"><span class="no">6</span>要点 6</div><div class="kbody"><div class="ktext">b&gt;−2 时含参单调：f′ 的根 −b/(b+2) 与 1 谁大要分界。</div></div></div></div>
+        <div class="practice"><span class="lab">练手</span><span class="txt">《九章方略》限时练 9「导数及其应用(1)」—— 与本题考点相关的题都在这一练里</span></div>
       </div>
     </section>
 
     <section class="page pg3">
       <div class="phead"><div class="big">03</div><div class="sub">方法梳理</div><div class="tag">通用模型</div><div class="rule"></div></div>
       <div class="pg3content">
-        <div class="mcols"><div class="mblock mb1"><div class="mno">1</div><div class="mtext">解决涂色问题,可按颜色的种数分类,也可按不同的区域分步完成.</div></div><div class="mblock mb2"><div class="mno">2</div><div class="mtext">分步必须满足两个条件:一是步骤互相独立,互不干扰;二是步与步确保连续,逐步完成.</div></div><div class="mblock mb1"><div class="mno">3</div><div class="mtext">求二项展开式中的特定项,一般是化简通项后,令字母的指数符合要求(求常数项时,指数为零。</div></div><div class="mblock mb2"><div class="mno">4</div><div class="mtext">二项式系数最大项的确定方法:当n为偶数时,展开式中第+1项的二项式系数最大,最大值为。</div></div></div>
+        <div class="mcols"><div class="mblock mb1"><div class="mno">1</div><div class="mtext">求二项展开式中的特定项,一般是化简通项后,令字母的指数符合要求(求常数项时,指数为零。</div></div><div class="mblock mb2"><div class="mno">2</div><div class="mtext">二项式系数最大项的确定方法:当n为偶数时,展开式中第+1项的二项式系数最大,最大值为。</div></div><div class="mblock mb1"><div class="mno">3</div><div class="mtext">利用事件间运算的定义,列出同一条件下的试验所有的样本点,分析并利用这些样本点进行事件间的运算.</div></div><div class="mblock mb2"><div class="mno">4</div><div class="mtext">利用概率的统计定义求事件的概率,即通过大量的重复试验,事件发生的频率会逐步趋近于某一个常数,这个常数就是概率.</div></div></div>
         <div class="note"><span class="lab">说明</span>通用模型 · 与今日题目无关，背的是方法不是这道题</div>
       </div>
     </section>
