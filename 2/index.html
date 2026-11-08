@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>每日一题 · 2026-11-08</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../katex/katex.min.css">
+<title>每日一题 · 2026-11-09</title>
 <style>
 :root{
   --ink:#2b2d42;--sub:#3a4054;--dim:#8a90ad;--card:#fff;
@@ -156,6 +159,145 @@ body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif;color
 .now{font-size:19px;color:var(--sub);font-weight:800}
 .now b{color:var(--ink);font-weight:900}
 .keys{margin-left:auto;font-size:15px;color:rgba(43,45,66,.42);font-weight:600;white-space:nowrap}
+
+/* ================= 归藏杂志风 · 覆写层（2026-11-08） ================= */
+:root{
+  --paper:#f4efe3;--paper2:#fbf7ee;--ink:#1c1a17;--sub:#5b554c;--dim:#8b8478;
+  --line:rgba(28,26,23,.16);--line2:rgba(28,26,23,.34);--accent:#9e3b31;--muted:#6f685d;
+  --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+}
+html,body{background:#e7e1d3!important;font-family:var(--sans)}
+.stage{background:
+  repeating-linear-gradient(45deg,rgba(28,26,23,.020) 0 1px,transparent 1px 8px),
+  repeating-linear-gradient(-45deg,rgba(28,26,23,.020) 0 1px,transparent 1px 8px),
+  var(--paper)!important;
+  padding:34px 58px 22px!important}
+.stage::after{inset:16px;border:1px solid var(--line2)!important;border-radius:0!important}
+.topbar{border-bottom:1px solid var(--line2)!important;align-items:end;padding:0 2px 12px!important}
+.logo{width:52px!important;height:52px!important;border-radius:2px!important;background:var(--ink)!important;box-shadow:none!important;
+  transform:none!important;font-family:var(--serif);font-weight:500;font-size:28px!important;letter-spacing:0}
+.l-title h1{font-family:var(--serif);font-size:30px!important;font-weight:600!important;letter-spacing:.16em!important;color:var(--ink)}
+.l-title h1 em{background:none!important;-webkit-text-fill-color:var(--accent)!important;color:var(--accent)!important;font-style:normal}
+.l-title p{font-size:11px!important;letter-spacing:.36em!important;color:var(--dim)!important;font-weight:400!important}
+.center-date{font-family:var(--serif);font-weight:400!important;font-size:21px!important;color:var(--sub)!important;letter-spacing:.03em}
+.center-date b{font-weight:600!important;color:var(--ink)!important}
+.center-date .chip{background:none!important;border:1px solid var(--line2)!important;border-radius:2px!important;color:var(--muted)!important;
+  box-shadow:none!important;font-family:var(--sans);font-size:13px!important;font-weight:400!important;letter-spacing:.10em;padding:2px 11px!important}
+.tabs{gap:30px!important;align-items:end}
+.tab{background:none!important;border:0!important;border-bottom:1px solid transparent!important;border-radius:0!important;
+  box-shadow:none!important;color:var(--dim)!important;font-size:15px!important;font-weight:400!important;letter-spacing:.06em;
+  padding:6px 0 7px!important;gap:6px;transition:color .2s}
+.tab .num{width:auto!important;height:auto!important;background:none!important;border-radius:0!important;
+  font-family:var(--serif);font-style:italic;font-size:13px;color:inherit}
+.tab.on,.tab.on[data-p="1"],.tab.on[data-p="2"],.tab.on[data-p="3"]{background:none!important;box-shadow:none!important;
+  transform:none!important;color:var(--ink)!important;font-weight:500!important;border-bottom-color:var(--ink)!important}
+.tab.on .num{background:none!important;color:var(--accent)!important}
+.page.on{animation:fadein .3s ease}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.phead{padding:6px 0 10px!important;border-bottom:1px solid var(--line);margin-bottom:20px;gap:15px!important}
+.phead .big{font-family:var(--serif);font-size:44px!important;font-weight:400!important;letter-spacing:.06em;
+  color:var(--ink)!important;background:none!important;-webkit-text-fill-color:var(--ink)!important}
+.phead .sub{font-family:var(--serif);font-size:23px!important;font-weight:500!important;letter-spacing:.22em!important;color:var(--ink)!important}
+.phead .tag{background:none!important;border:1px solid var(--line2)!important;border-radius:2px!important;color:var(--muted)!important;
+  font-size:12px!important;font-weight:400!important;letter-spacing:.12em;padding:3px 10px!important;margin-left:4px!important}
+.phead .rule{display:none!important}
+/* 页1 */
+.qcard{border:1px solid var(--line2)!important;border-radius:3px!important;background:var(--paper2)!important;
+  box-shadow:none!important;padding:24px 32px 18px!important}
+.qcard::before{height:3px!important;background:var(--ink)!important;border-radius:0!important}
+.qmeta{margin-bottom:12px!important;gap:0!important}
+.qnum{font-family:var(--serif);font-size:16px!important;font-weight:500!important;color:var(--muted)!important;letter-spacing:.14em}
+.qtag{background:none!important;border-radius:0!important;color:var(--muted)!important;font-size:13px!important;font-weight:400!important;
+  letter-spacing:.08em;padding:0 0 0 12px!important;margin-left:12px;border-left:1px solid var(--line2)}
+.qtag.g{color:var(--accent)!important}
+.qtitle{font-family:var(--serif);font-size:30px!important;line-height:1.74!important;font-weight:500!important;color:var(--ink)!important;letter-spacing:.01em}
+.qopts{gap:12px 26px!important;margin-top:18px!important}
+.opt{background:none!important;box-shadow:none!important;color:var(--ink)!important;border:1px solid var(--line)!important;
+  border-radius:2px!important;font-family:var(--serif);font-weight:400!important;font-size:25px!important;
+  padding:11px 18px!important;transition:background .18s,border-color .18s}
+.opt b{font-family:var(--serif);font-weight:600!important;color:var(--accent)!important;margin-right:10px!important}
+.opt:hover{background:rgba(28,26,23,.045)!important;border-color:var(--line2)!important}
+.qfoot{border-top:1px solid var(--line)!important;padding-top:14px!important;gap:20px!important}
+#btn{background:var(--ink)!important;border-radius:2px!important;box-shadow:none!important;font-family:var(--sans);
+  font-size:15px!important;font-weight:400!important;letter-spacing:.16em;padding:9px 22px!important;transition:background .18s}
+#btn:hover{background:var(--accent)!important}
+.ans{font-family:var(--serif);font-size:32px!important;font-weight:600!important;color:var(--accent)!important;letter-spacing:.02em}
+.qfoot .tip{font-size:13px!important;color:var(--dim)!important;font-weight:400!important;letter-spacing:.06em}
+.hcard{gap:16px!important}
+.hblock{background:none!important;border:1px solid var(--line)!important;border-radius:2px!important;box-shadow:none!important;padding:20px 24px!important}
+.hblock::before{width:3px!important;border-radius:0!important;background:var(--ink)!important;top:22px!important;bottom:22px!important}
+.hb-think::before{background:var(--accent)!important}
+.hb-title{font-family:var(--serif);font-size:19px!important;font-weight:600!important;letter-spacing:.20em!important;
+  color:var(--ink)!important;margin-bottom:14px!important}
+.hb-title .ico{width:auto!important;height:auto!important;background:none!important;color:var(--accent)!important;font-size:15px!important}
+.klist{gap:8px!important}
+.klist li{font-family:var(--serif);font-size:22px!important;line-height:1.62!important;font-weight:400!important;color:var(--ink)!important;padding-left:22px!important}
+.klist li::before{width:5px!important;height:5px!important;border-radius:0!important;background:var(--muted)!important;
+  box-shadow:none!important;top:.8em!important;left:2px!important;transform:rotate(45deg)}
+/* 页2 / 页3 */
+.ktheme{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:18px}
+.ktheme .lab,.practice .lab,.note .lab{background:none!important;border:0!important;border-radius:0!important;
+  color:var(--accent)!important;font-size:12px!important;letter-spacing:.2em;padding:0!important;font-weight:400}
+.ktheme h2{font-family:var(--serif);font-weight:600;color:var(--ink);letter-spacing:.04em}
+.ktheme .day{font-family:var(--sans);font-size:13px;color:var(--dim)}
+.kcols{gap:22px!important}
+.kcols.k3{grid-template-columns:1fr!important;grid-template-rows:repeat(3,1fr)!important}
+.kcols.k3 .kblock{padding:26px 44px!important;justify-content:center}
+.kcols.k3 .ktext{font-size:32px!important;line-height:1.7!important}
+.kblock{background:var(--paper2)!important;border:1px solid var(--line)!important;border-radius:2px!important;box-shadow:none!important}
+.kt{font-family:var(--serif);font-size:16px!important;font-weight:500!important;letter-spacing:.14em;color:var(--muted)!important;
+  border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:12px}
+.kt .no{font-family:var(--serif);font-style:italic;color:var(--accent);font-weight:600}
+.ktext{font-family:var(--serif);font-size:23px!important;line-height:1.8!important;font-weight:400!important;color:var(--ink)!important}
+.practice{background:none!important;border:1px solid var(--line2)!important;border-radius:2px!important;box-shadow:none!important;
+  font-family:var(--serif);font-weight:400!important;font-size:20px!important;color:var(--ink)!important}
+.mcols{gap:20px!important}
+.katex{font-size:1.02em}
+.katex-display{font-size:1.02em}
+.mcols.m2{grid-template-columns:1fr!important;grid-template-rows:1fr 1fr!important}
+.mcols.m3{grid-template-columns:1fr!important;grid-template-rows:repeat(3,1fr)!important}
+.mcols.m3 .mblock{padding:22px 44px!important}
+.mblock{background:var(--paper2)!important;border:1px solid var(--line)!important;border-radius:2px!important;box-shadow:none!important}
+.mblock::before{height:3px!important;background:var(--ink)!important}
+.mb2::before{background:var(--accent)!important}
+.mb1 .mno,.mb2 .mno{background:none!important;color:var(--accent)!important;border:1px solid var(--line2)!important;
+  border-radius:0!important;font-family:var(--serif);font-style:italic;font-weight:600!important;font-size:20px!important}
+.mtext{font-family:var(--serif);font-size:26px!important;line-height:1.64!important;font-weight:400!important;color:var(--ink)!important}
+.note{background:none!important;border:1px solid var(--line)!important;border-radius:2px!important;box-shadow:none!important;
+  font-family:var(--serif);font-weight:400!important;font-size:19px!important;color:var(--muted)!important}
+.note .lab{border:1px solid var(--line2)!important;color:var(--accent)!important;border-radius:0!important;font-size:11px!important;letter-spacing:.16em;padding:2px 8px!important}
+/* 底栏 */
+.bottombar{border-top:1px solid var(--line2)!important;padding-top:11px!important;gap:20px!important}
+.dots{gap:8px!important}
+.dot{width:7px!important;height:7px!important;border-radius:0!important;background:rgba(28,26,23,.22)!important}
+.dot.on,.dot.d1.on,.dot.d2.on,.dot.d3.on{width:22px!important;border-radius:0!important;background:var(--ink)!important}
+.now{font-family:var(--serif);font-size:15px!important;color:var(--muted)!important;font-weight:400!important;letter-spacing:.10em}
+.now b{font-weight:600!important;color:var(--ink)!important}
+.keys{font-size:12px!important;color:rgba(28,26,23,.34)!important;font-weight:400!important;letter-spacing:.05em}
+/* ---- 覆写层 2：压掉残留彩色块 ---- */
+.logo{color:#f4efe3!important}
+.ktheme{background:none!important;border:1px solid var(--line2)!important;border-radius:2px!important;
+  box-shadow:none!important;padding:14px 26px!important;gap:20px!important}
+.ktheme .lab{background:none!important;color:var(--accent)!important;border:1px solid var(--line2)!important;
+  border-radius:0!important;font-size:12px!important;letter-spacing:.2em!important;padding:3px 10px!important;font-weight:400!important}
+.ktheme h2{font-family:var(--serif);font-size:38px!important;font-weight:600!important;letter-spacing:.05em!important;color:var(--ink)!important}
+.ktheme .day{font-family:var(--sans);font-size:14px!important;font-weight:400!important;color:var(--dim)!important}
+.kblock::before{height:0!important}
+.kb1,.kb2,.kb3{border:1px solid var(--line)!important}
+.kblock .kt{font-family:var(--serif);font-size:17px!important;font-weight:500!important;letter-spacing:.14em!important;
+  color:var(--muted)!important;border-bottom:1px solid var(--line)!important;padding-bottom:9px!important;margin-bottom:12px!important}
+.kb1 .kt,.kb2 .kt,.kb3 .kt{color:var(--muted)!important}
+.kblock .kt .no{width:auto!important;height:auto!important;background:none!important;border-radius:0!important;
+  color:var(--accent)!important;font-family:var(--serif);font-style:italic;font-weight:600!important;font-size:16px!important}
+.kb1 .no,.kb2 .no,.kb3 .no{background:none!important;color:var(--accent)!important}
+.practice{background:none!important;border:1px solid var(--line2)!important;border-radius:2px!important;box-shadow:none!important;padding:12px 22px!important}
+.practice .lab{background:none!important;color:var(--accent)!important;border:1px solid var(--line2)!important;border-radius:0!important;
+  font-size:11px!important;letter-spacing:.18em!important;padding:2px 8px!important;font-weight:400!important}
+.practice .txt{font-family:var(--serif);font-size:21px!important;font-weight:400!important;color:var(--ink)!important}
+.mblock::before{height:0!important}
+.mb1,.mb2{border:1px solid var(--line)!important}
+.mblock{border-radius:2px!important}
 </style>
 </head>
 <body>
@@ -168,7 +310,7 @@ body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif;color
         <p>一题 · 知识 · 方法</p>
       </div>
     </div>
-    <div class="center-date">2026年11月8日 · <b>周日</b><span class="chip">导数几何意义与切线长</span></div>
+    <div class="center-date">2026年11月9日 · <b>周一</b><span class="chip">指数、对数、幂的大小比较</span></div>
     <div class="tabs">
       <div class="tab on" data-p="1"><span class="num">1</span>每日一题</div>
       <div class="tab" data-p="2"><span class="num">2</span>知识点背诵</div>
@@ -178,22 +320,22 @@ body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif;color
 
   <div class="main">
     <section class="page pg1 on">
-      <div class="phead"><div class="big">01</div><div class="sub">每日一题</div><div class="tag">导数几何意义与切线长</div><div class="rule"></div></div>
+      <div class="phead"><div class="big">01</div><div class="sub">每日一题</div><div class="tag">指数、对数、幂的大小比较</div><div class="rule"></div></div>
       <div class="pg1content">
         <div class="qcard">
-          <div class="qmeta"><span class="qnum">第 2 题</span><span class="qtag">导数几何意义与切线长</span><span class="qtag g">限时 · 独立完成</span></div>
-          <div class="qtitle">已知函数 f(x) = {x ln x-x, x ≥ 1; x³/3-4/3, 0&lt;x&lt;1}，记 P(x₁, f(x₁))，Q(x₂, f(x₂))，其中 0&lt;x₂ ≤ 1 ≤ x₁，设曲线 y=f(x) 在点 P，Q 处的切线分别为 l₁，l₂，且 l₁，l₂ 分别交 y 轴于 M，N 两点． 当 l₁ // l₂ 时， |PM|/|QN| 的取值范围是______。</div>
-          <div class="qopts" style="grid-template-columns:1fr"></div>
+          <div class="qmeta"><span class="qnum">第 2 题</span><span class="qtag">指数、对数、幂的大小比较</span><span class="qtag g">限时 · 独立完成</span></div>
+          <div class="qtitle">设 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathrm">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0.2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>，<span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0.2</span></span></span></span>，<span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mop">ln</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1.2</span></span></span></span>，则（　）。</div>
+          <div class="qopts"><div class="opt o1"><b>A.</b><span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></div><div class="opt o2"><b>B.</b><span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">c</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span></div><div class="opt o3"><b>C.</b><span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></div><div class="opt o4"><b>D.</b><span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">c</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span></div></div>
           <div class="qfoot">
             <button id="btn">显示答案</button>
-            <span class="ans" id="ans">答案：[√(2e), +∞)</span>
+            <span class="ans" id="ans">答案：B</span>
             <span class="tip" style="margin-left:auto">先想再看 · 空格键也能显示</span>
           </div>
         </div>
         <div class="hcard">
           <div class="hblock hb-direct">
             <div class="hb-title"><span class="ico">◎</span>今日考点</div>
-            <ul class="klist"><li>导数几何意义与切线长</li><li>只考这一块，不扩散</li></ul>
+            <ul class="klist"><li>指数、对数、幂的大小比较</li><li>只考这一块，不扩散</li></ul>
           </div>
           <div class="hblock hb-think">
             <div class="hb-title"><span class="ico">✦</span>作答要求</div>
@@ -208,19 +350,19 @@ body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif;color
     </section>
 
     <section class="page pg2">
-      <div class="phead"><div class="big">02</div><div class="sub">知识点背诵</div><div class="tag">平均变化率、瞬时变化率、导数的概念及其几何意义</div><div class="rule"></div></div>
+      <div class="phead"><div class="big">02</div><div class="sub">知识点背诵</div><div class="tag">指数、对数、幂的大小比较</div><div class="rule"></div></div>
       <div class="pg2content">
-        <div class="ktheme"><span class="lab">今日主题</span><h2>平均变化率、瞬时变化率、导数的概念及其几何意义</h2><span class="day">记忆用时：约 3 分钟</span></div>
-        <div class="kcols"><div class="kblock kb1"><div class="kt"><span class="no">1</span>要点 1</div><div class="kbody"><div class="ktext">l₁∥l₂ ⇒ f′(x₁)=f′(x₂)，用分段导数把 x₂ 用 x₁ 表示。</div></div></div><div class="kblock kb2"><div class="kt"><span class="no">2</span>要点 2</div><div class="kbody"><div class="ktext">|PM|=√(1+k²)·|x₁−x_M|，切线与 y 轴交点即截距。</div></div></div><div class="kblock kb3"><div class="kt"><span class="no">3</span>要点 3</div><div class="kbody"><div class="ktext">比值化成 x₁ 的单变量函数求值域，注意 0&lt;x₂≤1≤x₁。</div></div></div><div class="kblock kb1"><div class="kt"><span class="no">4</span>要点 4</div><div class="kbody"><div class="ktext">两切线平行 ⇔ 两处导数值相等。</div></div></div><div class="kblock kb2"><div class="kt"><span class="no">5</span>要点 5</div><div class="kbody"><div class="ktext">切线在 y 轴的截距 = f(x₀) − x₀·f′(x₀)。</div></div></div><div class="kblock kb3"><div class="kt"><span class="no">6</span>要点 6</div><div class="kbody"><div class="ktext">切线上两点距离 = √(1+k²)·|Δx|，k 为斜率。</div></div></div></div>
-        <div class="practice"><span class="lab">练手</span><span class="txt">《九章方略》限时练 9「导数及其应用(1)」—— 与本题考点相关的题都在这一练里</span></div>
+        <div class="ktheme"><span class="lab">今日主题</span><h2>指数、对数、幂的大小比较</h2><span class="day">记忆用时：约 3 分钟</span></div>
+        <div class="kcols k3"><div class="kblock kb1"><div class="kt"><span class="no">1</span>要点 1</div><div class="kbody"><div class="ktext"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8004em;vertical-align:-0.136em;"></span><span class="mord"><span class="mord mathrm">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>，<span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">ln</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>，等号仅在 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> 成立。</div></div></div><div class="kblock kb2"><div class="kt"><span class="no">2</span>要点 2</div><div class="kbody"><div class="ktext">比大小先分三层：大于 1、0 到 1、小于 0，不先算近似值。</div></div></div><div class="kblock kb3"><div class="kt"><span class="no">3</span>要点 3</div><div class="kbody"><div class="ktext">放缩取不到等号时只能得严格不等式，不能当等号用。</div></div></div></div>
+        <div class="practice"><span class="lab">练手</span><span class="txt">《九章方略》限时练 5「指、对、幂函数」—— 与本题考点相关的题都在这一练里</span></div>
       </div>
     </section>
 
     <section class="page pg3">
-      <div class="phead"><div class="big">03</div><div class="sub">方法梳理</div><div class="tag">通用模型</div><div class="rule"></div></div>
+      <div class="phead"><div class="big">03</div><div class="sub">方法梳理</div><div class="tag">靶点模型</div><div class="rule"></div></div>
       <div class="pg3content">
-        <div class="mcols"><div class="mblock mb1"><div class="mno">1</div><div class="mtext">超几何分布主要用于抽检产品、摸不同类别的小球等概率模型,其实质是古典概型.</div></div><div class="mblock mb2"><div class="mno">2</div><div class="mtext">超几何分布描述的是不放回抽样问题,随机变量为抽到的某类个体的个数.超几何分布的特征是:(1)考察对象分两类。</div></div><div class="mblock mb1"><div class="mno">3</div><div class="mtext">破解概率与回归分析的综合问题的关键:(1)求两个变量的平均值;(2)能根据已知数据求方程。</div></div><div class="mblock mb2"><div class="mno">4</div><div class="mtext">频率分布直方图与概率的综合问题有两个考查方向:(1)通过阅读频率分布直方图,寻找规律的统计类或综合类问题。</div></div></div>
-        <div class="note"><span class="lab">说明</span>通用模型 · 与今日题目无关，背的是方法不是这道题</div>
+        <div class="mcols m3"><div class="mblock mb1"><div class="mno">1</div><div class="mtext">比大小三板斧：同底比单调性、同指数比图象、异类找中间量 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> 与 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>。</div></div><div class="mblock mb2"><div class="mno">2</div><div class="mtext">放缩两把尺：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8004em;vertical-align:-0.136em;"></span><span class="mord"><span class="mord mathrm">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>，<span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8304em;vertical-align:-0.136em;"></span><span class="mop">ln</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>，等号只在切点取到。</div></div><div class="mblock mb1"><div class="mno">3</div><div class="mtext">多选稳拿：能确定两个就先收，第三个必须验等号、端点或定义域。</div></div></div>
+        <div class="note"><span class="lab">说明</span>按本班薄弱板块选 · 背的是方法，不是这道题的答案</div>
       </div>
     </section>
   </div>
