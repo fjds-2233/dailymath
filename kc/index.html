@@ -896,11 +896,11 @@ var PAGES = [
     "距离相等！这就是定义！"
    ],
    [
-    "为什么设 x = my + 1，不设 y = k(x−1)？",
+    "设 x = my + 1 有什么好处？",
     "这样含竖直弦！斜率不存在也不漏！"
    ],
    [
-    "y² = 4x 上横坐标为 x₀ 的点，到焦点多远？",
+    "y² = 4x 上 x₀ 到焦点多远？",
     "x₀ + 1！p/2 就是 1，别忘加！"
    ],
    [
@@ -997,7 +997,8 @@ var m = /[?&]c=(11|6)\b/.exec(location.search);
 if (m) { CLS = (m[1] === '11') ? '11' : '06'; }
 var STATIC = /[?&]static\b/.test(location.search);
 
-var idx = 0, timers = [], left = 180, running = false;
+// 默认落在最新一天的那一屏（第二天上课直接打开就是这个），按 → 翻到它的 P3
+var idx = Math.max(0, PAGES.length - 2), timers = [], left = 180, running = false;
 
 function $(id){ return document.getElementById(id); }
 function clearTimers(){ for (var i=0;i<timers.length;i++){ clearTimeout(timers[i]); } timers = []; }
