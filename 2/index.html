@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../katex/katex.min.css">
-<title>每日一题 · 2026-11-23</title>
+<title>每日一题 · 2026-11-24</title>
 <style>
 :root{
   --ink:#2b2d42;--sub:#3a4054;--dim:#8a90ad;--card:#fff;
@@ -128,6 +128,14 @@ body{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif;color
 .kb3 .no{background:linear-gradient(135deg,#3fe0c0,var(--green-d))}
 .kbody{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px}
 .ktext{font-size:29px;line-height:1.52;font-weight:900;letter-spacing:.01em;color:#1d2033}
+/* QA 问答串（第2/3页，2026-11-23 加） */
+.qalist{display:flex;flex-direction:column;justify-content:center;gap:15px;flex:1;min-height:0}
+.qaitem{display:flex;flex-direction:column;gap:7px;padding:15px 28px;background:var(--paper2);
+  border:1px solid var(--line);border-left:7px solid var(--accent)}
+.qaitem .qq{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink);letter-spacing:.02em;line-height:1.35}
+.qaitem .qq::before{content:"问 ";color:var(--muted);font-weight:400}
+.qaitem .qa{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--accent);line-height:1.35}
+.qaitem .qa::before{content:"——答 ";color:var(--accent);font-weight:700}
 .practice{display:flex;align-items:center;gap:18px;padding:14px 26px;border-radius:20px;background:var(--yellow-bg);
   border:3px solid var(--yellow);box-shadow:0 10px 22px rgba(230,172,0,.18)}
 .practice .lab{flex:0 0 auto;font-size:19px;font-weight:900;color:#fff;letter-spacing:.10em;border-radius:999px;padding:6px 18px;
@@ -310,7 +318,7 @@ html,body{background:#e7e1d3!important;font-family:var(--sans)}
         <p>一题 · 知识 · 方法</p>
       </div>
     </div>
-    <div class="center-date">2026年11月23日 · <b>周一</b><span class="chip">计数原理（组合与排除法）</span></div>
+    <div class="center-date">2026年11月24日 · <b>周二</b><span class="chip">导数（极值、单调与对称性）</span></div>
     <div class="tabs">
       <div class="tab on" data-p="1"><span class="num">1</span>每日一题</div>
       <div class="tab" data-p="2"><span class="num">2</span>知识点背诵</div>
@@ -320,22 +328,22 @@ html,body{background:#e7e1d3!important;font-family:var(--sans)}
 
   <div class="main">
     <section class="page pg1 on">
-      <div class="phead"><div class="big">01</div><div class="sub">每日一题</div><div class="tag">计数原理（组合与排除法）</div><div class="rule"></div></div>
+      <div class="phead"><div class="big">01</div><div class="sub">每日一题</div><div class="tag">导数（极值、单调与对称性）</div><div class="rule"></div></div>
       <div class="pg1content">
         <div class="qcard">
-          <div class="qmeta"><span class="qnum">第 2 题</span><span class="qtag">计数原理（组合与排除法）</span><span class="qtag g">限时 · 独立完成</span></div>
-          <div class="qtitle">从 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span> 名男生和 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span> 名女生中选 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span> 人参加会议，要求至少有 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 名男生和 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 名女生，则不同的选法共有 ____ 种。</div>
-          <div class="qopts" style="grid-template-columns:1fr"></div>
+          <div class="qmeta"><span class="qnum">第 2 题</span><span class="qtag">导数（极值、单调与对称性）</span><span class="qtag g">限时 · 独立完成</span></div>
+          <div class="qtitle">设函数 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8141em;"></span><span class="mord">3</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>，则（ ）（多选）</div>
+          <div class="qopts"><div class="opt o1"><b>A.</b><span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 在 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 上单调递减</div><div class="opt o2"><b>B.</b><span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 的极大值为 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span></div><div class="opt o3"><b>C.</b><span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 恰有三个零点</div><div class="opt o4"><b>D.</b><span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 的图象关于点 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mclose">)</span></span></span></span> 对称</div></div>
           <div class="qfoot">
             <button id="btn">显示答案</button>
-            <span class="ans" id="ans">答案：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">70</span></span></span></span></span>
+            <span class="ans" id="ans">答案：ABD</span>
             <span class="tip" style="margin-left:auto">先想再看 · 空格键也能显示</span>
           </div>
         </div>
         <div class="hcard">
           <div class="hblock hb-direct">
             <div class="hb-title"><span class="ico">◎</span>今日考点</div>
-            <ul class="klist"><li>计数原理（组合与排除法）</li><li>只考这一块，不扩散</li></ul>
+            <ul class="klist"><li>导数（极值、单调与对称性）</li><li>只考这一块，不扩散</li></ul>
           </div>
           <div class="hblock hb-think">
             <div class="hb-title"><span class="ico">✦</span>作答要求</div>
@@ -350,18 +358,18 @@ html,body{background:#e7e1d3!important;font-family:var(--sans)}
     </section>
 
     <section class="page pg2">
-      <div class="phead"><div class="big">02</div><div class="sub">知识点背诵</div><div class="tag">计数原理（组合与排除法）</div><div class="rule"></div></div>
+      <div class="phead"><div class="big">02</div><div class="sub">知识点背诵</div><div class="tag">导数（极值、单调与对称性）</div><div class="rule"></div></div>
       <div class="pg2content">
-        <div class="ktheme"><span class="lab">今日主题</span><h2>计数原理（组合与排除法）</h2><span class="day">记忆用时：约 3 分钟</span></div>
-        <div class="kcols k3"><div class="kblock kb1"><div class="kt"><span class="no">1</span>要点 1</div><div class="kbody"><div class="ktext">总选法减全男减全女，是最快排除法。</div></div></div><div class="kblock kb2"><div class="kt"><span class="no">2</span>要点 2</div><div class="kbody"><div class="ktext">也可分「2男1女」与「1男2女」两类。</div></div></div><div class="kblock kb3"><div class="kt"><span class="no">3</span>要点 3</div><div class="kbody"><div class="ktext">两类不能重叠，否则会重复计数。</div></div></div></div>
-        <div class="practice"><span class="lab">练手</span><span class="txt">《九章方略》限时练 26「计数原理」—— 与本题考点相关的题都在这一练里</span></div>
+        <div class="ktheme"><span class="lab">今日主题</span><h2>导数（极值、单调与对称性）</h2><span class="day">记忆用时：约 3 分钟</span></div>
+        <div class="qalist"><div class="qaitem"><div class="qq">极值点一定在导数为零处吗？</div><div class="qa">不一定！还得看导数在那里变不变号！</div></div><div class="qaitem"><div class="qq">导数不变号说明什么？</div><div class="qa">那是拐点，不是极值点！</div></div><div class="qaitem"><div class="qq">三次函数最多几个极值点？</div><div class="qa">两个！前提是导数有两个不同实根！</div></div><div class="qaitem"><div class="qq">零点个数怎么判断？</div><div class="qa">先因式分解，再数不同的根的个数！</div></div><div class="qaitem"><div class="qq">中心对称怎么证明？</div><div class="qa">验证 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>！</div></div></div>
+        <div class="practice"><span class="lab">练手</span><span class="txt">《九章方略》限时练 9「导数及其应用(1)」——与本题考点相关的题都在这一练里</span></div>
       </div>
     </section>
 
     <section class="page pg3">
       <div class="phead"><div class="big">03</div><div class="sub">方法梳理</div><div class="tag">靶点模型</div><div class="rule"></div></div>
       <div class="pg3content">
-        <div class="mcols m3"><div class="mblock mb1"><div class="mno">1</div><div class="mtext">至少型问题优先用排除法：总数减反面。</div></div><div class="mblock mb2"><div class="mno">2</div><div class="mtext">也可正面分类，分类要不重不漏再相加。</div></div><div class="mblock mb1"><div class="mno">3</div><div class="mtext">组合数 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.0961em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0715em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-2.453em;margin-left:-0.0715em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.0315em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span> 先算总数，再扣不合要求的。</div></div></div>
+        <div class="qalist"><div class="qaitem"><div class="qq">多选题第一步做什么？</div><div class="qa">逐项独立验证，别凭印象整题选！</div></div><div class="qaitem"><div class="qq">求极值域的完整流程？</div><div class="qa">求导→定号→列表→读出极大极小！</div></div><div class="qaitem"><div class="qq">含参问题先看什么？</div><div class="qa">先看导数符号能不能定，不能就分类讨论！</div></div><div class="qaitem"><div class="qq">怀疑某个选项是错的怎么办？</div><div class="qa">举一个反例或代特殊值，试一下！</div></div><div class="qaitem"><div class="qq">交卷前多选题检查什么？</div><div class="qa">至少得有两项，别只选一个就交！</div></div></div>
         <div class="note"><span class="lab">说明</span>按本班薄弱板块选 · 背的是方法，不是这道题的答案</div>
       </div>
     </section>
